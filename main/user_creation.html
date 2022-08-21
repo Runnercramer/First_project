@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+                <html lang='es'>
+                <head>
+                    <title>PQRS</title>
+                    <meta charset='UTF-8' />
+                    <link rel='stylesheet' href='estilos.css'/>
+                    <link rel='icon' href='../imagenes/vetex.ico'/>
+                    <link rel='preconnect' href='https://fonts.googleapis.com'>
+                    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+                    <link href='https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap' rel='stylesheet'>
+                    <style>
+                        .title_creation{text-align:center;margin-top:0;margin-bottom:0;}
+                        .subtitle_creation{text-align:center;margin-top:0;margin-bottom:0;}
+                        .form1{width:40%;border:1px solid black;margin:50px auto; display:flex; flex-direction:column;padding:20px;background-color:#eee;}
+                        .text{font-size:1.2em; margin:5px auto;font-weight:600;}
+                        .camp{width:60%;border:1px solid black;border-radius:5px;margin:5px auto;height:1.5em;text-align:center;}
+                        .submit1{width:40%;height:30px;margin:20px auto;background-color:black;color:white;border-radius:10px;}
+                        .submit1:hover{background-color:#333;}
+                    </style>
+                </head>
+                <body>
+                    <div id='cont1'>
+                        <header id='enc1'>
+                            <a href='index.html'><img id='img1' src='../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
+                        </header>  
+                            <h1 class="title_creation">Creación de usuario</h1>
+                            <h2 class="subtitle_creation">Ingrese los datos solicitados para crear un nuevo usuario</h2>
+                            <form class="form1" action="controlador_creation.php" method="POST">
+                                <label class="text">Nombre</label>
+                                    <input class="camp" type="text" name="name" placeholder="Ingrese sus nombres">
+                                <label class="text">Primer Apellido</label>
+                                    <input class="camp" type="text" name="first_lname" placeholder="Ingrese su primer apellido">
+                                <label class="text">Segundo Apellido</label>
+                                    <input class="camp" type="text" name="second_lname" placeholder="Ingrese su segundo apellido">
+                                <label class="text">Cédula</label>
+                                    <input type="numeric" class="camp" name="id" placeholder="Ingrese su número de cédula">
+                                <label class="text">Email</label>
+                                    <input type="email" class="camp" name="email" placeholder="Ingrese su correo electrónico">
+                                <label class="text">Celular</label>
+                                    <input type="text" class="camp" name="cellphone" placeholder="Ingrese su número de celular">
+                                <label class="text">Contraseña</label>
+                                    <input type="text" class="camp" name="password1" placeholder="Ingrese una contraseña">
+                                <label class="text">Verifique su contraseña</label>
+                                    <input class="camp" type="text" name="password2" placeholder="Verifique su contraseña">
+                                <input class="submit1" type="submit" name="send" value="Enviar">  
+                            </form>
+                    </div>
+                    <footer id='pa2'>
+                        <p>Contáctanos<br>018000222222<br>Línea gratuita nacional<br>3014568137</p>
+                    </footer>
+                </body>
+                </html>;

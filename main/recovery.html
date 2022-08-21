@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <html lang='es'>
+    <head>
+    <title>Creación exitosa</title>
+    <meta charset='UTF-8' />
+    <link rel='stylesheet' href='estilos.css'/>
+    <link rel='icon' href='../imagenes/vetex.ico'/>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap' rel='stylesheet'>
+        <style>
+            .recovery_title{text-align:center;margin:0;}
+            .recovery_subtitle{text-align:center;margin:0;}
+            .form1{width:40%;border:1px dashed black;margin:50px auto;padding:10px;display:flex;flex-direction:column;text-align:center; background-color:#eee; }
+            .text{font-size:1.2em;font-weight:600;}
+            .field1{text-align:center;width:60%;height:30px;margin:10px auto;margin:1px solid black;}
+            .send1{width:40%;height:30px;margin:10px auto;background-color:black;color:white;}
+            .send1:hover{background-color:#444;}
+        </style>
+    </head>
+    <body>
+        <div id='cont1'>
+            <header id='enc1'>
+                <a href='index.html'><img id='img1' src='../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
+                <h1 class="recovery_title">¿Olvidaste tu contraseña?</h1>
+            </header>  
+                <h2 class="recovery_subtitle">Ingresa el correo con el que creaste tu cuenta</h2>
+                <form action="controlador_recovery.php" method="POST" class="form1">
+                    <label class="text">Correo electrónico</label>
+                    <input class="field1" type="email" name="email" placeholder="Correo electrónico">
+                    <input class="send1" type="submit" name="send" value="Recuperar">
+                </form>
+        </div>
+        <footer id='pa2'>
+            <p>Contáctanos<br>018000222222<br>Línea gratuita nacional<br>3014568137</p>
+        </footer>
+    </body>
+</html>
