@@ -1,0 +1,256 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Rubik, sans-serif-serif;
+}
+#cont1{
+    width:100%;
+    margin:0 auto;
+}
+#cont1 header{
+    width:100%;
+    background-color:#85b427;
+    border-radius:0.5em;
+    display:flex;
+    border-bottom:2px solid black;
+    justify-content: space-between;
+}
+
+.atras{
+    font-size: 25px;
+    margin-left: 1em;
+}
+
+
+.preguntas{
+    font-size: 25px;
+    margin-right: 1em;
+
+
+}
+#cont1 img{
+    margin:1em;
+    border-radius:0.5em;
+    border:2px solid black;
+    width: 50%;
+
+}
+#cont5 img{
+    margin:3em;
+    border-radius:0.5em;
+    border:5px solid black;
+    width: 50%;
+    display: flex;
+    float:left;
+    margin-left: 3.5em;
+    
+}
+#cont5 h4{
+    padding: 0.7em;
+    margin:1em auto;
+    font-size:100%
+    
+
+}
+#vet1{
+    border:2px solid black;
+    text-align: left;
+
+}
+
+#cont1 h1{
+    margin:2.4em auto;
+    font-size:200%
+    
+
+}
+.cont1{
+    background-color:rgb(189, 188, 188);
+    display:flex;
+    gap:5px;
+    justify-content: space-between;
+    border-radius:5px;
+    margin:10px auto;
+    padding:5px;
+    width:95%;
+}
+.cont2{
+    background-color:lightgray;
+    margin:15px 10px;;
+    width:25%;
+    font-size:150%;
+    padding:10px;
+    float: left;
+}
+#cont2{
+    width:100%;
+    display:flex;
+    gap:5em;
+    margin:5em 0;
+
+}
+#cont3{
+    width:70%;
+    background-color:gray;
+    padding:2em;
+}
+.div1{
+    width:70%;
+    display:flex;
+    background-color:lightgray;
+    gap:8em;
+    border-radius:0.5em;
+    padding:1em;
+    line-height:200%;
+    font-size:120%;
+    margin:1em;
+}
+.div1 img{
+    width:50%;
+    min-width:280px;
+    float:right;
+}
+.div2{
+    width:70%;
+    background-color:lightgray;
+    display:flex;
+    gap:8em;
+    border-radius:0.5em;
+    padding:1em;
+    line-height:200%;
+    font-size:120%;
+    margin:1em;
+    float:right;
+}
+.div2 img{
+    width:50%;
+}
+#cont4{
+    width:28%;
+    background-color:gray;
+    position:fixed;
+    min-height:630px;
+    word-wrap:break-word;
+    border-radius:0.5em;
+}
+#form1{
+    border-radius:0.5em;
+    width:90%;
+    margin:150px auto;
+    text-align:center;
+    height:330px;
+    padding:10px;
+    background-color:lightgray;
+}
+
+#text{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+#form1 input[type="email"],
+       input[type="password"]{
+            display:block;
+            margin:5px auto;
+            width:80%;
+            border-radius:0.5em;
+            line-height: 2em;
+            border:1px solid black;
+}
+
+#form1 input[type="button"]{
+    margin:5px auto;
+    display:block;
+    border-radius: 0.5em;
+    background-color:#a3cf4b;
+    padding:2em;
+    
+}
+#form2 input[type="button"]{
+    margin:5px auto;
+    display:block;
+    border-radius: 0.5em;
+    background-color:#a3cf4b;
+    padding:2em;
+    
+}
+
+
+#form1 input[type="button"]:hover{
+    background-color:black;
+    color:white;
+    border:1px solid white;
+}
+footer{
+    position:relative;
+    width:100%;
+    background-color:#85b427;
+    vertical-align:bottom;
+    border-radius:0.5em;
+    text-align:center;
+}
+#cont5{
+    width:20%;
+    border-radius:0.5em;
+    margin:10px;
+}
+
+#asi1{
+    border:1px solid black;
+    width:70%;
+    margin:5px auto;
+    display:flex;
+    gap:15em;
+    justify-content: space-between;
+}
+#img100{
+    width:100%;
+    vertical-align:middle;
+}
+#div20{
+    margin-right:5em;
+    width:70%;
+    padding:1em;
+    font-size:120%;
+    background-color:lightgray;
+    margin:1em;
+}
+#div20 input[type="text"]{
+        border:1px solid black;
+        width:35%;
+        padding:3px;
+        margin:5px;
+       }
+#div20 select{
+    border:1px solid black;
+    width:35%;
+    padding:3px;
+    margin:5px;
+}
+#div20 textarea{
+    border:1px solid black;
+    width:60%;
+    padding:3px;
+    margin:5px;
+}
+#div21{
+    width:95%;
+    padding:15px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size:150%;
+}
+#bod5{
+    background-color:gray;
+}
+#secc10{
+    border:1px solid black;
+    margin:70px;
+    background-color:lightgray;
+    border-radius:5px;
+    font-size:120%;
+    padding:10px;
+}
