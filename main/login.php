@@ -3,7 +3,6 @@ include('../connection.php');
 if(isset($_POST['login'])){
     $user = mysqli_real_escape_string($connection, $_POST['user']);
     $password = mysqli_real_escape_string($connection, $_POST['password']);
-    //$query1 = "SELECT email, contraseñaUsuario FROM usuario WHERE email = '$user' AND contraseñaUsuario = '$password'";
     $query1 = "SELECT email FROM email WHERE email = '$user'";
     $query2 = "SELECT contraseñaUsuario FROM usuario WHERE contraseñaUsuario = '$password'";
     $answer1 = mysqli_query($connection, $query1);
