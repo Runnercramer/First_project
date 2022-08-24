@@ -69,7 +69,6 @@ if(isset($_POST['send'])){
             </body>
             </html>";
         }else{
-            //
             $query4 = "SELECT count(*) idUsuario FROM usuario WHERE idUsuario = '$id'";
             $resultados = mysqli_query($connection, $query4);
             $pruebas = $resultados->fetch_assoc();
