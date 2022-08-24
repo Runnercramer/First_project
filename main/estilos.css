@@ -42,7 +42,7 @@
     background-color:lightgray;
     margin:5px 20px;;
     width:25%;
-    font-size:200%;
+    font-size:160%;
     padding:10px;
 }
 #cont2{
@@ -55,6 +55,14 @@
     width:70%;
     background-color:gray;
     padding:2em;
+}
+#cont5{
+    width:0%;
+    background-color:gray;
+    display: block;
+    margin-left: 2em;
+    float: left;
+
 }
 .div1{
     width:70%;
@@ -103,6 +111,17 @@
     height:330px;
     padding:10px;
     background-color:lightgray;
+}
+
+#form3{
+    border-radius:0.5em;
+    width:90%;
+    margin:150px auto;
+    text-align:center;
+    height:350px;
+    padding:15px;
+    background-color:lightgray;
+
 }
 #text{
     height:100%;
