@@ -16,22 +16,59 @@
     border-bottom:2px solid black;
     justify-content: space-between;
 }
-#img1{
+
+.atras{
+    font-size: 25px;
+    margin-left: 1em;
+}
+
+
+.preguntas{
+    font-size: 25px;
+    margin-right: 1em;
+
+
+}
+#cont1 img{
     margin:1em;
     border-radius:0.5em;
-    border:3px solid black;
+    border:2px solid black;
+    width: 50%;
+
+}
+#cont5 img{
+    margin:3em;
+    border-radius:0.5em;
+    border:5px solid black;
+    width: 50%;
+    display: flex;
+    float:left;
+    margin-left: 3.5em;
+    
+}
+#cont5 h4{
+    padding: 0.7em;
+    margin:1em auto;
+    font-size:100%
+    
+
 }
 #vet1{
-    border:5px solid black;
+    border:2px solid black;
+    text-align: left;
+
 }
+
 #cont1 h1{
-    margin:2.5em auto;
-    font-size:250%
+    margin:2.4em auto;
+    font-size:200%
+    
+
 }
 .cont1{
     background-color:rgb(189, 188, 188);
     display:flex;
-    gap:10px;
+    gap:5px;
     justify-content: space-between;
     border-radius:5px;
     margin:10px auto;
@@ -40,29 +77,23 @@
 }
 .cont2{
     background-color:lightgray;
-    margin:5px 20px;;
+    margin:15px 10px;;
     width:25%;
-    font-size:160%;
+    font-size:150%;
     padding:10px;
+    float: left;
 }
 #cont2{
     width:100%;
     display:flex;
-    gap:1em;
-    margin:1em 0;
+    gap:5em;
+    margin:5em 0;
+
 }
 #cont3{
     width:70%;
     background-color:gray;
     padding:2em;
-}
-#cont5{
-    width:0%;
-    background-color:gray;
-    display: block;
-    margin-left: 2em;
-    float: left;
-
 }
 .div1{
     width:70%;
@@ -113,16 +144,6 @@
     background-color:lightgray;
 }
 
-#form3{
-    border-radius:0.5em;
-    width:90%;
-    margin:150px auto;
-    text-align:center;
-    height:350px;
-    padding:15px;
-    background-color:lightgray;
-
-}
 #text{
     height:100%;
     display:flex;
@@ -138,28 +159,26 @@
             line-height: 2em;
             border:1px solid black;
 }
+
 #form1 input[type="button"]{
     margin:5px auto;
     display:block;
     border-radius: 0.5em;
     background-color:#a3cf4b;
-    height:2.5em;
-    padding:0.5em;
+    padding:2em;
+    
 }
-#form1 input[type="submit"]{
+#form2 input[type="button"]{
     margin:5px auto;
     display:block;
     border-radius: 0.5em;
     background-color:#a3cf4b;
-    height:2.5em;
-    padding:0.5em;
+    padding:2em;
+    
 }
+
+
 #form1 input[type="button"]:hover{
-    background-color:black;
-    color:white;
-    border:1px solid white;
-}
-#form1 input[type="submit"]:hover{
     background-color:black;
     color:white;
     border:1px solid white;
@@ -174,10 +193,10 @@ footer{
 }
 #cont5{
     width:20%;
-    background-color:gray;
     border-radius:0.5em;
     margin:10px;
 }
+
 #asi1{
     border:1px solid black;
     width:70%;
