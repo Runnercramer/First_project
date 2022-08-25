@@ -71,7 +71,7 @@ if(isset($_POST['login'])){
                 </body>
                 </html>";
             }else{
-                header("location:../user/vista_usuario.php");
+                header("location:../customer/vista_cliente.html");
             } 
     }
 }

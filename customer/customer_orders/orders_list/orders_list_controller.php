@@ -1,5 +1,5 @@
 <?php
-include('../../connection.php');
+include('../../../connection.php');
 if(isset($_GET['button'])){
     $date1 = mysqli_real_escape_string($connection, $_GET['date1']);
     $date2 = mysqli_real_escape_string($connection, $_GET['date2']);
