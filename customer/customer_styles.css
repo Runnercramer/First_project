@@ -4,7 +4,8 @@ body{
 
 .methods{
     width:85%;
-    height:530px;
+    height:auto;
+    min-height:530px;
     margin:20px auto;
     padding:10px;
     display:grid;

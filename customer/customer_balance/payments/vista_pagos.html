@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <title>Pagos y abonos</title>
+    <meta charset='UTF-8' />
+    <link rel='stylesheet' href='../../../main/estilos.css'/>
+    <link rel='icon' href='../../../imagenes/vetex.ico'/>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap' rel='stylesheet'>
+    <link rel="stylesheet" href="../../customer_styles.css">
+    <style>
+        .methods{grid-template-columns:2fr 7fr;min-height:530px;height:auto;}
+        .payment_form{width:90%;margin:30px auto;padding:15px;background-color:#ccc;box-shadow:5px 5px 20px 5px #666;display:grid;grid-template-columns:3fr 1fr;}
+        .payment_table{background-color:#999;margin:5px auto;text-align:center;box-shadow:3px 3px 15px 5px gray;}
+        td{border:1px solid black;padding:3px;background-color:#bbb;}
+        .header_table{background-color:#a1ca4f;font-size:1.1em;font-weight:bold;}
+        .payment_button{display:block;background-color:#a1ca4f;height:40px;;margin:150px auto;padding:5px;box-shadow:5px 5px 20px 5px black;font-size:1.2em;font-weight:bold;}
+        .payment_button:hover{background-color:#74a118;}
+        .payment_button:active{background-color:black;color:white;}
+    </style>
+</head>
+<body>
+    <div id='cont1'>
+        <header id='enc1'>
+            <a href='../vista_balance.html'><img id='img1' src='../../../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
+            <h1>Pagos y abonos realizados</h1>
+            <div class="profile">
+                <img id="profile_image" src="../../../imagenes/profile.png" alt="Imagen de perfil">
+                <input type="button" class="profile_button" value="Perfil &#9881">
+            </div>
+        </header> 
+        <section class="methods">
+            <div class="information">
+                <h2>PAGOS Y ABONOS</h2>
+                <p>En esta interfaz obtendrás un listado acerca de todos los pedidos que no han sido cancelados en su totalidad. Se relacionarán los abonos a los respectivos pedidos y se podrán hacer pagos o abonos a <b>x</b> pedido.</p>
+                <br>
+                <h3>Software:</h3><p><b>SGIVT</b></p>
+                <h3>Version:</h3><p><b>1.2</b></p>
+                <h3>Desarrolladores:</h3><p>Jean Cuesta<br>Cristian Vargas</p>
+                <h3>Contactos:</h3><p>301xxx xx xx<br>3022459827</p>
+            </div>
+            <div class="payment_form">
+                <div class="payment_table">
+                    <table>
+                        <tr>
+                            <td class="header_table">Código de pedido</td>
+                            <td class="header_table">Valor del Pedido</td>
+                            <td class="header_table">Fecha del pedido</td>
+                            <td class="header_table">Valor pago/abono</td>
+                            <td class="header_table">Fecha pago/abono</td>
+                            <td class="header_table">Saldo</td>
+                        </tr>
+                        <tr>
+                            <td>A-000</td>
+                            <td>$524050</td>
+                            <td>2022-07-12</td>
+                            <td>-------</td>
+                            <td>-------</td>
+                            <td>$524050</td>
+                        </tr>
+                        <tr>
+                            <td>A-001</td>
+                            <td>$1250000</td>
+                            <td>2022-07-20</td>
+                            <td>$250000</td>
+                            <td>2022-07-28</td>
+                            <td>$1000000</td>
+                        </tr>
+                        <tr>
+                            <td>A-001</td>
+                            <td>$1250000</td>
+                            <td>2022-07-20</td>
+                            <td>$300000</td>
+                            <td>2022-08-12</td>
+                            <td>$700000</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="payment_button1">
+                    <input class="payment_button" type="button" name="payment_check" onClick="" value="Abonar a factura">
+                </div>
+            </div>
+        </section>
+        <footer id='pa2'>
+            <p><b>Contáctanos<br>018000222222<br>Línea gratuita nacional<br>3014568137</b></p>
+        </footer>
+    </div>
+</body>
+</html>

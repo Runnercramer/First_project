@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <title>Abonar a cuenta</title>
+    <meta charset='UTF-8' />
+    <link rel='stylesheet' href='../../../main/estilos.css'/>
+    <link rel='icon' href='../../../imagenes/vetex.ico'/>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap' rel='stylesheet'>
+    <link rel="stylesheet" href="../../customer_styles.css">
+    <style>
+        .lista_saldos{border:1px solid black;width:90%;margin:10px auto;display:grid;grid-template-columns:repeat(2, 1fr);grid-template-rows:50px 1fr 1fr 1fr;background-color:#ddd;}
+        .first_column{border:1px solid blue;text-align:center;}
+        .second_column{bordeR:1px solid red;text-align:center;}
+    </style>
+</head>
+<body>
+    <div id='cont1'>
+        <header id='enc1'>
+            <a href='vista_pagos.html'><img id='img1' src='../../../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
+            <h1>Pagar o abonar factura</h1>
+            <div class="profile">
+                <img id="profile_image" src="../../../imagenes/profile.png" alt="Imagen de perfil">
+                <input type="button" class="profile_button" value="Perfil &#9881">
+            </div>
+        </header> 
+        <section class="methods">
+            <div class="information">
+                <h2>PAGAR O ABONAR</h2>
+                <p>Selecciona la factura a la que quieres abonar</p>
+                <br>
+                <h3>Software:</h3><p><b>SGIVT</b></p>
+                <h3>Version:</h3><p><b>1.2</b></p>
+                <h3>Desarrolladores:</h3><p>Jean Cuesta<br>Cristian Vargas</p>
+                <h3>Contactos:</h3><p>301xxx xx xx<br>3022459827</p>
+            </div>
+            <div class="lista_saldos">
+                <div class="first_column">
+<!--Esta página se debe convertir en un PHP para que pueda procesar los datos de una consulta SQL e imprimirlos-->
+                    <h2>Facturas con saldos pendientes</h2>
+                </div>
+                <div class="second_column">
+                    <h2>Métodos</h2>
+                </div>
+            </div>
+        </section>
+        <footer id='pa2'>
+            <p><b>Contáctanos<br>018000222222<br>Línea gratuita nacional<br>3014568137</b></p>
+        </footer>
+    </div>
+</body>
+</html>
