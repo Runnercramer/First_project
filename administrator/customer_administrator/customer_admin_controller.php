@@ -46,8 +46,7 @@ if(isset($_GET['search_button'])){
             </div>
             <div>
                 <h2 class='error'>Debe ingresar un nombre para la búsqueda</h2>
-            </div>
-        ";
+            </div>";
     }else{
     echo
     "<!DOCTYPE html>
