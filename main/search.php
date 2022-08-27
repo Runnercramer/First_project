@@ -4,7 +4,8 @@ if(isset($_GET['button1'])){
     $search = mysqli_real_escape_string($connection, $_GET['search']);
     $query1 = "SELECT codProducto, producto FROM producto WHERE producto LIKE '%$search%'"; 
     $resultset1 = mysqli_query($connection, $query1);
-
+    //La función num_rows nos permite obtener la cantidad de filas resultado en un resultset
+    $a = mysqli_num_rows($resultset1);
     echo
     "<!DOCTYPE html>
     <html lang='es'>
@@ -26,12 +27,12 @@ if(isset($_GET['button1'])){
         <div id='cont1'>
             <header id='enc1'>
                 <a href='index.html'><img id='img1' src='../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
-                <h1>Los resultaados asociados a su búsqueda corresponden a:</h1>
+                <h1>Los resultados asociados a su búsqueda corresponden a: $a resultados</h1>
             </header>  
         </div>";
 
     //El ciclo while nos permite recorrer todas las filas que se encuntran en el array resultado del resultset
-    echo "<table class='table' border=1><td class='enc1'>Código del Producto</td><td class='enc1'>Nombre del producto</td><td class='enc1'>Valor del producto</td>";
+    echo "<table class='table' border=1><tr><td class='enc1'>Código del Producto</td><td class='enc1'>Nombre del producto</td><td class='enc1'>Valor del producto</td></tr>";
     while($array1 = mysqli_fetch_row($resultset1)){
         $query2 = "SELECT valorProducto FROM detalleproducto WHERE codProducto = '$array1[0]'";
         $resultset2 = mysqli_query($connection, $query2);

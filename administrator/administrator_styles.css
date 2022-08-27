@@ -52,17 +52,19 @@ body{
 }
 
 .function_cont{
+    width:80%;
+    margin:10px auto;
     display:grid;
     grid-template-columns:repeat(2, 1fr);
-    grid-template-rows:repeat(2, 1fr);
+    grid-template-rows:repeat(4, 1fr);
     grid-gap:5px;
 }
 
 .button{
     display:block;
-    width:65%;
-    height:100px;
-    margin:75px auto;
+    width:50%;
+    height:70px;
+    margin:40px auto;
     border:3px solid black;
     box-shadow: 5px 5px 20px 5px black;
     border-radius:20px;
@@ -77,3 +79,10 @@ body{
     background-color:black;
     color:white;
 }
+.button1{background-color:lightblue;}
+.button2{background-color:lightcoral;}
+.button3{background-color:lightcyan;}
+.button4{background-color:lightgoldenrodyellow;}
+.button5{background-color:lightseagreen;}
+.button6{background-color:lightsalmon;}
+.button7{background-color:lightgreen;grid-column-start:1; grid-column-end:3;}
