@@ -10,12 +10,13 @@
     <link href='https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap' rel='stylesheet'>
     <link rel="stylesheet" href="../../administrator_styles.css">
     <style>
-        .header_table1{background-color:#74a118;}
-        .field{}
+        .main_table{background-color:#bbb;}
+        .header_table1{background-color:#74a118;text-align:center;font-size:1.2em;font-weight:bold;padding:5px;}
+        .field{background-color:#999;font-weight:bold;text-align:center;padding:3px;}
     </style>
             <?php
             include('../../../connection.php');
-            $query1 = "SELECT idUsuario, nombreUsuario, primerApellido, segundoApellido FROM usuario";
+            $query1 = "SELECT * FROM usuario right join cliente on usuario.idUsuario=cliente.idUsuario join celular on usuario.idUsuario=celular.idUsuario join email on usuario.idUsuario=email.idUsuario left join residencia on cliente.idCliente=residencia.idClienteResidencia ORDER BY idCliente ASC";
             $resultset1 = mysqli_query($connection, $query1);
             $a = mysqli_num_rows($resultset1);
             ?>
@@ -43,26 +44,29 @@
             </div>
             <div class="list">
             <?php
-            echo "<table><tr class='header_table1'><td class='field'>Id Usuario</td><td class='field'>Nombre</td><td class='field'>Email</td><td class='field'>Celular</td><td class='field'>Dirección</td><td class='field'>Estado de cuenta</td></tr>";
-            while($array1=mysqli_fetch_row($resultset1)){ 
-                $query2 = "SELECT celular FROM celular WHERE idUsuario = '$array1[0]'";
-                $resultset2 = mysqli_query($connection, $query2);
-                while($array2=mysqli_fetch_row($resultset2)){
-                 $query3="SELECT email FROM email WHERE idUsuario = '$array1[0]'";
-                    $resultset3 = mysqli_query($connection, $query3);
-                    while($array3=mysqli_fetch_row($resultset3)){
-                        $query4="SELECT estadoCuenta, idCliente FROM cliente WHERE idUsuario = '$array1[0]'";
-                        $resultset4 = mysqli_query($connection, $query4);
-                        while($array4=mysqli_fetch_row($resultset4)){
-                            $query5="SELECT direccion, ciudad, departamento FROM residencia WHERE idCliente = '$array4[1]'";
-                            $resultset5 = mysqli_query($connection, $query5);
-                            while($array5 = mysqli_fetch_row($resultset5)){
-                              echo "<tr><td class='field'>$array1[0]</td><td class='field'>$array1[1] $array1[2] $array1[3]</td><td class='field'>$array3[0]</td><td class='field'>$array2[0]</td><td class='field'>$array5[0] $array5[1], $array5[2]</td><td class='field'>$array4[0]</td></tr>";
-                            }
-                        }
-                    }
-               }
-            }
+                echo "<table class='main_table'>
+                <tr>
+                <td class='header_table1'>Id Cliente</td>
+                <td class='header_table1'>Id Usuario</td>
+                <td class='header_table1'>Nombre</td>
+                <td class='header_table1'>Email</td>
+                <td class='header_table1'>Celular</td>
+                <td class='header_table1'>Dirección</td>
+                <td class='header_table1'>Estado de cuenta</td>
+                </tr>";
+                while($array1=mysqli_fetch_assoc($resultset1)){ 
+                    echo
+                    "<tr>
+                    <td class='field'>".$array1['idCliente']."</td>
+                    <td class='field'>" . $array1['idUsuario'] . "</td>
+                    <td class='field'>".$array1['nombreUsuario']." ".$array1['primerApellido']." ".$array1['segundoApellido']."</td>
+                    <td class='field'>".$array1['email']."</td>
+                    <td class='field'>".$array1['celular']."</td>
+                    <td class='field'>".$array1['direccion']."</td>
+                    <td class='field'>".$array1['estadoCuenta']."</td>
+                    </tr>";
+                }
+                echo "</table>";
             ?>
             </div>
         </section>

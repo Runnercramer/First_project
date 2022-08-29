@@ -11,7 +11,7 @@ if(isset($_GET['search_button'])){
         <!DOCTYPE html>
     <html lang='es'>
     <head>
-        <title>Clientes</title>
+        <title>Error</title>
         <meta charset='UTF-8' />
         <link rel='stylesheet' href='../../main/estilos.css'/>
         <link rel='icon' href='../../imagenes/vetex.ico'/>
