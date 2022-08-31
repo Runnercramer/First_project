@@ -1,1 +1,3 @@
 https://desarrolloweb.com/articulos/posibilidades-envio-mail-php-localhost.html
+
+Debo mejorar el UX, no solicitar nombres y apellidos por aparte. O modifico la base de datos o uso la función $resultado = explode("parametro de separación", $variable);
