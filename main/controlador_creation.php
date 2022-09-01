@@ -3,15 +3,18 @@ include('../connection.php');
 //Hacer validación para evitar SQL INJECTION
 if(isset($_POST['send'])){
     $name = mysqli_real_escape_string($connection, $_POST['name']);
-    $name1 = mysqli_real_escape_string($connection, $_POST['first_lname']);
-    $name2 = mysqli_real_escape_string($connection, $_POST['second_lname']); //not required
+    $lastname = mysqli_real_escape_string($connection, $_POST['lastname']); 
     $id = mysqli_real_escape_string($connection, $_POST['id']);
     $email = mysqli_real_escape_string($connection, $_POST['email']);
-    $cell = mysqli_real_escape_string($connection, $_POST['cellphone']); //not required
+    $cell = mysqli_real_escape_string($connection, $_POST['cellphone']); 
+    $dep = mysqli_real_escape_string($connection, $_POST['department']);
+    $city = mysqli_real_escape_string($connection, $_POST['city']);
+    $direction = mysqli_real_escape_string($connection, $_POST['direction']);
     $password1= mysqli_real_escape_string($connection, $_POST['password1']);
     $password2 = mysqli_real_escape_string($connection, $_POST['password2']);
+    $crypted = password_hash($password1, PASSWORD_DEFAULT);
 
-    if($name == "" || $name1 == "" || $id == "" || $email == "" || $password1 == "" || $password2 == ""){
+    if($name == "" || $lastname == "" || $id == "" || $email == "" || $cell == "" || $city == "" || $direction == "" || $password1 == "" || $password2 == ""){
         echo
         "<!DOCTYPE html>
         <html lang='es'>
@@ -101,17 +104,21 @@ if(isset($_POST['send'])){
                 </body>
                 </html>";
             }else{
-            $query1 = "INSERT INTO usuario (idUsuario, nombreUsuario, primerApellido, segundoApellido, contraseñaUsuario) VALUES ('$id', '$name', '$name1', '$name2', '$password1')";
+            $query1 = "INSERT INTO usuario (idUsuario, nombreUsuario, apellidosUsuario, contraseñaUsuario, tipoUsuario) VALUES ('$id', '$name', '$lastname', '$crypted', 'cliente')";
             $query2 = "INSERT INTO celular (idUsuario, celular) VALUES ('$id', '$cell')";
             $query3 = "INSERT INTO email (idUsuario, email) VALUES ('$id', '$email')";
+            $query5 = "INSERT INTO cliente (idUsuario, estadoCuenta) VALUES ('$id', 'Al día')";
 
             $insertion1 = mysqli_query($connection, $query1);
             $insertion2 = mysqli_query($connection, $query2);
             $insertion3 = mysqli_query($connection, $query3);
+            $insertion5 = mysqli_query($connection, $query5);
+
 
             if($insertion1){
                 if($insertion2){
                     if($insertion3){
+                        if($insertion5){
                         echo 
                         "<!DOCTYPE html>
                         <html lang='es'>
@@ -140,11 +147,23 @@ if(isset($_POST['send'])){
                         </body>
                         </html>
                         ";
+                        }else{echo "Hubo un error al crear la quinta inserción";}
                     }else{echo "Hubo un error al crear la tercera inserción";}
                 }else{echo "Hubo un error al crear la segunsa inserción";}
             }else{echo "Hubo un error al crear la primera inserción";}
+
+
+            $query6 = "SELECT * FROM cliente WHERE idUsuario = '$id'";
+            $insertion6 = mysqli_query($connection, $query6);
+            $array6 = mysqli_fetch_assoc($insertion6);
+            $c = $array6['idCliente'];
+            if($insertion6){
+                $query7 = "INSERT INTO residencia (idClienteResidencia, departamento, ciudad, direccion) VALUES ('$c', '$dep', '$city', '$direction')";
+                $insertion7 = mysqli_query($connection, $query7);
+            }
             }
         }
     }
+    $connection->close();
 }
 ?>

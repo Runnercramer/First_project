@@ -1,7 +1,7 @@
 <!DOCTYPE html>
                 <html lang='es'>
                 <head>
-                    <title>PQRS</title>
+                    <title>Creación de usuario</title>
                     <meta charset='UTF-8' />
                     <link rel='stylesheet' href='estilos.css'/>
                     <link rel='icon' href='../imagenes/vetex.ico'/>
@@ -22,26 +22,30 @@
                     <div id='cont1'>
                         <header id='enc1'>
                             <a href='index.html'><img id='img1' src='../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
-                        </header>  
                             <h1 class="title_creation">Creación de usuario</h1>
-                            <h2 class="subtitle_creation">Ingrese los datos solicitados para crear un nuevo usuario</h2>
+                        </header>  
+                        <h2 class="subtitle_creation">Ingrese los datos solicitados para crear un nuevo usuario</h2>
                             <form class="form1" action="controlador_creation.php" method="POST">
-                                <label class="text">Nombre</label>
-                                    <input class="camp" type="text" name="name" placeholder="Ingrese sus nombres">
-                                <label class="text">Primer Apellido</label>
-                                    <input class="camp" type="text" name="first_lname" placeholder="Ingrese su primer apellido">
-                                <label class="text">Segundo Apellido</label>
-                                    <input class="camp" type="text" name="second_lname" placeholder="Ingrese su segundo apellido">
+                                <label class="text">Nombres</label>
+                                    <input class="camp" type="text" name="name" placeholder="Ingrese sus nombres" required>
+                                <label class="text">Apellidos</label>
+                                    <input class="camp" type="text" name="lastname" placeholder="Ingrese sus apellidos" required>
                                 <label class="text">Cédula</label>
-                                    <input type="numeric" class="camp" name="id" placeholder="Ingrese su número de cédula">
+                                    <input type="numeric" class="camp" name="id" placeholder="Ingrese su número de cédula" required>
                                 <label class="text">Email</label>
-                                    <input type="email" class="camp" name="email" placeholder="Ingrese su correo electrónico">
+                                    <input type="email" class="camp" name="email" placeholder="Ingrese su correo electrónico" required>
                                 <label class="text">Celular</label>
-                                    <input type="text" class="camp" name="cellphone" placeholder="Ingrese su número de celular">
+                                    <input type="text" class="camp" name="cellphone" placeholder="Ingrese su número de celular" required>
+                                <label class="text">Departamento</label>
+                                    <input type="text" class="camp" name="department" placeholder="Ingrese su departamento de residencia">
+                                <label class="text">Ciudad</label>
+                                    <input type="text" class="camp" name="city" placeholder="Ingrese su ciudad de residencia" required>
+                                <label class="text">Dirección</label>
+                                    <input class="camp" type="text" name="direction" placeholder="Ingrese su dirección de residencia" required>
                                 <label class="text">Contraseña</label>
-                                    <input type="text" class="camp" name="password1" placeholder="Ingrese una contraseña">
+                                    <input type="text" class="camp" name="password1" placeholder="Ingrese una contraseña" required>
                                 <label class="text">Verifique su contraseña</label>
-                                    <input class="camp" type="text" name="password2" placeholder="Verifique su contraseña">
+                                    <input class="camp" type="text" name="password2" placeholder="Verifique su contraseña" required>
                                 <input class="submit1" type="submit" name="send" value="Enviar">  
                             </form>
                     </div>
