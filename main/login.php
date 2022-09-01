@@ -4,15 +4,14 @@ if(isset($_POST['login'])){
     error_reporting(0);
     $email = mysqli_real_escape_string($connection, $_POST['email']);
     $password = mysqli_real_escape_string($connection, $_POST['password']);
-    $query1 = "SELECT email, idUsuario FROM email WHERE email = '$email'";
+    $query1 = "SELECT * FROM email WHERE email = '$email'";
     $answer1 = mysqli_query($connection, $query1);
     $answer1_1 = mysqli_fetch_assoc($answer1);
     $c = $answer1_1['idUsuario'];
-    $query2 = "SELECT contraseñaUsuario, idUsuario FROM usuario WHERE idUsuario = '$c'";
+    $query2 = "SELECT * FROM usuario WHERE idUsuario = '$c'";
     $answer2 = mysqli_query($connection, $query2);
     $answer2_1 = mysqli_fetch_assoc($answer2);
     $hash = $answer2_1['contraseñaUsuario'];
- 
 
     if($user == "" || $password == ""){
         echo 
@@ -43,7 +42,7 @@ if(isset($_POST['login'])){
         </body>
         </html>";
     }else{
-        error_reporting(0);
+       // error_reporting(0);
             if(password_verify($password, $hash) === false){#$user != $answer1_1['email'] ||
                 echo
                 "<!DOCTYPE html>
@@ -73,7 +72,14 @@ if(isset($_POST['login'])){
                 </body>
                 </html>";
             }else{
-                header("location:../customer/vista_cliente.html");
+                session_start();
+
+                $_SESSION['useremail'] = $answer1_1;
+                $_SESSION['userinfo'] = $answer2_1;
+
+                header("location:../customer/vista_cliente.php");
+
+                
             } 
         }
         

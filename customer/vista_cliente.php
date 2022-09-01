@@ -9,16 +9,28 @@
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
     <link href='https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap' rel='stylesheet'>
     <link rel="stylesheet" href="customer_styles.css">
+    <style>
+    </style>
 </head>
 <body>
+<?php
+session_start();
+
+if(!isset($_SESSION['userinfo'])){
+    header("location:../main/index.html");
+}
+?>
+
     <div id='cont1'>
         <header id='enc1'>
-            <a href='vista_cliente.html'><img id='img1' src='../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
-            <h1>Bienvenido</h1>
+            <a href='vista_cliente.php'><img id='img1' src='../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
+            <h1>Bienvenid@ <?php echo $_SESSION['userinfo']['nombreUsuario'];?></h1>
             <div class="profile">
                 <img id="profile_image" src="../imagenes/profile.png" alt="Imagen de perfil">
+                <h2><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']); ?></h2>
                 <!--Debo relacionar el botón hacia la interfaz del perfil-->
                 <input type="button" class="profile_button" value="Perfil &#9881">
+                <input type="button" class="profile_button" value="Cerrar sesión">
             </div>
         </header>  
         <section class="methods">
