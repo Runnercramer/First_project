@@ -77,12 +77,23 @@ if(isset($_POST['login'])){
                 $_SESSION['useremail'] = $answer1_1;
                 $_SESSION['userinfo'] = $answer2_1;
 
-                header("location:../customer/vista_cliente.php");
+              //  header("location:../customer/vista_cliente.php");
+                if($_SESSION['userinfo']['tipoUsuario'] == 'cliente'){
 
+                    header("location:../customer/vista_cliente.php");
+
+                }else if($_SESSION['userinfo']['tipoUsuario'] == 'administrador'){
+
+                    header("location:../administrator/vista_administrador.php");
+
+                }else if($_SESSION['userinfo']['tipoUsuario'] == 'empleado'){
+
+                    header("location:../colaborador/colaborador.html");
+                }
                 
             } 
         }
-        
+    $connection->close();
 }
 
 ?>

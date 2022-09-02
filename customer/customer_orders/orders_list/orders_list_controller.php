@@ -6,7 +6,7 @@ if(isset($_GET['button'])){
     $id = $_SESSION['id'];
     $query1 = "SELECT codPedido, valorPedido, fecha FROM pedido WHERE idUsuario = '$id' AND fecha BETWEEN '$date1' AND '$date2'";
     
-//La foorma de solucionar el problema de la variable es declararla al principio del script. Des esta forma podremos acceder a ella desde los bucles, las condiciones y las funciones.
+//La forma de solucionar el problema de la variable es declararla al principio del script. Des esta forma podremos acceder a ella desde los bucles, las condiciones y las funciones.
     if($date1 == "" || $date2 == ""){
         echo
         "<!DOCTYPE html>

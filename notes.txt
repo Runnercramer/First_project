@@ -1,3 +1,10 @@
 https://desarrolloweb.com/articulos/posibilidades-envio-mail-php-localhost.html
 
 Debo mejorar el UX, no solicitar nombres y apellidos por aparte. O modifico la base de datos o uso la función $resultado = explode("parametro de separación", $variable);
+
+
+Falta crear la interfaz para actualizar pedido
+
+Falta la interfaz del carrito
+
+Falta crear un botón para que el administrador pueda ver los usuarios existentes.
