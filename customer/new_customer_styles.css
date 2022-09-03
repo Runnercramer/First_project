@@ -9,6 +9,7 @@
 #profile_image{
     margin:0;
     width:100px;
+    border-radius:50%;
 }
 
 .profile_button{

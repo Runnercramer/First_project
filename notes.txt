@@ -8,3 +8,10 @@ Falta crear la interfaz para actualizar pedido
 Falta la interfaz del carrito
 
 Falta crear un botón para que el administrador pueda ver los usuarios existentes.
+
+select email, count(email)
+from usuario
+group by email
+having count(email)>1
+
+En la vista pagos falat válidar el saldo de lospedidos

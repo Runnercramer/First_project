@@ -1,17 +1,23 @@
 <?php
 include('../connection.php');
 if(isset($_POST['login'])){
-    error_reporting(0);
+
     $email = mysqli_real_escape_string($connection, $_POST['email']);
     $password = mysqli_real_escape_string($connection, $_POST['password']);
     $query1 = "SELECT * FROM email WHERE email = '$email'";
     $answer1 = mysqli_query($connection, $query1);
     $answer1_1 = mysqli_fetch_assoc($answer1);
     $c = $answer1_1['idUsuario'];
+
     $query2 = "SELECT * FROM usuario WHERE idUsuario = '$c'";
     $answer2 = mysqli_query($connection, $query2);
     $answer2_1 = mysqli_fetch_assoc($answer2);
     $hash = $answer2_1['contraseñaUsuario'];
+
+    $query3 = "SELECT * FROM cliente WHERE idUsuario = '$c'";
+    $answer3 = mysqli_query($connection, $query3);
+    $answer3_1 = mysqli_fetch_assoc($answer3);
+
 
     if($user == "" || $password == ""){
         echo 
@@ -76,6 +82,7 @@ if(isset($_POST['login'])){
 
                 $_SESSION['useremail'] = $answer1_1;
                 $_SESSION['userinfo'] = $answer2_1;
+                $_SESSION['customerinfo'] = $answer3_1;
 
               //  header("location:../customer/vista_cliente.php");
                 if($_SESSION['userinfo']['tipoUsuario'] == 'cliente'){

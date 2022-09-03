@@ -1,3 +1,6 @@
+<?php
+include('../../../connection.php');
+?>
 <!DOCTYPE html>
 <html lang='es'>
 <head>
@@ -12,7 +15,7 @@
     <link rel="stylesheet" href="../../new_customer_styles.css">
     <style>
         .methods{grid-template-columns:2fr 7fr;min-height:530px;height:auto;}
-        .payment_form{width:90%;margin:30px auto;padding:15px;background-color:#ccc;box-shadow:5px 5px 20px 5px #666;display:grid;grid-template-columns:3fr 1fr;}
+        .payment_form{width:95%;margin:30px auto;padding:15px;background-color:#ccc;box-shadow:5px 5px 20px 5px #666;display:grid;grid-template-columns:3fr 1fr;}
         .payment_table{background-color:#999;margin:5px auto;text-align:center;box-shadow:3px 3px 15px 5px gray;}
         td{border:1px solid black;padding:3px;background-color:#bbb;}
         .header_table{background-color:#a1ca4f;font-size:1.1em;font-weight:bold;}
@@ -27,6 +30,9 @@
     if(!isset($_SESSION['userinfo'])){
         header("location:../../../main/index.html");
     }
+    $id = $_SESSION['customerinfo']['idCliente'];
+    $sql1 = "SELECT * FROM pedido pe JOIN cobro co ON pe.codPedido = co.codPedido JOIN transaccion tr ON co.codTransaccion = tr.codTransaccion WHERE pe.idCliente = '$id' ORDER BY fechaPedido ASC";
+    $query1 = mysqli_query($connection, $sql1);
     ?>
     <div id='cont1'>
         <header id='enc1'>
@@ -60,30 +66,23 @@
                             <td class="header_table">Fecha pago/abono</td>
                             <td class="header_table">Saldo</td>
                         </tr>
-                        <tr>
-                            <td>A-000</td>
-                            <td>$524050</td>
-                            <td>2022-07-12</td>
-                            <td>-------</td>
-                            <td>-------</td>
-                            <td>$524050</td>
-                        </tr>
-                        <tr>
-                            <td>A-001</td>
-                            <td>$1250000</td>
-                            <td>2022-07-20</td>
-                            <td>$250000</td>
-                            <td>2022-07-28</td>
-                            <td>$1000000</td>
-                        </tr>
-                        <tr>
-                            <td>A-001</td>
-                            <td>$1250000</td>
-                            <td>2022-07-20</td>
-                            <td>$300000</td>
-                            <td>2022-08-12</td>
-                            <td>$700000</td>
-                        </tr>
+                        <?php
+                            while($r = $query1->fetch_assoc()){
+                                echo 
+                                "
+                                <tr>
+                                <td class='field'>" . $r['codPedido'] . "</td>
+                                <td class='field'>" . $r['valorPedido'] . "</td>
+                                <td class='field'>" . $r['fechaPedido'] . "</td>
+                                <td class='field'>" . $r['valor'] . "</td>
+                                <td class='field'>" . $r['fecha'] . "</td>";
+                                $cont = $r['valorPedido'] - $r['valor'];
+                                echo "<td class='field'>" . $cont . "</td>
+                                </tr>
+                                ";
+                            }
+                            $connection->close();
+                        ?>
                     </table>
                 </div>
                 <div class="payment_button1">

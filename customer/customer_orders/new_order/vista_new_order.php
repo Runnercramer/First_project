@@ -14,7 +14,7 @@
         .methods{grid-template-columns:5fr 13fr;min-height:530px;height:auto;}
         .main_container{border:1px solid black;display:grid;grid-template-columns:2fr 2fr 1fr;padding:5px;grid-gap:5px;grid-template-rows:repeat(37, 1fr);margin-left:30px;margin-right:30px;background-color:#999;}
         .products{border:1px solid black;background-color:#ccc;}
-        .description{border:1px solid black;background-color:#bbb;line-height:1.5em;padding:5px;}
+        .description{border:1px solid black;background-color:#aaa;line-height:1.5em;padding:5px;}
         .choose{border:1px solid black;background-color:#ccc;padding:5px;display:flex;flex-direction:column;font-weight:bold;}
         .img{max-width:65%;margin:5px auto;display:block;}
         .choose>label{margin:10px auto;}
@@ -69,7 +69,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -84,10 +84,10 @@
                 </div>
                 <div class="choose">
                     <label>¿Quieres este producto?</label>
-                    <input type="checkbox" name="check1">
+                    <input type="checkbox" name="check2">
                     <label>¿Cuántos quieres?</label>
-                    <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <input type="number" name="cant2">
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -105,7 +105,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -123,7 +123,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -141,7 +141,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -159,7 +159,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -177,7 +177,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -195,7 +195,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -213,7 +213,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -231,7 +231,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -249,7 +249,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -267,7 +267,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -285,7 +285,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -303,7 +303,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -321,7 +321,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -339,7 +339,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -357,7 +357,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -375,7 +375,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -411,7 +411,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -429,7 +429,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -447,7 +447,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -465,7 +465,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
 
@@ -483,7 +483,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
                 
@@ -501,7 +501,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
                 
@@ -519,7 +519,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
                 
@@ -537,7 +537,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>
 
                 
@@ -555,7 +555,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div>    
 
 
@@ -573,7 +573,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div> 
 
 
@@ -591,7 +591,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div> 
 
 
@@ -609,7 +609,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div> 
 
 
@@ -627,7 +627,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div> 
 
 
@@ -645,7 +645,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div> 
 
 
@@ -663,7 +663,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div> 
 
 
@@ -681,7 +681,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div> 
 
 
@@ -699,7 +699,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div> 
 
 
@@ -717,7 +717,7 @@
                     <input type="checkbox" name="check1">
                     <label>¿Cuántos quieres?</label>
                     <input type="number" name="cant1">
-                    <label>¿Terminaste?</label><a href="vista_new_order.html#main_form_button">Vuelve para agregar al carrito</a>
+                    <label>¿Terminaste?</label><a href="vista_new_order.php#main_form_button">Vuelve para agregar al carrito</a>
                 </div> 
             </div>
             </form>

@@ -51,9 +51,9 @@
             <div class="dates_form">
                 <form action="orders_list_controller.php" method="GET">
                     <label class="list_text">Fecha de inicio</label>
-                    <input class="date" type="date" name="date1" placeholder="Escoge la primera fecha">
+                    <input class="date" type="date" name="date1" placeholder="Escoge la primera fecha" required>
                     <label class="list_text">Fecha de fin</label>
-                    <input class="date" type="date" name="date2" placeholder="Escoge la segunda fecha">
+                    <input class="date" type="date" name="date2" placeholder="Escoge la segunda fecha" required>
                     <input class="list_button" type="submit" name="button" value="Consultar"> 
                 </form>
             </div>

@@ -2,7 +2,7 @@
 include('../../../connection.php');
 
 if(isset($_GET['send'])){
-
+    session_start();
     $date1 = mysqli_real_escape_string($connection, $_GET['date1']);
     $date2 = mysqli_real_escape_string($connection, $_GET['date2']);
 
@@ -18,6 +18,7 @@ if(isset($_GET['send'])){
             <link rel='preconnect' href='https://fonts.googleapis.com'>
             <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
             <link href='https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap' rel='stylesheet'>
+            <link rel='stylesheet' href='../../new_customer_styles.css'>
             <style>
             .error1{background-color:red;color:white;display:block;margin:20px auto;width:50%;text-align:center;font-size:3rem;}
             </style
@@ -25,7 +26,7 @@ if(isset($_GET['send'])){
         <body>
             <div id='cont1'>
                 <header id='enc1'>
-                    <a href='vista_transaccion.html'><img id='img1' src='../../../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
+                    <a href='vista_transaccion.php'><img id='img1' src='../../../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
                 </header>  
                 <h1 class='error1'>Debe ingresar las 2 fechas para la consulta.</h1>
             </div>
@@ -48,6 +49,7 @@ if(isset($_GET['send'])){
             <link rel='preconnect' href='https://fonts.googleapis.com'>
             <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
             <link href='https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap' rel='stylesheet'>
+            <link rel='stylesheet' href='../../new_customer_styles.css'>
             <style>
             .error1{background-color:red;color:white;display:block;margin:20px auto;width:50%;text-align:center;font-size:3rem;}
             </style
@@ -55,7 +57,7 @@ if(isset($_GET['send'])){
         <body>
             <div id='cont1'>
                 <header id='enc1'>
-                    <a href='vista_transaccion.html'><img id='img1' src='../../../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
+                    <a href='vista_transaccion.php'><img id='img1' src='../../../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
                 </header>  
                 <h1 class='error1'>La segunda fecha debe ser una fecha posterior a la primera.</h1>
             </div>
@@ -78,6 +80,7 @@ if(isset($_GET['send'])){
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
     <link href='https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap' rel='stylesheet'>
     <link rel='stylesheet' href='../../customer_styles.css'>
+    <link rel='stylesheet' href='../../new_customer_styles.css'>
     <style>
     .report_table{background-color:#ccc;width:80%;margin:20px auto;height:200px;font-size:1.5em;text-align:center;}
     .header{background-color:#a1ca4f;border:1px solid black;font-weight:bold;}
@@ -87,11 +90,13 @@ if(isset($_GET['send'])){
 <body>
     <div id='cont1'>
         <header id='enc1'>
-            <a href='../vista_balance.html'><img id='img1' src='../../../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
+            <a href='vista_transaccion.php'><img id='img1' src='../../../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
             <h1>Reporte de transacciones</h1>
             <div class='profile'>
-                <img id='profile_image' src='../../../imagenes/profile.png' alt='Imagen de perfil'>
-                <input type='button' class='profile_button' value='Perfil &#9881'>
+                <img id='profile_image' src='../../../imagenes/profile.png' alt='Imagen de perfil'>";
+                echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);
+                echo "<input type='button' class='profile_button' value='Perfil &#9881'>
+                <input type='button' class='logout_button' value='Cerrar sesión' onClick=''>
             </div>
         </header> 
         <section class='methods'>
@@ -115,8 +120,8 @@ if(isset($_GET['send'])){
                             <td class='header'>Fecha</td>
                         </tr>
                         ";
-                        //$session = $_SESSION['idusuario'];
-                        $query1 = "SELECT * FROM transaccion tr JOIN cobro co ON tr.codTransaccion = co.codTransaccion /*WHERE idUsuario = '$session' */";
+                        $id = $_SESSION['customerinfo']['idCliente'];
+                        $query1 = "SELECT * FROM transaccion tr JOIN cobro co ON tr.codTransaccion = co.codTransaccion WHERE idCliente = '$id' AND fecha BETWEEN '$date1' AND '$date2'";
                         $ejecucion1 = mysqli_query($connection, $query1);
                         $i = 1;
                         while($r = $ejecucion1->fetch_assoc()){
@@ -124,7 +129,7 @@ if(isset($_GET['send'])){
                             $i++;
                         }
                 "</table>
-                </div>
+            </div>
         </section>
         <footer id='pa2'>
             <p><b>Contáctanos<br>018000222222<br>Línea gratuita nacional<br>3014568137</b></p>
@@ -137,4 +142,5 @@ if(isset($_GET['send'])){
     }
 
 }
+$connection->close();
 ?>
