@@ -2,7 +2,7 @@
 include("../../connection.php");
 if(isset($_GET['search_button'])){
     $search = mysqli_real_escape_string($connection, $_GET['search']);
-    $query1 = "SELECT idUsuario, nombreUsuario, primerApellido, segundoApellido FROM usuario WHERE nombreUsuario LIKE '%$search%'"; 
+    $query1 = "SELECT * FROM usuario WHERE nombreUsuario LIKE '%$search%' OR apellidosUsuario LIKE '%$search%'"; 
     $resultset1 = mysqli_query($connection, $query1);
     $a = mysqli_num_rows($resultset1);
 
@@ -19,6 +19,7 @@ if(isset($_GET['search_button'])){
         <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
         <link href='https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap' rel='stylesheet'>
         <link rel='stylesheet' href='../administrator_styles.css'>
+        <link rel='stylesheet' href='../new_admin_styles.css'>
         <style>
         .error{background-color:red;color:white;width:80%;margin:20px auto;text-align:center;font-size:2.5em;}
         </style>
@@ -26,16 +27,21 @@ if(isset($_GET['search_button'])){
         function profile(){
             window.location.href = '../adminprofile.php';
         }
+
+        function logout(){
+            window.location.href = '../../main/logout.php';
+        }
     </script>
 </head>
 <body>
     <div id='cont1'>
         <header id='enc1'>
-            <a href='vista_cliente_admin.html'><img id='img1' src='../../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
+            <a href='vista_cliente_admin.php'><img id='img1' src='../../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
             <h1>Debe ingresar los datos solicitados</h1>
             <div class='profile'>
                 <img id='profile_image' src='../../imagenes/profile.png' alt='Imagen de perfil'>
                 <input type='button' class='profile_button' value='Perfil &#9881' onclick='profile()'>
+                <input type='button' class='logout_button' value='Cerrar sesión' onclick='logout()'>
             </div>
         </header>  
         <section class='methods'>
@@ -65,6 +71,7 @@ if(isset($_GET['search_button'])){
         <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
         <link href='https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap' rel='stylesheet'>
         <link rel='stylesheet' href='../administrator_styles.css'>
+        <link rel='stylesheet' href='../new_admin_styles.css'>  
         <style>
         .table1{border:1px solid black;background-color:#aaa; width:70%;margin:10px auto;text-align:center;box-shadow:5px 5px 20px 5px #666;}
         .header{border:1px solid black;background-color:#86b32e;height:30px;font-size:1.7em;font-weight:bold;}
@@ -73,17 +80,22 @@ if(isset($_GET['search_button'])){
         <script>
         function profile(){
             window.location.href = '../adminprofile.php';
-  
+        }
+
+        function logout(){
+            window.location.href = '../../main/logout.php';
+        }
     </script>
 </head>
 <body>
     <div id='cont1'>
         <header id='enc1'>
-            <a href='vista_cliente_admin.html'><img id='img1' src='../../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
+            <a href='vista_cliente_admin.php'><img id='img1' src='../../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
             <h1>Los resultados asociados a su búsqueda corresponden a: $a resultados</h1>
             <div class='profile'>
                 <img id='profile_image' src='../../imagenes/profile.png' alt='Imagen de perfil'>
                 <input type='button' class='profile_button' value='Perfil &#9881' onclick='profile()'>
+                <input type='button' class='logout_button' value='Cerrar sesión' onclick='logout()'>
             </div>
         </header>  
         <section class='methods'>
@@ -105,11 +117,16 @@ if(isset($_GET['search_button'])){
                         <td class='header'>Nombre</td>
                         <td class='header'>Estado de Cuenta</td>
                     </tr>";
-                    while($array1 = mysqli_fetch_row($resultset1)){
-                        $query2 = "SELECT estadoCuenta FROM cliente WHERE idUsuario = '$array1[0]'";
+                    while($array1 = mysqli_fetch_assoc($resultset1)){
+                        $id = $array1['idUsuario'];
+                        $query2 = "SELECT estadoCuenta FROM cliente WHERE idUsuario = '$id'";
                         $resultset2 = mysqli_query($connection, $query2);
-                        while($array2 = mysqli_fetch_row($resultset2)){
-                            echo "<tr><td class='field'>$array1[0]</td><td class='field'>$array1[1] $array1[2] $array1[3]</td><td class='field'>$array2[0]</td></tr>";
+                        while($array2 = mysqli_fetch_assoc($resultset2)){
+                            echo "<tr>
+                            <td class='field'>" . $array1['idUsuario'] . "</td>
+                            <td class='field'>" . $array1['nombreUsuario'] . " " . $array1['apellidosUsuario'] . "</td>
+                            <td class='field'>" . $array2['estadoCuenta'] . "</td>
+                            </tr>";
                         }
                     }
            echo  "</table>

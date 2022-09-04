@@ -13,7 +13,7 @@
     <style>
         .new_transaction_list{background-color:#bbb;box-shadow:5px 5px 15px 5px #888;}
         .transaction_form{display:flex;flex-direction:column;padding:15px;text-align:center;font-size:2em;font-weight:bold;align-items:center;justify-content:space-evenly;}
-        .transaction_form input[type="date"]{width:60%;margin:15px;height:60px;text-align:center;font-size:1em;}
+        .transaction_form input[type="date"]{width:60%;margin:15px;height:60px;text-align:center;font-size:1em;border-radius:15px;}
         .transaction_form input[type="date"]:focus{outline:3px dotted black;}
         .expense_button{display:block;width:40%;height:50px;margin:15px;font-size:1em;font-weight:bold;background-color:#85b427;box-shadow:5px 5px 15px 5px #333;}
         .expense_button:hover{background-color:#a1ca4f;}
@@ -62,9 +62,9 @@
             <div class="new_transaction_list">
                 <form class="transaction_form" action="transaction_list_controller.php" method="POST">
                     <label>Fecha de inicio</label>
-                    <input type="date" name="date1" placeholder="Ingrese la primera fecha">
+                    <input type="date" name="date1" placeholder="Ingrese la primera fecha" required>
                     <label>Fecha de fin</label>
-                    <input type="date" name="date2" placeholder="Ingrese la segunda fecha">
+                    <input type="date" name="date2" placeholder="Ingrese la segunda fecha" required>
                     <input class="expense_button" type="submit" name="send" value="Obtener reporte">
                 </form>
             </div>

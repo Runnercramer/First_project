@@ -7,7 +7,7 @@ Falta crear la interfaz para actualizar pedido
 
 Falta la interfaz del carrito
 
-Falta crear un botón para que el administrador pueda ver los usuarios existentes.
+Falta crear un botón para que el administrador pueda ver todos los usuarios existentes.
 
 select email, count(email)
 from usuario
@@ -24,3 +24,7 @@ Falta crear el carrito
 
 Cerrar conexiones a la DB
 Crear desde el admin la posibilidad de ver pqrs
+
+Cunado una dministrador crea a un cliente, debe enviarse un correo de confirmación
+
+Debo impedir que un usuario ingrese a un modulo o interfaz no permitido

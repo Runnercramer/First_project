@@ -11,13 +11,13 @@
     <link rel="stylesheet" href="../../administrator_styles.css">
     <link rel="stylesheet" href="../../new_admin_styles.css">
     <style>
-        .main_table{background-color:#bbb;}
+        .main_table{background-color:#777;width:100%;}
         .header_table1{background-color:#74a118;text-align:center;font-size:1.2em;font-weight:bold;padding:5px;}
-        .field{background-color:#999;font-weight:bold;text-align:center;padding:3px;}
+        .field{background-color:#bbb;font-weight:bold;text-align:center;padding:3px;}
     </style>
             <?php
             include('../../../connection.php');
-            $query1 = "SELECT * FROM usuario right join cliente on usuario.idUsuario=cliente.idUsuario join celular on usuario.idUsuario=celular.idUsuario join email on usuario.idUsuario=email.idUsuario left join residencia on cliente.idCliente=residencia.idClienteResidencia ORDER BY idCliente ASC";
+            $query1 = "SELECT * FROM usuario join cliente on usuario.idUsuario=cliente.idUsuario join celular on usuario.idUsuario=celular.idUsuario join email on usuario.idUsuario=email.idUsuario join residencia on cliente.idCliente=residencia.idClienteResidencia ORDER BY idCliente ASC";
             $resultset1 = mysqli_query($connection, $query1);
             $a = mysqli_num_rows($resultset1);
             ?>
@@ -77,10 +77,10 @@
                     "<tr>
                     <td class='field'>".$array1['idCliente']."</td>
                     <td class='field'>" . $array1['idUsuario'] . "</td>
-                    <td class='field'>".$array1['nombreUsuario']." ".$array1['primerApellido']." ".$array1['segundoApellido']."</td>
+                    <td class='field'>" . $array1['nombreUsuario'] . " " . $array1['apellidosUsuario'] . "</td>
                     <td class='field'>".$array1['email']."</td>
                     <td class='field'>".$array1['celular']."</td>
-                    <td class='field'>".$array1['direccion']."</td>
+                    <td class='field'>".$array1['direccion']. " " . $array1['ciudad'] . ", " . $array1['departamento'] . "</td>
                     <td class='field'>".$array1['estadoCuenta']."</td>
                     </tr>";
                 }

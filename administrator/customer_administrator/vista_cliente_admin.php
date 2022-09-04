@@ -12,14 +12,15 @@
     <link rel="stylesheet" href="../new_admin_styles.css">
     <style>
         .methods{min-height:530px;height:auto;}
-        .customer_admin_function{display:grid;grid-template-columns:repeat(2, 1fr);grid-template-rows:150px 1fr 1fr;}
-        .search_field{grid-column-start:1;grid-column-end:3;background-color:aquamarine;}
+        .customer_admin_function{display:grid;grid-template-columns:repeat(2, 1fr);grid-template-rows:150px 1fr 1fr;background-color:#ccc;box-shadow:5px 5px 15px 5px #333;}
+        .search_field{grid-column-start:1;grid-column-end:3;}
         .subcont1{margin:50px auto;width:50%;display:flex;flex-direction:row;justify-content:space-between;align-items:center;}
-        .field{border:1px solid black;width:65%;height:50px;text-align:center;font-size:2em;box-shadow:5px 5px 10px 5px #555;}
+        .field{border:1px solid black;width:65%;height:50px;text-align:center;font-size:2em;box-shadow:5px 5px 10px 5px #555;border-radius:15px;}
         .field:focus{border:3px dotted black;}
         .button_form{width:45px;height:45px;border-radius:50px;font-size:1.5em;background-color:#a1ca4f;box-shadow:5px 5px 10px #666;}
         .button_form:hover{background-color:#86b32e;}
-        .button_div1{background-color:lightgoldenrodyellow;grid-column-start:1;grid-column-end:3;}
+        .button_div1{grid-column-start:1;grid-column-end:3;}
+        .button1{grid-column-start:1;grid-column-end:3;}
     </style>
              <script>
         function profile(){
@@ -32,10 +33,6 @@
 
         function toCreate(){
             window.location.href = "customer_creation/vista_creacion_cliente.php";
-        }
-
-        function toModify(){
-            window.location.href = "customer_edition/vista_edicion_cliente.php";
         }
 
         function customerList(){
@@ -65,7 +62,7 @@
             <div class="information">
                 <h2>CLIENTES</h2>
                 <br>
-                <p>En esta interfaz podrás agregar un cliente. consultar los clientes existentes y editar la información no sensible de los mismos.</p>
+                <p>En esta interfaz podrás agregar un cliente. consultar los clientes existentes y la información no sensible de los mismos.</p>
                 <br>
                 <h3>Software:</h3><p><b>SGIVT</b></p>
                 <h3>Version:</h3><p><b>1.2</b></p>
@@ -80,7 +77,6 @@
                     </div>
                 </form>
                 <div class="button1"><input class="button" type="button" onClick="toCreate()" value="Crear un cliente"></div>
-                <div class="button2"><input class="button" type="button" onClick="toModify()" value="Editar un cliente"></div>
                 <div class="button_div1">
                     <div class="button10"><input class="button" type="button" onClick="customerList()" value="Listado de clientes"></div>
                 </div>

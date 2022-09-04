@@ -61,15 +61,15 @@
             <div class="new_charge">
                 <form class="charges_form" action="new_charge_controller.php" method="POST">
                     <label>Código Administrador</label>
-                    <input type="number" name="idadmin" placeholder="Ingrese el código del administrador">
+                    <input type="number" name="idadmin" placeholder="Ingrese el código del administrador" required>
                     <label>Valor del cobro</label>
-                    <input type="text" name="price" placeholder="Ingrese el valor de la transacción">
+                    <input type="text" name="price" placeholder="Ingrese el valor de la transacción" required>
                     <label>Cobrador</label>
-                    <input type="number" name="name" placeholder="Ingrese el nombre del cobrador">
+                    <input type="text" name="name" placeholder="Ingrese el nombre del cobrador" required>
                     <label>Cliente</label>
-                    <input type="number" name="idcliente" placeholder="Ingrese el código del cliente ">
+                    <input type="number" name="idcliente" placeholder="Ingrese el código del cliente" required>
                     <label>Factura</label>
-                    <input type="text" name="idpedido" placeholder="Ingrese el código del pedido">
+                    <input type="text" name="idpedido" placeholder="Ingrese el código del pedido" required>
                     <input class="charge_button" type="submit" name="send" value="Crear">
                    
                 </form>

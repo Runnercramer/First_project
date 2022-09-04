@@ -60,34 +60,32 @@
             <div>
                 <form  class="customer_creation" action="customer_creation_controller.php" method="POST" class="main_form">
                     <label>Nombres</label>
-                    <input type="text" name="name" placeholder="Ingrese los nombres del usuario">
-                    <label>Primer Apellido</label>
-                    <input type="text" name="lastname1" placeholder="Ingresa el primer apellido">
-                    <label>Segundo Apellido</label>
-                    <input type="text" name="lastname2" placeholder="Ingresa el segundo apellido">
+                    <input type="text" name="name" placeholder="Ingrese los nombres del usuario" required>
+                    <label>Apellidos</label>
+                    <input type="text" name="lastname" placeholder="Ingresa los apellidos" required>
                     <label>Email</label>
-                    <input type="email" name="email" placeholder="Ingresa el correo del usuario"
+                    <input type="email" name="email" placeholder="Ingresa el correo del usuario" required>
                     <label>Celular</label>
-                    <input type="text" name="tel" placeholder="Ingresa el número de celular">
+                    <input type="text" name="tel" placeholder="Ingresa el número de celular" required>
                     <label>Tipo de identificación</label>
                     <select name="id_type">
                         <option value="0">------------------------------------------</option>
-                        <option value="cc">Cédula de ciudadnía</option>
+                        <option value="cc">Cédula de ciudadanía</option>
                         <option value="nit">NIT</option>
                         <option value="ce">Cédula de extranjería</option>
                     </select>
                     <label>Número de identificación</label>
-                    <input type="text" name="id" placeholder="Ingresa el número de identificación">
+                    <input type="text" name="id" placeholder="Ingresa el número de identificación" required>
                     <label>Departamento</label>
-                    <input type="text" name="department" placeholder="Ingresa el departamento de residencia">
+                    <input type="text" name="department" placeholder="Ingresa el departamento de residencia" required>
                     <label>Ciudad</label>
-                    <input type="text" name="city" placeholder="Ingresa la ciudad de residencia">
+                    <input type="text" name="city" placeholder="Ingresa la ciudad de residencia" required>
                     <label>Dirección</label>
-                    <input type="text" name="direction" placeholder="Ingresa la dirección de residencia">
+                    <input type="text" name="direction" placeholder="Ingresa la dirección de residencia" required>
                     <label>Contraseña</label>
-                    <input type="text" name="password1" placeholder="Ingrese una contraseña">
+                    <input type="text" name="password1" placeholder="Ingrese una contraseña" required>
                     <label>Confirme la contraseña</label>
-                    <input type="text" name="password2" placeholder="Ingrese de nuevo la contraseña">
+                    <input type="text" name="password2" placeholder="Ingrese de nuevo la contraseña" required>
                     <input type="submit" name="send" value="Crear">
                 </form>
             </div>

@@ -13,7 +13,7 @@
     <style>
         .transaction_function{display:grid;grid-template-rows:repeat(4, 1fr);background-color:#bbb;box-shadow:5px 5px 20px 5px #333;}
         .subcont1{display:flex;flex-direction:row;align-items:center;}
-        .field{margin:50px auto;width:40%;height:50px;text-align:center;font-size:2em;box-shadow:5px 5px 15px 5px #888;}
+        .field{margin:50px auto;width:40%;height:50px;text-align:center;font-size:2em;box-shadow:5px 5px 15px 5px #888;border-radius:15px;}
         .field:focus{outline:2px solid #333;}
         .button_form{margin:50px auto;width:45px;height:45px;border-radius:50%;background-color:#a1ca4f;box-shadow:3px 3px 10px 3px #666;}
         .button_form:hover{background-color:#74a118;}

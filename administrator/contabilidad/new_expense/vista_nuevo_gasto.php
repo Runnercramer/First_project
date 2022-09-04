@@ -61,11 +61,13 @@
             <div class="new_expense">
                 <form class="expenses_form" action="new_expense_controller.php" method="POST">
                     <label class="text">Código Administrador</label>
-                    <input type="number" name="idadmin" placeholder="Ingrese el código del administrador">
+                    <input type="number" name="idadmin" placeholder="Ingrese el código del administrador" required>
                     <label class="text">Valor del gasto</label>
-                    <input type="text" name="price" placeholder="Ingrese el valor de la transacción">
+                    <input type="text" name="price" placeholder="Ingrese el valor de la transacción" required>
                     <label class="text">Responsable del gasto</label>
-                    <input type="number" name="idcoworker" placeholder="Ingrese el código del empleado">
+                    <input type="number" name="idcoworker" placeholder="Ingrese el código del empleado" required>
+                    <label class="text">Descripción</label>
+                    <input type="text" name="description" placeholder="Por concepto de...">
                     <input class="expense_button" type="submit" name="send" value="Crear">
                 </form>
             </div>
