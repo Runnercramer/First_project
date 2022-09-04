@@ -19,6 +19,27 @@
         .button_form:hover{background-color:#74a118;}
         .button_form:active{background-color:black;color:white;}
     </style>
+    <script>
+        function profile(){
+            window.location.href = "../adminprofile.php";
+        }
+
+        function logout(){
+            window.location.href = "../../main/logout.php";
+        }
+
+        function newExpense(){
+            window.location.href = "new_expense/vista_nuevo_gasto.php";
+        }
+
+        function newCharge(){
+            window.location.href = "new_charge/vista_nuevo_cobro.php";
+        }
+
+        function transactionList(){
+            window.location.href = "transaction_list/vista_reporte_transacciones.php";
+        }
+    </script>
 </head>
 <body>
     <?php
@@ -34,8 +55,8 @@
             <div class="profile">
                 <img id="profile_image" src="../../imagenes/profile.png" alt="Imagen de perfil">
                 <h3><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);?></h3>
-                <input type="button" class="profile_button" value="Perfil &#9881">
-                <input type="button" class="logout_button" value="Cerrar sesión">
+                <input type="button" class="profile_button" value="Perfil &#9881" onclick="profile()">
+                <input type="button" class="logout_button" value="Cerrar sesión" onclick="logout()">
             </div>
         </header>  
         <section class="methods">
@@ -50,9 +71,9 @@
                 <h3>Contactos:</h3><p>301xxx xx xx<br>3022459827</p>
             </div>
             <div class="transaction_function">
-                <div class="button10"><input class="button" type="button" onClick="" value="Ingresar un gasto"></div>
-                <div class="button20"><input class="button" type="button" onClick="" value="Ingresar un cobro"></div>
-                <div class="button30"><input class="button" type="button" onClick="" value="Reporte de transacciones"></div>
+                <div class="button10"><input class="button" type="button" onClick="newExpense()" value="Ingresar un gasto"></div>
+                <div class="button20"><input class="button" type="button" onClick="newCharge()" value="Ingresar un cobro"></div>
+                <div class="button30"><input class="button" type="button" onClick="transactionList()" value="Reporte de transacciones"></div>
                 <form class="search_field" action="transaction_controller.php" method="GET">
                     <div class="subcont1">
                     <input class="field" type="search" name="search" placeholder="Buscar un cliente">

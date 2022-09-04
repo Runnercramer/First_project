@@ -10,7 +10,6 @@ if(isset($_GET['button'])){
     $id = $_SESSION['customerinfo']['idCliente'];
     $query1 = "SELECT * FROM pedido pe left JOIN detallepedido de ON pe.codPedido = de.codPedido JOIN producto pr ON de.codProducto = pr.codProducto JOIN detalleproducto dp ON pr.codProducto = dp.codProducto WHERE idCliente = '$id' AND fechaPedido BETWEEN '$date1' AND '$date2' ORDER BY fechaPedido DESC";
     
-//La forma de solucionar el problema de la variable es declararla al principio del script. Des esta forma podremos acceder a ella desde los bucles, las condiciones y las funciones.
     if($date1 == "" || $date2 == ""){
         echo
         "<!DOCTYPE html>
@@ -28,6 +27,15 @@ if(isset($_GET['button'])){
             <style>
                 .error{background-color:red;color:white;text-align:center;width:60%;}
             </style>
+            <script>
+            function logout(){
+                window.location.href = '../../main/logout.php';
+            }
+
+            function profile(){
+                window.location.href = '../../customerprofile.php';
+            }
+            </script>
         </head>
         <body>
             <div id='cont1'>
@@ -36,7 +44,11 @@ if(isset($_GET['button'])){
                     <h1>Listado de pedidos</h1>
                     <div class='profile'>
                         <img id='profile_image' src='../../imagenes/profile.png' alt='Imagen de perfil'>
-                        <input type='button' class='profile_button' value='Perfil &#9881'>
+                        <h3><b>";
+                         echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']); 
+                          echo "</b></h3>
+                        <input type='button' class='profile_button' value='Perfil &#9881' onclick='profile()'>
+                        <input type='button' class='logout_button' value='Cerrar sesión' onClick='logout()'>
                     </div>
                 </header> 
                 <h1 class='error'>Diligencie las 2 fechas solicitadas</h1>
@@ -65,6 +77,11 @@ if(isset($_GET['button'])){
             .header{background-color:#a1ca4f;font-weight:bold;font-size:1.5em;}
             .field{font-size:1.2em;background-color:#bbb;}
             </style>
+            <script>
+            function logout(){
+                window.location.href = '../../main/logout.php';
+            }
+            </script>
         </head>
         <body>
             <div id='cont1'>
@@ -77,7 +94,7 @@ if(isset($_GET['button'])){
                          echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']); 
                           echo "</b></h3>
                         <input type='button' class='profile_button' value='Perfil &#9881'>
-                        <input type='button' class='logout_button' value='Cerrar sesión' onClick=''>
+                        <input type='button' class='logout_button' value='Cerrar sesión' onClick='logout()'>
                     </div>
                 </header> 
                 <section class='methods'>
@@ -132,13 +149,7 @@ if(isset($_GET['button'])){
             </div>
         </body>
         </html>";
-    
 
-    /*$query2 = "SELECT codProducto, cantidad FROM detallepedido WHERE codPedido = '$a'";
-    $resultados2 = mysqli_query($connection, $query2);
-    while($array2 = $resultados->fetch_assoc()){
-        echo $array2['codProducto']." ".$array2['cantidad']."<br>";
-    }*/
     }
 }
 $connection->close();

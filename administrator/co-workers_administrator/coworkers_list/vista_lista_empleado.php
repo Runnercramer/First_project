@@ -14,6 +14,14 @@
         .main_table{background-color:#aaa;width:80%;}
         .header{background-color:#85b427;text-align:center;font-weight:bold;font-size:1.2em;}
     </style>
+    <script>
+        function logout(){
+            window.location.href = "../../../main/logout.php";
+        }
+        function profile(){
+            window.location.href = "../../adminprofile.php";
+        }   
+    </script>
 </head>
 <body>
     <?php
@@ -29,8 +37,8 @@
             <div class="profile">
                 <img id="profile_image" src="../../../imagenes/profile.png" alt="Imagen de perfil">
                 <h3><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);?></h3>
-                <input type="button" class="profile_button" value="Perfil &#9881">
-                <input type="button" class="logout_button" value="Cerrar sesión" onClick="">
+                <input type="button" class="profile_button" value="Perfil &#9881" onclick="profile()">
+                <input type="button" class="logout_button" value="Cerrar sesión" onClick="logout()">
             </div>
         </header>  
         <section class="methods">

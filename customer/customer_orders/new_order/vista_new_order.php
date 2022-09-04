@@ -22,6 +22,15 @@
         .choose>a:hover{text-decoration:underline;color:rgb(62, 62, 233);}
         .choose input[type="number"]{width:70%;margin:10px auto;}
     </style>
+     <script>
+    function logout(){
+        window.location.href = "../../../main/logout.php";
+    }
+
+    function profile(){
+        window.location.href = "../../customerprofile.php";
+    }
+    </script>
 </head>
 <body>
     <?php
@@ -37,8 +46,8 @@
             <div class="profile">
                 <img id="profile_image" src="../../../imagenes/profile.png" alt="Imagen de perfil">
                 <h3><b><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']); ?></b></h3>
-                <input type="button" class="profile_button" value="Perfil &#9881">
-                <input type="button" class="logout_button" value="Cerrar sesión" onClick="">
+                <input type="button" class="profile_button" value="Perfil &#9881" onclick="profile()">
+                <input type="button" class="logout_button" value="Cerrar sesión" onClick="logout()">
             </div>
         </header> 
         <section class="methods">

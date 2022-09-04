@@ -21,6 +21,27 @@
         .submit_button:hover{background-color:#a1ca4f;}
         .submit_button:active{background-color:black;color:white;}
     </style>
+             <script>
+        function profile(){
+            window.location.href = "../adminprofile.php";
+        }
+
+        function logout(){
+            window.location.href = "../../main/logout.php";
+        }
+
+        function toCreate(){
+            window.location.href="orders_creation/vista_creacion_pedido.php";
+        }
+
+        function toEdit(){
+            window.location.href="orders_modification/vista_modificacion_pedido.php";
+        }
+
+        function report(){
+            window.location.href="orders_list/vista_reporte_pedidos.php";
+        }
+    </script>
 </head>
 <body>
 <?php
@@ -36,8 +57,8 @@ if(!isset($_SESSION['userinfo'])){
             <div class="profile">
                 <img id="profile_image" src="../../imagenes/profile.png" alt="Imagen de perfil">
                 <h3><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);?></h3>
-                <input type="button" class="profile_button" value="Perfil &#9881">
-                <input type="button" class="logout_button" value="Cerrar sesión">
+                <input type="button" class="profile_button" value="Perfil &#9881" onclick="profile()">
+                <input type="button" class="logout_button" value="Cerrar sesión" onclick="logout()">
             </div>
         </header>  
         <section class="methods">
@@ -54,13 +75,13 @@ if(!isset($_SESSION['userinfo'])){
             <div>
                 <form class="orders_function" action="orders_controller.php" method="GET">
                     <div class="order order_creation">
-                        <input class="button" type="button" name="creation" value="Crear un pedido" onClick="">
+                        <input class="button" type="button" name="creation" value="Crear un pedido" onClick="toCreate()">
                     </div>
                     <div class="order order_modification">
-                        <input class="button" type="button" name="modification" value="Modificar un pedido" onClick="">
+                        <input class="button" type="button" name="modification" value="Modificar un pedido" onClick="toEdit()">
                     </div>
                     <div class="order order_list">
-                        <input class="button" type="button" name="order_list" value="Reporte pedidos" onClick="">
+                        <input class="button" type="button" name="order_list" value="Reporte pedidos" onClick="report()">
                     </div>
                     <div class="order order_query">
                         <label>Buscar pedido</label>

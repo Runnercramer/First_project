@@ -10,6 +10,31 @@
     <link href='https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap' rel='stylesheet'>
     <link rel="stylesheet" href="../customer_styles.css">
     <link rel="stylesheet" href="../new_customer_styles.css">
+    <script>
+    function logout(){
+        window.location.href = "../../main/logout.php";
+    }
+
+    function ordersList(){
+        window.location.href = "orders_list/orders_list.php";
+    }
+
+    function despachos(){
+        window.location.href = "customer_despachos/vista_despachos.php";
+    }
+
+    function newOrder(){
+        window.location.href = "new_order/vista_new_order.php";
+    }
+
+    function updateOrder(){
+        window.location.href = "update_order/";
+    }
+
+    function profile(){
+        window.location.href = "../customerprofile.php";
+    }
+    </script>
 </head>
 <body>
     <?php
@@ -25,8 +50,8 @@
             <div class="profile">
                 <img id="profile_image" src="../../imagenes/profile.png" alt="Imagen de perfil">
                 <h3><b><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']); ?></b></h3>
-                <input type="button" class="profile_button" value="Perfil &#9881">
-                <input type="button" class="logout_button" value="Cerrar sesión" onClick="">
+                <input type="button" class="profile_button" value="Perfil &#9881" onclick="profile()">
+                <input type="button" class="logout_button" value="Cerrar sesión" onClick="logout()">
             </div>
         </header> 
         <section class="methods">
@@ -40,10 +65,10 @@
                 <h3>Contactos:</h3><p>301xxx xx xx<br>3022459827</p>
             </div>
             <div class="function_cont">
-                <div class="button1"><input class="button" type="button" onClick="" value="Listado de pedidos"></div>
-                <div class="button2"><input class="button" type="button" onClick="" value="Estado de despachos"></div>
-                <div class="button3"><input class="button" type="button" onClick="" value="Nuevo pedido"></div>
-                <div class="button4"><input class="button" type="button" onClick="" value="Actualizar pedido"></div>
+                <div class="button1"><input class="button" type="button" onClick="ordersList()" value="Listado de pedidos"></div>
+                <div class="button2"><input class="button" type="button" onClick="despachos()" value="Estado de despachos"></div>
+                <div class="button3"><input class="button" type="button" onClick="newOrder()" value="Nuevo pedido"></div>
+                <div class="button4"><input class="button" type="button" onClick="updateOrder()" value="Actualizar pedido"></div>
             </div>
         </section>
         <footer id='pa2'>

@@ -10,6 +10,23 @@
     <link href='https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap' rel='stylesheet'>
     <link rel="stylesheet" href="../customer_styles.css">
     <link rel="stylesheet" href="../new_customer_styles.css">
+    <script>
+    function logout(){
+        window.location.href = "../../main/logout.php";
+    }
+
+    function transactions(){
+        window.location.href = "transactions/vista_transaccion.php";
+    }
+
+    function payments(){
+        window.location.href = "payments/vista_pagos.php";
+    }
+
+    function profile(){
+        window.location.href = "../customerprofile.php";
+    }
+    </script>
 </head>
 <body>
     <?php
@@ -26,8 +43,8 @@
             <div class="profile">
                 <img id="profile_image" src="../../imagenes/profile.png" alt="Imagen de perfil">
                 <h3><b><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']); ?></b></h3>
-                <input type="button" class="profile_button" value="Perfil &#9881">
-                <input type="button" class="logout_button" value="Cerrar sesión" onClick="">
+                <input type="button" class="profile_button" value="Perfil &#9881" onClick="profile()">
+                <input type="button" class="logout_button" value="Cerrar sesión" onclick="logout()">
             </div>
         </header> 
         <section class="methods">
@@ -42,8 +59,8 @@
                 <h3>Contactos:</h3><p>301xxx xx xx<br>3022459827</p>
             </div>
             <div class="transaction_cont">
-                <div class="button1"><input class="button" type="button" onClick="" value="Historial de transacciones"></div>
-                <div class="button2"><input class="button" type="button" onClick="" value="Pagos y abonos"></div>
+                <div class="button1"><input class="button" type="button" onClick="transactions()" value="Historial de transacciones"></div>
+                <div class="button2"><input class="button" type="button" onClick="payments()" value="Pagos y abonos"></div>
             </div>
         </section>
         <footer id='pa2'>

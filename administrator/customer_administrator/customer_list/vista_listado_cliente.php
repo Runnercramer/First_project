@@ -21,6 +21,15 @@
             $resultset1 = mysqli_query($connection, $query1);
             $a = mysqli_num_rows($resultset1);
             ?>
+    <script>
+        function profile(){
+            window.location.href = "../../adminprofile.php";
+        }
+
+        function logout(){
+            window.location.href = "../../../main/logout.php";
+        }
+    </script>
 </head>
 <body>
     <?php
@@ -36,8 +45,8 @@
             <div class="profile">
                 <img id="profile_image" src="../../../imagenes/profile.png" alt="Imagen de perfil">
                 <h3> <?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);?></h3>
-                <input type="button" class="profile_button" value="Perfil &#9881">
-                <input type="button" class="logout_button" value="Cerrar sesión">
+                <input type="button" class="profile_button" value="Perfil &#9881" onclick="profile()">
+                <input type="button" class="logout_button" value="Cerrar sesión" onclick="logout()">
             </div>
         </header>  
         <section class="methods">

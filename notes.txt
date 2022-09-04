@@ -14,4 +14,13 @@ from usuario
 group by email
 having count(email)>1
 
-En la vista pagos falat válidar el saldo de lospedidos
+En la vista pagos falta válidar el saldo de los pedidos
+Falta el controlador nuevo pedido customer
+Falta la vista para actualizar pedido
+
+FALTA PODER CREAR UN NUEVO PRODUCTO ADMIN
+
+Falta crear el carrito
+
+Cerrar conexiones a la DB
+Crear desde el admin la posibilidad de ver pqrs

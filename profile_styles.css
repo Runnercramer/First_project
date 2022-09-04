@@ -55,3 +55,20 @@
     background-color:black;
     color:white;
 }
+
+.logout_button{
+    width:70%;
+    background-color:#a1ca4f;
+    height:auto;
+    font-weight:bold;font-size:1.5em;
+    box-shadow:5px 5px 15px 5px #333;
+}
+
+.logout_button:hover{
+    background-color:#74a118;
+}
+
+.logout_button:active{
+    background-color:black;
+    color:white;
+}

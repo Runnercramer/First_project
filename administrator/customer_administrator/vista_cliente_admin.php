@@ -21,6 +21,27 @@
         .button_form:hover{background-color:#86b32e;}
         .button_div1{background-color:lightgoldenrodyellow;grid-column-start:1;grid-column-end:3;}
     </style>
+             <script>
+        function profile(){
+            window.location.href = "../adminprofile.php";
+        }
+
+        function logout(){
+            window.location.href = "../../main/logout.php";
+        }
+
+        function toCreate(){
+            window.location.href = "customer_creation/vista_creacion_cliente.php";
+        }
+
+        function toModify(){
+            window.location.href = "customer_edition/vista_edicion_cliente.php";
+        }
+
+        function customerList(){
+            window.location.href = "customer_list/vista_listado_cliente.php";
+        }
+    </script>
 </head>
 <body>
     <?php
@@ -36,8 +57,8 @@
             <div class="profile">
                 <img id="profile_image" src="../../imagenes/profile.png" alt="Imagen de perfil">
                 <h3><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);?></h3>
-                <input type="button" class="profile_button" value="Perfil &#9881">
-                <input type="button" class="logout_button" value="Cerrar sesión">
+                <input type="button" class="profile_button" value="Perfil &#9881" onclick="profile()">
+                <input type="button" class="logout_button" value="Cerrar sesión" onclick="logout()">
             </div>
         </header>  
         <section class="methods">
@@ -58,10 +79,10 @@
                     <input class="button_form" type="submit" name="search_button" value="&#128269">
                     </div>
                 </form>
-                <div class="button1"><input class="button" type="button" onClick="" value="Crear un cliente"></div>
-                <div class="button2"><input class="button" type="button" onClick="" value="Editar un cliente"></div>
+                <div class="button1"><input class="button" type="button" onClick="toCreate()" value="Crear un cliente"></div>
+                <div class="button2"><input class="button" type="button" onClick="toModify()" value="Editar un cliente"></div>
                 <div class="button_div1">
-                    <div class="button10"><input class="button" type="button" onClick="" value="Listado de clientes"></div>
+                    <div class="button10"><input class="button" type="button" onClick="customerList()" value="Listado de clientes"></div>
                 </div>
             </div>
         </section>

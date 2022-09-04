@@ -14,8 +14,24 @@
         .function_container{display:grid;}
         .button1, .button2{background-color:inherit;}
         .button{margin-top:90px;}
-        
     </style>
+             <script>
+        function profile(){
+            window.location.href = "../adminprofile.php";
+        }
+
+        function logout(){
+            window.location.href = "../../main/logout.php";
+        }
+
+        function despacho(){
+            window.location.href="nuevo_despacho/nuevo_despacho.php";
+        }
+
+        function reporte(){
+            window.location.href="reporte_despachos/reporte_despachos.php";
+        }
+    </script>
 </head>
 <body>
 <?php
@@ -32,8 +48,8 @@ if(!isset($_SESSION['userinfo'])){
             <div class="profile">
                 <img id="profile_image" src="../../imagenes/profile.png" alt="Imagen de perfil">
                 <h3><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);?>></h3>
-                <input type="button" class="profile_button" value="Perfil &#9881">
-                <input type="button" class="logout_button" value="Cerrar sesión">
+                <input type="button" class="profile_button" value="Perfil &#9881" onclick="profile()">
+                <input type="button" class="logout_button" value="Cerrar sesión" onclick="logout()">
             </div>
         </header>  
         <section class="methods">
@@ -48,8 +64,8 @@ if(!isset($_SESSION['userinfo'])){
                 <h3>Contactos:</h3><p>301xxx xx xx<br>3022459827</p>
             </div>
             <div class="function_container">
-                <div class="button1"><input class="button" type="button" onClick="" value="Registrar un despacho"></div>
-                <div class="button2"><input class="button" type="button" onClick="" value="Reporte despachos"></div>
+                <div class="button1"><input class="button" type="button" onClick="despacho()" value="Registrar un despacho"></div>
+                <div class="button2"><input class="button" type="button" onClick="reporte()" value="Reporte despachos"></div>
                 </div>
             </div>
         </section>

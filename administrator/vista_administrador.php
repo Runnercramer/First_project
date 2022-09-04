@@ -10,6 +10,43 @@
     <link href='https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap' rel='stylesheet'>
     <link rel="stylesheet" href="administrator_styles.css">
     <link rel="stylesheet" href="new_admin_styles.css">
+    <script>
+        function profile(){
+            window.location.href = "adminprofile.php";
+        }
+
+        function logout(){
+            window.location.href = "../main/logout.php";
+        }
+
+        function customers(){
+            window.location.href = "customer_administrator/vista_cliente_admin.php";
+        }
+
+        function contabilidad(){
+            window.location.href = "contabilidad/vista_transaccion.php";
+        }
+
+        function despachos(){
+            window.location.href = "despachos/vista_despachos.php";
+        }
+
+        function coworkers(){
+            window.location.href = "co-workers_administrator/vista_empleados.php";
+        }
+
+        function stock(){
+            window.location.href = "inventario/vista_inventario.php";
+        }
+
+        function orders(){
+            window.location.href = "orders/vista_pedidos.php";
+        }
+
+        function production(){
+            window.location.href = "production/vista_produccion.php";
+        }
+    </script>
 </head>
 <body>
     <?php
@@ -25,8 +62,8 @@
             <div class="profile">
                 <img id="profile_image" src="../imagenes/profile.png" alt="Imagen de perfil">.
                 <h3><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);?></h3>
-                <input type="button" class="profile_button" value="Perfil &#9881">
-                <input type="button" class="logout_button" value="Cerrar sesión" onClick="">
+                <input type="button" class="profile_button" value="Perfil &#9881" onclick="profile()">
+                <input type="button" class="logout_button" value="Cerrar sesión" onClick="logout()">
             </div>
         </header>  
         <section class="methods">
@@ -41,13 +78,13 @@
                 <h3>Contactos:</h3><p>301xxx xx xx<br>3022459827</p>
             </div>
             <div class="function_cont">
-                <div class="button1"><input class="button" type="button" onClick="" value="Clientes"></div>
-                <div class="button2"><input class="button" type="button" onClick="" value="Contabilidad"></div>
-                <div class="button3"><input class="button" type="button" onClick="" value="Despachos"></div>
-                <div class="button4"><input class="button" type="button" onClick="" value="Empleados"></div>
-                <div class="button5"><input class="button" type="button" onClick="" value="Inventario"></div>
-                <div class="button6"><input class="button" type="button" onClick="" value="Pedidos"></div>
-                <div class="button7"><input class="button" type="button" onClick="" value="Producción"></div>
+                <div class="button1"><input class="button" type="button" onClick="customers()" value="Clientes"></div>
+                <div class="button2"><input class="button" type="button" onClick="contabilidad()" value="Contabilidad"></div>
+                <div class="button3"><input class="button" type="button" onClick="despachos()" value="Despachos"></div>
+                <div class="button4"><input class="button" type="button" onClick="coworkers()" value="Empleados"></div>
+                <div class="button5"><input class="button" type="button" onClick="stock()" value="Inventario"></div>
+                <div class="button6"><input class="button" type="button" onClick="orders()" value="Pedidos"></div>
+                <div class="button7"><input class="button" type="button" onClick="production()" value="Producción"></div>
             </div>
         </section>
         <footer id='pa2'>

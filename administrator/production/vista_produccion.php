@@ -20,6 +20,19 @@
         input[type="submit"]:hover{background-color:#74a118;}
         input[type="submit"]:active{background-color:black;}
     </style>
+                  <script>
+        function profile(){
+            window.location.href = "../adminprofile.php";
+        }
+
+        function logout(){
+            window.location.href = "../../main/logout.php";
+        }
+
+        function report(){
+            window.location.href="production_list/vista_reporte_produccion.php";
+        }
+    </script>
 </head>
 <body>
     <?php
@@ -35,8 +48,8 @@
             <div class="profile">
                 <img id="profile_image" src="../../imagenes/profile.png" alt="Imagen de perfil">
                 <h3><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);?></h3>
-                <input type="button" class="profile_button" value="Perfil &#9881">
-                <input type="button" class="logout_button" value="Cerrar sesión">
+                <input type="button" class="profile_button" value="Perfil &#9881" onclick="profile()">
+                <input type="button" class="logout_button" value="Cerrar sesión" onclick="logout()">
             </div>
         </header>  
         <section class="methods">
@@ -53,7 +66,7 @@
             <div class="production_function">
                 <div class="general_production">
                     <h3>Reporte general</h3>
-                <input class="production_button" type="button" name="button1" value="Reporte producción" onClick="">
+                <input class="production_button" type="button" name="button1" value="Reporte producción" onClick="report()">
                 </div>
                 <div>
                     <form class="production_form" action="production_controller.php" method="GET">

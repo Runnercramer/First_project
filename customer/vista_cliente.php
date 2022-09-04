@@ -10,6 +10,31 @@
     <link href='https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap' rel='stylesheet'>
     <link rel="stylesheet" href="customer_styles.css">
     <link rel="stylesheet" href="new_customer_styles.css">
+    <script>
+    function logout(){
+        window.location.href = "../main/logout.php";
+    }
+
+    function goToBalance(){
+        window.location.href = "customer_balance/vista_balance.php";
+    }
+
+    function orders(){
+        window.location.href = "customer_orders/vista_pedido.php";
+    }
+
+    function service(){
+        window.location.href = "service_assessment/vista_servicio_al_cliente.php";
+    }
+
+    function goToCart(){
+        window.location.href = "go_to_cart/";
+    }
+
+    function profile(){
+        window.location.href = "customerprofile.php";
+    }
+    </script>
 </head>
 <body>
 <?php
@@ -28,8 +53,8 @@ if(!isset($_SESSION['userinfo'])){
             <div class="profile">
                 <img id="profile_image" src="../imagenes/profile.png" alt="Imagen de perfil">
                 <h3><b><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']); ?></b></h3>
-                <input type="button" class="profile_button" value="Perfil &#9881">
-                <input type="button" class="logout_button" value="Cerrar sesión" onClick="">
+                <input type="button" class="profile_button" value="Perfil &#9881" onClick="profile()">
+                <input type="button" class="logout_button" value="Cerrar sesión" onClick="logout()">
             </div>
         </header>  
         <section class="methods">
@@ -43,10 +68,10 @@ if(!isset($_SESSION['userinfo'])){
                 <h3>Contactos:</h3><p>301xxx xx xx<br>3022459827</p>
             </div>
             <div class="function_cont">
-                <div class="button1"><input class="button" type="button" onClick="saludar()" value="Balance"></div>
-                <div class="button2"><input class="button" type="button" onClick="despedir()" value="Pedidos"></div>
-                <div class="button3"><input class="button" type="button" onClick="edad()" value="Valoración servicio"></div>
-                <div class="button4"><input class="button" type="button" onClick="nombre()" value="Visitar carrito"></div>
+                <div class="button1"><input class="button" type="button" onClick="goToBalance()" value="Balance"></div>
+                <div class="button2"><input class="button" type="button" onClick="orders()" value="Pedidos"></div>
+                <div class="button3"><input class="button" type="button" onClick="service()" value="Valoración servicio"></div>
+                <div class="button4"><input class="button" type="button" onClick="goToCart()" value="Visitar carrito"></div>
             </div>
         </section>
         <footer id='pa2'>

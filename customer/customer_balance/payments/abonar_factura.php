@@ -26,6 +26,15 @@ include("../../../connection.php");
         .payment_form input[type="submit"]:hover{background-color:#85b427;}
         .payment_form input[type="submit"]:active{background-color:black;color:white;}
     </style>
+     <script>
+    function logout(){
+        window.location.href = "../../../main/logout.php";
+    }
+
+    function profile(){
+        window.location.href = "../../customerprofile.php";
+    }
+    </script>
 </head>
 <body>
     <?php
@@ -44,8 +53,8 @@ include("../../../connection.php");
             <div class="profile">
                 <img id="profile_image" src="../../../imagenes/profile.png" alt="Imagen de perfil">
                 <h3><b><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']); ?></b></h3>
-                <input type="button" class="profile_button" value="Perfil &#9881">
-                <input type="button" class="logout_button" value="Cerrar sesión" onClick="">
+                <input type="button" class="profile_button" value="Perfil &#9881" onClick="profile()">
+                <input type="button" class="logout_button" value="Cerrar sesión" onClick="logout()">
             </div>
         </header> 
         <section class="methods">

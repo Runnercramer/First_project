@@ -1,7 +1,7 @@
 <?php
 include('../connection.php');
 if(isset($_POST['login'])){
-
+   // error_reporting(0);
     $email = mysqli_real_escape_string($connection, $_POST['email']);
     $password = mysqli_real_escape_string($connection, $_POST['password']);
     $query1 = "SELECT * FROM email WHERE email = '$email'";
@@ -17,9 +17,17 @@ if(isset($_POST['login'])){
     $query3 = "SELECT * FROM cliente WHERE idUsuario = '$c'";
     $answer3 = mysqli_query($connection, $query3);
     $answer3_1 = mysqli_fetch_assoc($answer3);
+    $d = $answer3_1['idCliente'];
 
+    $queryn = "SELECT * FROM celular WHERE idUsuario = '$c'";
+    $answern = mysqli_query($connection, $queryn);
+    $answern_1 = mysqli_fetch_assoc($answern);
 
-    if($user == "" || $password == ""){
+    $queryp = "SELECT * FROM residencia WHERE idClienteResidencia = '$d'";
+    $answerp = mysqli_query($connection, $queryp);
+    $answerp_1 = mysqli_fetch_assoc($answerp);
+
+    if($email == "" || $password == ""){
         echo 
         "<!DOCTYPE html>
         <html lang='es'>
@@ -49,7 +57,7 @@ if(isset($_POST['login'])){
         </html>";
     }else{
        // error_reporting(0);
-            if(password_verify($password, $hash) === false){#$user != $answer1_1['email'] ||
+            if(password_verify($password, $hash) === false){
                 echo
                 "<!DOCTYPE html>
                 <html lang='es'>
@@ -83,12 +91,15 @@ if(isset($_POST['login'])){
                 $_SESSION['useremail'] = $answer1_1;
                 $_SESSION['userinfo'] = $answer2_1;
                 $_SESSION['customerinfo'] = $answer3_1;
+                $_SESSION['usercell'] = $answern_1;
+                $_SESSION['userdir'] = $answerp_1;
+                $_SESSION['password']['pass'] = $password;
 
               //  header("location:../customer/vista_cliente.php");
                 if($_SESSION['userinfo']['tipoUsuario'] == 'cliente'){
 
                     header("location:../customer/vista_cliente.php");
-
+                    
                 }else if($_SESSION['userinfo']['tipoUsuario'] == 'administrador'){
 
                     header("location:../administrator/vista_administrador.php");

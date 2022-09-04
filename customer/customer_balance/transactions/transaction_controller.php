@@ -86,6 +86,15 @@ if(isset($_GET['send'])){
     .header{background-color:#a1ca4f;border:1px solid black;font-weight:bold;}
     .field{background-color:#aaa;border:1px solid black;}
     </style>
+    <script>
+    function logout(){
+        window.location.href = '../../../main/logout.php';
+    }
+
+    function profile(){
+        window.location.href = '../../customerprofile.php';
+    }
+    </script>
 </head>
 <body>
     <div id='cont1'>
@@ -95,8 +104,8 @@ if(isset($_GET['send'])){
             <div class='profile'>
                 <img id='profile_image' src='../../../imagenes/profile.png' alt='Imagen de perfil'>";
                 echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);
-                echo "<input type='button' class='profile_button' value='Perfil &#9881'>
-                <input type='button' class='logout_button' value='Cerrar sesión' onClick=''>
+                echo "<input type='button' class='profile_button' value='Perfil &#9881' onClick='profile()'>
+                <input type='button' class='logout_button' value='Cerrar sesión' onClick='logout()'>
             </div>
         </header> 
         <section class='methods'>

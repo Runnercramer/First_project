@@ -21,6 +21,12 @@ if(isset($_GET['search_button'])){
         <style>
         .error{background-color:red;color:white;width:80%;margin:20px auto;text-align:center;font-size:2.5em;}
         </style>
+        <script>
+        function profile(){
+            window.location.href = ''../adminprofile.php;
+        }
+
+    </script>
 </head>
 <body>
     <div id='cont1'>
@@ -29,7 +35,7 @@ if(isset($_GET['search_button'])){
             <h1>Debe ingresar los datos solicitados</h1>
             <div class='profile'>
                 <img id='profile_image' src='../../imagenes/profile.png' alt='Imagen de perfil'>
-                <input type='button' class='profile_button' value='Perfil &#9881'>
+                <input type='button' class='profile_button' value='Perfil &#9881' onclick'profile()'>
             </div>
         </header>  
         <section class='methods'>
@@ -67,6 +73,11 @@ if(isset($_GET['search_button'])){
         .header{background-color:#74a118;font-size:2em;text-align:center;font-weight:bold;padding:5px;width:300px;}
         .field{background-color:#bbb;font-size:1.2em;text-align:center;padding:5px;font-weight:bold;}
         </style>
+        <script>
+        function profile(){
+            window.location.href = '../adminprofile.php';
+        }
+    </script>
         </head>
         <body>
             <div id='cont1'>
@@ -75,7 +86,7 @@ if(isset($_GET['search_button'])){
                     <h1>La búsqueda obtuvo $num resultados</h1>
                     <div class='profile'>
                         <img id='profile_image' src='../../imagenes/profile.png' alt='Imagen de perfil'>
-                        <input type='button' class='profile_button' value='Perfil &#9881'>
+                        <input type='button' class='profile_button' value='Perfil &#9881' onclick='profile()'>
                     </div>
                 </header>  
             <section class='methods'>

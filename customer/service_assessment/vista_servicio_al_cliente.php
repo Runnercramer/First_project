@@ -23,6 +23,15 @@
         .main_form input[type="submit"]:active{background-color:black;color:white;}
         select{text-align:center;}
     </style>
+     <script>
+    function logout(){
+        window.location.href = "../../main/logout.php";
+    }
+
+    function profile(){
+        window.location.href = "../customerprofile.php";
+    }
+    </script>
 </head>
 <body>
     <?php
@@ -38,8 +47,8 @@
             <div class="profile">
                 <img id="profile_image" src="../../imagenes/profile.png" alt="Imagen de perfil">
                 <h3><b><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);?></b></h3>
-                <input type="button" class="profile_button" value="Perfil &#9881">
-                <input type="button" class="logout_button" value="Cerrar sesión" onClick="">
+                <input type="button" class="profile_button" value="Perfil &#9881" onclick="profile()">
+                <input type="button" class="logout_button" value="Cerrar sesión" onClick="logout()">
             </div>
         </header> 
         <section class="methods">
@@ -57,7 +66,7 @@
             <div class="main_form">
                     <h3>Radicación de PQRS</h3>
                     <label>Tipo de solicitud</label>
-                    <select name="PQRS">
+                    <select name="PQRS" required>
                         <option value="0">................</option>
                         <option value="question">Pregunta</option>
                         <option value="complain">Queja</option>
@@ -65,13 +74,13 @@
                         <option value="suggestion">Sugerencia</option>
                     </select>
                     <label>Documento del radicador</label>
-                    <input type="text" name="id" placeholder="Ingresa tu número de identificación">
+                    <input type="text" name="id" placeholder="Ingresa tu número de identificación" required>
                     <label>Correo electrónico</label>
-                    <input type="email" name="email" placeholder="Ingresa tu correo">
+                    <input type="email" name="email" placeholder="Ingresa tu correo" required>
                     <label>Celular</label>
-                    <input type="text" name="cell" placeholder="Ingresa un número celular de contacto">
+                    <input type="text" name="cell" placeholder="Ingresa un número celular de contacto" required>
                     <label>Solicitud</label>
-                    <textarea name="request" placeholder="Ingresa tu solicitud"></textarea>
+                    <textarea name="request" placeholder="Ingresa tu solicitud" required></textarea>
                     <input type="submit" name="send" value="Radicar">
                 </form>    
             </div>

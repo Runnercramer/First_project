@@ -17,6 +17,14 @@
         .creation_form input[type="submit"]:hover{background-color:#a1ca4f;}
         .creation_form input[type="submit"]:active{background-color:black;color:white;}
     </style>
+    <script>
+        function logout(){
+            window.location.href = "../../../main/logout.php";
+        }
+        function profile(){
+            window.location.href = "../../adminprofile.php";
+        }   
+    </script>
 </head>
 <body>
     <?php 
@@ -32,8 +40,8 @@
             <div class="profile">
                 <img id="profile_image" src="../../../imagenes/profile.png" alt="Imagen de perfil">
                 <h3><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);?></h3>
-                <input type="button" class="profile_button" value="Perfil &#9881">
-                <input type="button" class="logout_button" value="Cerrar sesión" onClick="">
+                <input type="button" class="profile_button" value="Perfil &#9881" onclick="profile()">
+                <input type="button" class="logout_button" value="Cerrar sesión" onClick="logout()">
             </div>
         </header>  
         <section class="methods">

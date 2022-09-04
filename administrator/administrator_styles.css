@@ -52,10 +52,5 @@ body{
     background-color:black;
     color:white;
 }
-.button1{background-color:lightblue;}
-.button2{background-color:lightcoral;}
-.button3{background-color:lightcyan;}
-.button4{background-color:lightgoldenrodyellow;}
-.button5{background-color:lightseagreen;}
-.button6{background-color:lightsalmon;}
-.button7{background-color:lightgreen;grid-column-start:1; grid-column-end:3;}
+
+.button7{grid-column-start:1; grid-column-end:3;}

@@ -17,6 +17,14 @@
         .main_form input[type="submit"]{width:40%;background-color:#a3cf4b;margin:15px;height:30px;font-weight:bold;font-size:1em;box-shadow:3px 3px 10px 3px #333;}
         select{text-align:center;}
     </style>
+           <script>
+        function logout(){
+            window.location.href = "../../../main/logout.php";
+        }
+        function profile(){
+            window.location.href = "../../adminprofile.php";
+        }   
+    </script>
 </head>
 <body>
     <?php
@@ -32,8 +40,8 @@
             <div class="profile">
                 <img id="profile_image" src="../../../imagenes/profile.png" alt="Imagen de perfil">
                 <h3><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);?></h3>
-                <input type="button" class="profile_button" value="Perfil &#9881">
-                <input type="button" class="logout_button" value="Cerrar sesión" onClick="">
+                <input type="button" class="profile_button" value="Perfil &#9881" onclick="profile()">
+                <input type="button" class="logout_button" value="Cerrar sesión" onClick="logout()">
             </div>
         </header>  
         <section class="methods">

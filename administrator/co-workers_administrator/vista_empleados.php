@@ -14,6 +14,30 @@
         .function_container{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;align-items:center;justify-content:center;}
         .button{width:70%;height:80px;}
     </style>
+    <script>
+    function logout(){
+        window.location.href = "../../main/logout.php";
+    }
+    function profile(){
+        window.location.href = "../adminprofile.php";
+    }
+
+    function report(){
+        window.location.href="coworkers_list/vista_lista_empleado.php";
+    }
+
+    function toCreate(){
+        window.location.href="coworkers_creation/vista_creacion_empleado.php";
+    }
+
+    function toUpdate(){
+        window.location.href="coworkers_edition/vista_edicion_empleado.php";
+    }
+
+    function toEliminate(){
+        window.location.href="coworkers_elimination/vista_eliminacion_empleado.php";
+    }
+    </script>
 </head>
 <body>
     <?php
@@ -29,8 +53,8 @@
             <div class="profile">
                 <img id="profile_image" src="../../imagenes/profile.png" alt="Imagen de perfil">
                 <h3><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);?></h3>
-                <input type="button" class="profile_button" value="Perfil &#9881">
-                <input type="button" class="logout_button" value="Cerrar sesión" onClick="">
+                <input type="button" class="profile_button" value="Perfil &#9881" onclick="profile()">
+                <input type="button" class="logout_button" value="Cerrar sesión" onClick="logout()">
             </div>
         </header>  
         <section class="methods">
@@ -46,16 +70,16 @@
             </div>
             <div class="function_container">
                 <div class="subcont1">
-                    <input type="button" value="Listado empleados" class="button" onClick="">
+                    <input type="button" value="Listado empleados" class="button" onClick="report()">
                 </div>
                 <div class="subcont2">
-                    <input type="button" class="button" value="Crear empleado" onClick="">
+                    <input type="button" class="button" value="Crear empleado" onClick="toCreate()">
                 </div>
                 <div class="subcont3">
-                    <input type="button" class="button" value="Edición empleado" onClick="">
+                    <input type="button" class="button" value="Edición empleado" onClick="toUpdate()">
                 </div>
                 <div class="subcont4">
-                    <input type="button" class="button" value="Eliminar empleado">
+                    <input type="button" class="button" value="Eliminar empleado" onclick="toEliminate()">
                 </div>
             </div>
         </section>
