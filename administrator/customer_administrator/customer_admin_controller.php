@@ -3,7 +3,7 @@ include("../../connection.php");
 if(isset($_GET['search_button'])){
     $search = mysqli_real_escape_string($connection, $_GET['search']);
     $query1 = "SELECT * FROM usuario WHERE nombreUsuario LIKE '%$search%' OR apellidosUsuario LIKE '%$search%'"; 
-    $resultset1 = mysqli_query($connection, $query1);
+    $resultset1 = mysqli_query($adminconnection, $query1);
     $a = mysqli_num_rows($resultset1);
 
     if($search == ""){
@@ -120,7 +120,7 @@ if(isset($_GET['search_button'])){
                     while($array1 = mysqli_fetch_assoc($resultset1)){
                         $id = $array1['idUsuario'];
                         $query2 = "SELECT estadoCuenta FROM cliente WHERE idUsuario = '$id'";
-                        $resultset2 = mysqli_query($connection, $query2);
+                        $resultset2 = mysqli_query($adminconnection, $query2);
                         while($array2 = mysqli_fetch_assoc($resultset2)){
                             echo "<tr>
                             <td class='field'>" . $array1['idUsuario'] . "</td>
@@ -134,4 +134,6 @@ if(isset($_GET['search_button'])){
 
     }
 }
+
+$adminconnection->close();
 ?>

@@ -1,3 +1,6 @@
+<?php
+include("../../../connection.php");
+?>
 <!DOCTYPE html>
 <html lang='es'>
 <head>
@@ -11,8 +14,9 @@
     <link rel="stylesheet" href="../../administrator_styles.css">
     <link rel="stylesheet" href="../../new_admin_styles.css">
     <style>
-        .main_table{background-color:#aaa;width:80%;}
-        .header{background-color:#85b427;text-align:center;font-weight:bold;font-size:1.2em;}
+        .main_table{background-color:#777;width:80%;text-align:center;font-weight:bold;}
+        .header{background-color:#85b427;font-size:1.5em;}
+        .field{background-color:#bbb;font-size:1.2em;}
     </style>
     <script>
         function logout(){
@@ -29,6 +33,9 @@
     if(!isset($_SESSION['userinfo'])){
         header("location:../../../main/index.html");
     }
+
+    $sql1 = "SELECT * FROM usuario us JOIN empleado em ON us.idUsuario = em.idUsuario JOIN labdesempeñadas lb ON em.idEmpleado = lb.idEmpleado;";
+    $query1 = mysqli_query($adminconnection, $sql1);
     ?>
     <div id='cont1'>
         <header id='enc1'>
@@ -55,12 +62,25 @@
             <div>
                 <table class="main_table">
                     <tr>
-                        <td class="header">Cant</td>
-                        <td class="header">Id Empleado</td>
+                        <td class="header">N°</td>
+                        <td class="header">Id Usuario</td>
                         <td class="header">Nombre</td>
                         <td class="header">Cargo</td>
                         <td class="header">Labores desempeñadas</td>
                     </tr>
+                    <?php
+                    $i = 1;
+                    while($r = $query1->fetch_assoc()){
+                        echo "<tr>
+                        <td class='field'>$i</td>
+                        <td class='field'>" . $r['idUsuario'] . "</td>
+                        <td class='field'>" . $r['nombreUsuario'] . " " . $r['apellidosUsuario'] . "</td>
+                        <td class='field'>" . $r['cargo'] . "</td>
+                        <td class='field'>" . $r['labordesempeñada'] . "</td>
+                        </tr>";
+                        $i++;
+                    }
+                    ?>
                 </table>
             </div>
         </section>
@@ -70,3 +90,7 @@
     </div>
 </body>
 </html>
+<?php
+
+$adminconnection->close();
+?>

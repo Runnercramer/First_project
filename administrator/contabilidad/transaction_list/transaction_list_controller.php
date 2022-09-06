@@ -6,8 +6,8 @@ if(!isset($_SESSION['userinfo'])){
 }
 
 if(isset($_POST['send'])){
-    $date1 = mysqli_real_escape_string($connection, $_POST['date1']);
-    $date2 = mysqli_real_escape_string($connection, $_POST['date2']);
+    $date1 = mysqli_real_escape_string($adminconnection, $_POST['date1']);
+    $date2 = mysqli_real_escape_string($adminconnection, $_POST['date2']);
 
     if($date1 == "" || $date2 == ""){
         echo 
@@ -78,8 +78,8 @@ if(isset($_POST['send'])){
     }else{
         $sql1 = "SELECT * FROM transaccion tr JOIN cobro co ON tr.codTransaccion = co.codTransaccion WHERE fecha BETWEEN '$date1' AND '$date2' ORDER BY fecha DESC";
         $sql2 = "SELECT * FROM transaccion tr JOIN gasto ga ON tr.codTransaccion = ga.codTransaccion WHERE fecha BETWEEN '$date1' AND '$date2' ORDER BY fecha DESC";
-        $query1 = mysqli_query($connection, $sql1);
-        $query2 = mysqli_query($connection, $sql2);
+        $query1 = mysqli_query($adminconnection, $sql1);
+        $query2 = mysqli_query($adminconnection, $sql2);
         echo 
         "
         <!DOCTYPE html>
@@ -118,7 +118,7 @@ if(isset($_POST['send'])){
     
     echo "<div id='cont1'>
         <header id='enc1'>
-            <a href='vista_nuevo_gasto.php'><img id='img1' src='../../../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
+            <a href='vista_reporte_transacciones.php'><img id='img1' src='../../../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
             <h1>Reporte transacciones</h1>
             <div class='profile'>
                 <img id='profile_image' src='../../../imagenes/profile.png' alt='Imagen de perfil'>
@@ -133,7 +133,7 @@ if(isset($_POST['send'])){
             <div class='information'>
                 <h2>Reporte de transacciones</h2>
                 <br>
-                <p>En las 2 tabalas se detallan los gastos y los cobros realizados.</p>
+                <p>En las 2 tablas se detallan los gastos y los cobros realizados.</p>
                 <br>
                 <h3>Software:</h3><p><b>SGIVT</b></p>
                 <h3>Version:</h3><p><b>1.2</b></p>
@@ -199,4 +199,6 @@ if(isset($_POST['send'])){
 </html>";
     }
 }
+
+$adminconnection->close();
 ?>

@@ -18,7 +18,7 @@
             <?php
             include('../../../connection.php');
             $query1 = "SELECT * FROM usuario join cliente on usuario.idUsuario=cliente.idUsuario join celular on usuario.idUsuario=celular.idUsuario join email on usuario.idUsuario=email.idUsuario join residencia on cliente.idCliente=residencia.idClienteResidencia ORDER BY idCliente ASC";
-            $resultset1 = mysqli_query($connection, $query1);
+            $resultset1 = mysqli_query($adminconnection, $query1);
             $a = mysqli_num_rows($resultset1);
             ?>
     <script>
@@ -95,3 +95,6 @@
 
 </body>
 </html>
+<?php
+$adminconnection->close();
+?>

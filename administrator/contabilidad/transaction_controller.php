@@ -5,7 +5,7 @@ if(!isset($_SESSION['userinfo'])){
     header("location:../../main/index.html");
 }
 if(isset($_GET['search_button'])){
-    $search = mysqli_real_escape_string($connection, $_GET['search']);
+    $search = mysqli_real_escape_string($adminconnection, $_GET['search']);
    $query1 = "SELECT * FROM usuario JOIN cliente ON usuario.idUsuario = cliente.idUsuario WHERE usuario.nombreUsuario LIKE '%$search%' OR usuario.apellidosUsuario LIKE '%$search%' ORDER BY nombreUsuario ASC";
     if($search == ""){
         echo "
@@ -65,7 +65,7 @@ if(!isset($_SESSION['userinfo'])){
                 <h2 class='error'>Debe ingresar un nombre para la búsqueda</h2>
             </div>";
     }else{
-    $resultset1 = mysqli_query($connection, $query1);
+    $resultset1 = mysqli_query($adminconnection, $query1);
     $num = mysqli_num_rows($resultset1);
         echo
         "<!DOCTYPE html>
@@ -140,4 +140,6 @@ if(!isset($_SESSION['userinfo'])){
     }
 
 }
+
+$adminconnection->close();
 ?>

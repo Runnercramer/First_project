@@ -14,7 +14,7 @@
         .main_form{width:90%;margin:10px auto;background-color:#aaa;display:flex;flex-direction:column;padding:15px;font-size:1.5rem;font-weight:bold;align-items:center;box-shadow:5px 5px 20px 5px #333;}
         .subcontainer{width:70%;display:flex;flex-direction:column;align-items:center;}
         .subcontainer label{margin:10px;}
-        .subcontainer input[type="date"], input[type="search"]{width:80%;margin:10px;height:30px;text-align:center;font-size:1rem;}
+        .subcontainer input[type="date"], input[type="search"]{width:80%;margin:10px;height:30px;text-align:center;font-size:1rem;border-radius:15px;}
         .main_button{background-color:#74a118;width:40%;height:30px;text-align:center;font-weight:bold;margin:15px;font-size:1.2rem;box-shadow:3px 3px 10px 3px #333;}
         .main_button:hover{background-color:#a1ca4f;}
         .main_button:active{background-color:black;color:white;}
@@ -59,13 +59,13 @@
                 <h3>Contactos:</h3><p>301xxx xx xx<br>3022459827</p>
             </div>
             <div>
-                <form class="main_form" action="reporte_despacho_controller.php" method="POST">
+                <form class="main_form" action="reporte_despacho_controller.php" method="GET">
                     <div class="subcontainer">
                         <h3>Reporte general</h3>
                         <label>Fecha de inicio</label>
-                        <input type="date" name="codpedido" placeholder="Ingresa la primera fecha">
+                        <input type="date" name="date1" placeholder="Ingresa la primera fecha">
                         <label>Fecha de fin</label>
-                        <input type="date" name="idempleado" placeholder="Ingresa la segunda fecha">
+                        <input type="date" name="date2" placeholder="Ingresa la segunda fecha">
                     </div>
                     <br>
                     <div class="subcontainer">

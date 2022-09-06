@@ -28,3 +28,14 @@ Crear desde el admin la posibilidad de ver pqrs
 Cunado una dministrador crea a un cliente, debe enviarse un correo de confirmación
 
 Debo impedir que un usuario ingrese a un modulo o interfaz no permitido
+
+Debo usar la función explode para separar el campo de labores desempeñadas
+
+Debo crear triggers para eliminacion de usuarios SQL
+
+Meterle JS a los archivos de eliminación. Para usar un prompt y confirmar la eliminación. 
+
+Falta edicion de empleados admin
+
+Verificar el funcionamiento del inventario
+Averiguar como relacionar los detalles de un inventario con MySQL

@@ -66,7 +66,7 @@
                 <div class="inventory_dates">
                     <h3 class="subtitle">Inventarios</h3>
                     <label>Ingresar nuevo inventario</label>
-                    <input type="date" name="date1">
+                    <input type="date" name="creationdate">
                     <label>Encargado</label>
                     <input type="text" name="encargado" placeholder="Nombre de quien realiza el inventario">
                     <label>Supervisor</label>
@@ -89,10 +89,10 @@
                 </div>
                 <div class="stock_date">
                     <h3>Obtener inventario</h3>
-                    <input type="date" name="date2"><br><br><br>
+                    <input type="date" name="searchdate"><br><br><br>
                     <h3 class="subtitle">Existencias</h3>
                     <label>Fecha de existencias</label>
-                    <input type="date" name="date3">
+                    <input type="date" name="togetdate">
                     <input type="submit" name="send" value="Consultar">
                 </div>
                 </form>

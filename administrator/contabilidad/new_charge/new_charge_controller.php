@@ -6,11 +6,11 @@ if(!isset($_SESSION['userinfo'])){
 }
 
 if(isset($_POST['send'])){
-    $admin = mysqli_real_escape_string($connection, $_POST['idadmin']);
-    $price = mysqli_real_escape_string($connection, $_POST['price']);
-    $name = mysqli_real_escape_string($connection, $_POST['name']);
-    $customer = mysqli_real_escape_string($connection, $_POST['idcliente']);
-    $order = mysqli_real_escape_string($connection, $_POST['idpedido']);
+    $admin = mysqli_real_escape_string($adminconnection, $_POST['idadmin']);
+    $price = mysqli_real_escape_string($adminconnection, $_POST['price']);
+    $name = mysqli_real_escape_string($adminconnection, $_POST['name']);
+    $customer = mysqli_real_escape_string($adminconnection, $_POST['idcliente']);
+    $order = mysqli_real_escape_string($adminconnection, $_POST['idpedido']);
 
     if($admin == "" || $price == "" || $name == "" || $customer == "" || $order == ""){
     echo 
@@ -80,15 +80,15 @@ if(isset($_POST['send'])){
 </html>";
     }else{
         $sql1 = "INSERT INTO transaccion (idAdmin, valor) VALUES ('$admin', '$price')";
-        $query1 = mysqli_query($connection, $sql1);
+        $query1 = mysqli_query($adminconnection, $sql1);
 
         $sql2 = "SELECT * FROM transaccion ORDER BY codtRansaccion DESC";
-        $query2 = mysqli_query($connection, $sql2);
+        $query2 = mysqli_query($adminconnection, $sql2);
         $r = $query2->fetch_assoc();
         $c = $r['codTransaccion'];
 
         $sql3 = "INSERT INTO cobro (codTransaccion, idAdmin, cobrador, idCliente, codPedido) VALUES ('$c', '$admin', '$name', '$customer', '$order')";
-        $query3 = mysqli_query($connection, $sql3);
+        $query3 = mysqli_query($adminconnection, $sql3);
 
         if($query3){
             echo 
@@ -225,5 +225,5 @@ if(isset($_POST['send'])){
     }
 }
 
-$connection->close();
+$adminconnection->close();
 ?>

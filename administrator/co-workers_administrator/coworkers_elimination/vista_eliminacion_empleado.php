@@ -60,13 +60,13 @@
                     <label>Cédula empleado</label>
                     <input type="text" name="id" placeholder="Ingrese la cédula del empleado a eliminar" required>
                     <label>Correo electrónico</label>
-                    <input type="email" name="email" placeholder="Ingrese el correo electrónico del empleado">
+                    <input type="email" name="email" placeholder="Ingrese el correo electrónico del empleado" required>
                     <label>Nombre empleado</label>
                     <input type="text" name="name" placeholder="Ingrese un nombre del empleado">
                     <label>Tipo de usuario</label>
-                    <input type="text" name="cargo" placeholder="Ingrese el cargo del empleado">
+                    <input type="text" name="cargo" placeholder="Ingrese el cargo del empleado" required>
                     <label>Confirmación</label>
-                    <select name="confirmation">
+                    <select name="confirmation" required>
                         <option value="0">---------------------</option>
                         <option value="no">No</option>
                         <option value="si">Sí</option>

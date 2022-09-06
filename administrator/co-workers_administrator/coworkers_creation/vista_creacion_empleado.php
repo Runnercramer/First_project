@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../../new_admin_styles.css">
     <style>
         .creation_form{width:80%;margin:10px auto;background-color:#aaa;display:flex;flex-direction:column;padding:10px;font-size:1.2rem;align-items:center;font-weight:bold;box-shadow:5px 5px 20px 5px #333;}
-        .creation_form input[type="text"], input[type="email"]{width:60%;margin:10px;text-align:center;font-size:1rem;}
+        .creation_form input[type="text"], input[type="email"]{width:60%;margin:10px;text-align:center;font-size:1rem;border-radius:15px;}
         .creation_form input[type="submit"]{width:40%;margin:10px;background-color:#85b427;font-weight:bold;height:30px;font-size:1em;box-shadow:3px 3px 10px 3px #333;}
         .creation_form input[type="submit"]:hover{background-color:#a1ca4f;}
         .creation_form input[type="submit"]:active{background-color:black;color:white;}
@@ -58,21 +58,23 @@
             <div>
                 <form class="creation_form" action="coworker_creation_controller.php" method="POST">
                     <label>Cédula*</label>
-                    <input type="text" name="id" placeholder="Ingresa el número de documento" required>
+                    <input type="text" name="id" placeholder="Ingresa el número de documento" >
                     <label>Nombres*</label>
-                    <input type="text" name="name" placeholder="Ingresa los nombres del empleado" required>
-                    <label>Primer Apellido*</label>
-                    <input type="text" name="lastname1" placeholder="Ingresa el primer apellido" required>
-                    <label>Segundo apellido</label>
-                    <input type="text" name="lastname2" placeholder="Ingresa el segundo apellido">
+                    <input type="text" name="name" placeholder="Ingresa los nombres del empleado" >
+                    <label>Apellidos*</label>
+                    <input type="text" name="lastname" placeholder="Ingresa el primer apellido">
                     <label>Email*</label>
-                    <input type="email" name="email" placeholder="Ingresa el correo electrónico" required>
+                    <input type="email" name="email" placeholder="Ingresa el correo electrónico" >
                     <label>Celular*</label>
-                    <input type="text" name="cellphone" placeholder="Ingresa el número de celular" required>
+                    <input type="text" name="cellphone" placeholder="Ingresa el número de celular" >
                     <label>Cargo*</label>
-                    <input type="text" name="cargo" placeholder="Ingrese el cargo asignado" required>
-                    <label>Labores desempeñadas</label>
-                    <input type="text" name="labores" placeholder="Ingrese las labores a desempeñar">
+                    <input type="text" name="cargo" placeholder="Ingrese el cargo asignado" >
+                    <label>Labores desempeñadas*</label>
+                    <input type="text" name="labores" placeholder="Labor1//Labor2//Labor3" >
+                    <label>Contraseña*</label>
+                    <input type="text" name="password1" placeholder="Ingrese una contraseña" >
+                    <label>Verificar contraseña*</label>
+                    <input type="text" name="password2" placeholder="Verifica la contraseña" >
                     <input type="submit" name="send" value="Crear">
                 </form>
             </div>

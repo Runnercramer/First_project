@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="../../administrator_styles.css">
     <link rel="stylesheet" href="../../new_admin_styles.css">
     <style>
-        .main_form{margin:10px auto;width:90%;background-color:#aaa; display:flex;flex-direction:column;align-items:center;justify-content:space-evenly;padding:10px;font-size:2.5em;font-weight:bold;box-shadow:5px 5px 20px 5px #333;}
-        .main_form input[type="text"], input[type="number"], input[type="date"]{width:65%;margin:15px;height:40px;text-align:center;font-size:0.7em;}
+        .main_form{margin:10px auto;width:90%;background-color:#aaa; display:flex;flex-direction:column;align-items:center;justify-content:space-evenly;padding:10px;font-size:2em;font-weight:bold;box-shadow:5px 5px 20px 5px #333;}
+        .main_form input[type="text"], input[type="number"], input[type="date"]{width:65%;margin:15px;height:40px;text-align:center;font-size:0.7em;border-radius:15px;}
         .main_form input[type="submit"]{width:45%;background-color:#74a118;font-weight:bold;text-align:center;height:40px;margin:15px;font-size:0.6em;box-shadow:3px 3px 10px 3px #333;}
         .main_form input[type="submit"]:hover{background-color:#a1ca4f;}
         .main_form input[type="submit"]:active{background-color:black;color:white;}
@@ -59,11 +59,15 @@
             <div>
                 <form class="main_form" action="nuevo_despacho_controller.php" method="POST">
                     <label>Código de pedido</label>
-                    <input type="text" name="codpedido" placeholder="Ingresa el código del pedido 'X-XXX'">
+                    <input type="text" name="codpedido" placeholder="Ingresa el código del pedido 'X-XXX'" required>
                     <label>Empleado encargado del despacho</label>
-                    <input type="number" name="idempleado" placeholder="Ingresa el código del empleado">
+                    <input type="number" name="idempleado" placeholder="Ingresa el código del empleado" required>
                     <label>Fecha del envío</label>
-                    <input type="date" name="date">
+                    <input type="date" name="date" required>
+                    <label>Transportadora</label>
+                    <input type="text" name="empresa" placeholder="Empresa transportadora" required>
+                    <label>Guía</label>
+                    <input type="text" name="guia" placeholder="Ingresa el N° de guia" required>
                     <input type="submit" name="send" value="Crear despacho">
                 </form>
             </div>

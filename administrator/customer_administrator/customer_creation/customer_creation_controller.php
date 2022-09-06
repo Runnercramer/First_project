@@ -6,16 +6,16 @@ if(!isset($_SESSION['userinfo'])){
 }
 
 if(isset($_POST['send'])){
-    $name = mysqli_real_escape_string($connection, $_POST['name']);
-    $lastname = mysqli_real_escape_string($connection, $_POST['lastname']);
-    $email = mysqli_real_escape_string($connection, $_POST['email']);
-    $cell = mysqli_real_escape_string($connection, $_POST['tel']);
-    $id_creation = mysqli_real_escape_string($connection, $_POST['id']);
-    $department = mysqli_real_escape_string($connection, $_POST['department']);
-    $city = mysqli_real_escape_string($connection, $_POST['city']);
-    $direction = mysqli_real_escape_string($connection, $_POST['direction']);
-    $password1 = mysqli_real_escape_string($connection, $_POST['password1']);
-    $password2 = mysqli_real_escape_string($connection, $_POST['password2']);
+    $name = mysqli_real_escape_string($adminconnection, $_POST['name']);
+    $lastname = mysqli_real_escape_string($adminconnection, $_POST['lastname']);
+    $email = mysqli_real_escape_string($adminconnection, $_POST['email']);
+    $cell = mysqli_real_escape_string($adminconnection, $_POST['tel']);
+    $id_creation = mysqli_real_escape_string($adminconnection, $_POST['id']);
+    $department = mysqli_real_escape_string($adminconnection, $_POST['department']);
+    $city = mysqli_real_escape_string($adminconnection, $_POST['city']);
+    $direction = mysqli_real_escape_string($adminconnection, $_POST['direction']);
+    $password1 = mysqli_real_escape_string($adminconnection, $_POST['password1']);
+    $password2 = mysqli_real_escape_string($adminconnection, $_POST['password2']);
 
     if($name == "" || $lastname == "" || $email == "" || $cell == "" ||  $id_creation == "" ||  $department == "" || $city == "" || $direction == "" || $password1 == "" || $password2 == ""){
         echo 
@@ -152,7 +152,7 @@ if(isset($_POST['send'])){
         ";
         }else{
             $validation = "SELECT count(*) idUsuario FROM usuario WHERE idUsuario = '$id_creation'";
-            $query_validation = mysqli_query($connection, $validation);
+            $query_validation = mysqli_query($adminconnection, $validation);
             $num = $query_validation->fetch_assoc();
             if($num['idUsuario'] != '0'){
                 echo 
@@ -233,10 +233,10 @@ if(isset($_POST['send'])){
             $sql5 = "SELECT * FROM cliente WHERE idUsuario ='$id_creation'";
             
 
-            $query1 = mysqli_query($connection, $sql1);
-            $query2 = mysqli_query($connection, $sql2);
-            $query3 = mysqli_query($connection, $sql3);
-            $query4 = mysqli_query($connection, $sql4);
+            $query1 = mysqli_query($adminconnection, $sql1);
+            $query2 = mysqli_query($adminconnection, $sql2);
+            $query3 = mysqli_query($adminconnection, $sql3);
+            $query4 = mysqli_query($adminconnection, $sql4);
 
             if($query1){
                 if($query2){
@@ -313,12 +313,12 @@ if(isset($_POST['send'])){
 
 
             $sql5 = "SELECT * FROM cliente WHERE idUsuario ='$id_creation'";
-            $query5 = mysqli_query($connection, $sql5);
+            $query5 = mysqli_query($adminconnection, $sql5);
             $r = $query5->fetch_assoc();
             $c = $r['idCliente'];
             if($query5){
                 $sql6 = "INSERT INTO residencia (idClienteResidencia, departamento, ciudad, direccion) VALUES ('$c', '$department', '$city', '$direction')";
-                $query6 = mysqli_query($connection, $sql6);
+                $query6 = mysqli_query($adminconnection, $sql6);
                 
             }
             }
@@ -326,5 +326,5 @@ if(isset($_POST['send'])){
     }
 }
 
-$connection->close();
+$adminconnection->close();
 ?>
