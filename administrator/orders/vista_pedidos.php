@@ -87,7 +87,7 @@ if(!isset($_SESSION['userinfo'])){
                         <label>Buscar pedido</label>
                         <div class="search_field">
                         <input type="search" name="search" placeholder="Ingresa el nombre del cliente">
-                        <input class="submit_button" type="submit" name="search" value="&#128269">
+                        <input class="submit_button" type="submit" name="send" value="&#128269">
                     </div>
                     </div>
                 </form>

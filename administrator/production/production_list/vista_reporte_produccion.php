@@ -1,3 +1,6 @@
+<?php
+include("../../../connection.php");
+?>
 <!DOCTYPE html>
 <html lang='es'>
 <head>
@@ -11,11 +14,11 @@
     <link rel="stylesheet" href="../../administrator_styles.css">
     <link rel="stylesheet" href="../../new_admin_styles.css">
     <style>
-        .production_table{width:70%;margin:20px auto;background-color:#bbb;text-align:center;font-size:1.2em;}
-        .header{background-color:#74a118;border:1px solid black;font-weight:bold;height:30px;}
-        .field{background-color:#999;height:30px;}
+        .production_table{width:70%;margin:20px auto;background-color:#777;text-align:center;font-weight:bold;}
+        .header{background-color:#a1ca4f;font-size:1.5em;}
+        .field{background-color:#bbb;font-size:1.2em;}
     </style>
-                  <script>
+    <script>
         function profile(){
             window.location.href = "../../adminprofile.php";
         }
@@ -31,10 +34,18 @@
     if(!isset($_SESSION['userinfo'])){
         header("location:../../../main/index.html");
     }
+
+    $sql1 = "SELECT * FROM usuario us JOIN empleado em ON us.idUsuario = em.idUsuario
+    JOIN produccionempleado pe ON em.idEmpleado = pe.idEmpleado 
+    JOIN produccion pr ON pe.codProduccion = pr.codProduccion 
+    JOIN productoproduccion pp ON pr.codProduccion = pp.codProduccion
+    JOIN producto ON pp.codProducto = producto.codProducto 
+    ORDER BY fecha DESC";
+    $query1 = mysqli_query($adminconnection, $sql1);
     ?>
     <div id='cont1'>
         <header id='enc1'>
-            <a href='../vista_produccion.html'><img id='img1' src='../../../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
+            <a href='../vista_produccion.php'><img id='img1' src='../../../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
             <h1>Reporte producción</h1>
             <div class="profile">
                 <img id="profile_image" src="../../../imagenes/profile.png" alt="Imagen de perfil">
@@ -63,20 +74,18 @@
                         <td class="header">Fecha</td>
                         <td class="header">Empleado</td>
                     </tr>
-                    <tr>
-                        <td class="field">1</td>
-                        <td class="field">QCM-251</td>
-                        <td class="field">982</td>
-                        <td class="field">15-07-2022</td>
-                        <td class="field">Ana García</td>
-                    </tr>
-                    <tr>
-                        <td class="field">2</td>
-                        <td class="field">QCM-255</td>
-                        <td class="field">1026</td>
-                        <td class="field">16-07-2022</td>
-                        <td class="field">Ana García</td>
-                    </tr>
+                    <?php
+                    while($r = $query1->fetch_assoc()){
+                        echo "
+                        <tr>
+                        <td class='field'>" . $r['codProduccion'] . "</td>
+                        <td class='field'>" . $r['producto'] . "</td>
+                        <td class='field'>" . $r['cantProduccion'] . "</td>
+                        <td class='field'>" . $r['fecha'] . "</td>
+                        <td class='field'>" . $r['nombreUsuario'] . " " . $r['apellidosUsuario'] . "</td>
+                        </tr>";
+                    }
+                    ?>
                 </table>
             </div>
         </section>

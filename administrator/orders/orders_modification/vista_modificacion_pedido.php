@@ -1,3 +1,6 @@
+<?php
+include("../../../connection.php");
+?>
 <!DOCTYPE html>
 <html lang='es'>
 <head>
@@ -11,9 +14,9 @@
     <link rel="stylesheet" href="../../administrator_styles.css">
     <link rel="stylesheet" href="../../new_admin_styles.css">
     <style>
-        .main_table{background-color:#bbb;width:50%;margin:20px auto;height:auto;min-height:150px;text-align:center;}
-        .header{background-color:#a1ca4f;font-weight:bold;}
-        .field{background-color:#999;}
+        .main_table{background-color:#bbb;width:50%;margin:20px auto;height:auto;text-align:center;font-weight:bold;}
+        .header{background-color:#a1ca4f;font-size:1.5em;}
+        .field{background-color:#999;font-size:1.2em;}
     </style>
                   <script>
         function profile(){
@@ -31,6 +34,10 @@
     if(!isset($_SESSION['userinfo'])){
         header("location:../../../main/index.html");
     }
+
+    //La siguiente consulta me permite obtener registros que no están dentro de la segunda consulta
+    $sql1 = "SELECT * FROM pedido pe JOIN cliente cl ON pe.idCliente = cl.idCliente JOIN usuario us ON cl.idUsuario = us.idUsuario WHERE pe.codPedido NOT IN (SELECT de.codPedido FROM despacho de)";
+    $query1 = mysqli_query($adminconnection, $sql1);
     ?>
     <div id='cont1'>
         <header id='enc1'>
@@ -47,7 +54,7 @@
             <div class="information">
                 <h2>MODIFICACIÓN PEDIDOS</h2>
                 <br>
-                <p>En esta interfaz podrás encontrar un listado de los pedidos no despachados, los cuales podrás ser modificados. Puedes oprimir en el código del pedido para ver y modificar los detalles del mismo.<p>
+                <p>En esta interfaz podrás encontrar un listado de los pedidos no despachados, los cuales podrán ser modificados. Puedes oprimir en el código del pedido para ver y modificar los detalles del mismo.<p>
                 <br>
                 <h3>Software:</h3><p><b>SGIVT</b></p>
                 <h3>Version:</h3><p><b>1.2</b></p>
@@ -63,18 +70,18 @@
                         <td class="header">Fecha pedido</td>
                         <td class="header">Cliente</td>
                     </tr>
-                    <tr>
-                        <td class="field">1</td>
-                        <td class="field">A-000</td>
-                        <td class="field">15-07-2022</td>
-                        <td class="field">Juan Perez</td>
-                    </tr>
-                    <tr>
-                        <td class="field">2</td>
-                        <td class="field">A-001</td>
-                        <td class="field">25-07-2022</td>
-                        <td class="field">Fernando Bohorquez</td>
-                    </tr>
+                    <?php
+                    $i = 1;
+                    while($r = $query1->fetch_assoc()){
+                        echo "
+                        <tr>
+                        <td class='field'>$i</td>
+                        <td class='field'>" . $r['codPedido'] . "</td>
+                        <td class='field'>" . $r['fechaPedido'] . "</td>
+                        <td class='field'>" . $r['nombreUsuario'] . " " . $r['apellidosUsuario'] . "</td>
+                        </tr>";
+                    }
+                    ?>
                 </table>
             </div>
         </section>

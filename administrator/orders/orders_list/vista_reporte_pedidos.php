@@ -1,3 +1,6 @@
+<?php
+include("../../../connection.php");
+?>
 <!DOCTYPE html>
 <html lang='es'>
 <head>
@@ -11,9 +14,9 @@
     <link rel="stylesheet" href="../../administrator_styles.css">
     <link rel="stylesheet" href="../../new_admin_styles.css">
     <style>
-        .main_table{background-color:#bbb;width:50%;margin:20px auto;height:auto;min-height:150px;text-align:center;}
-        .header{background-color:#a1ca4f;font-weight:bold;}
-        .field{background-color:#999;}
+        .main_table{background-color:#bbb;width:80%;margin:20px auto;height:auto;text-align:center;font-weight:bold;}
+        .header{background-color:#a1ca4f;font-size:1.5em;}
+        .field{background-color:#999;font-size:1.2em;}
     </style>
                   <script>
         function profile(){
@@ -31,6 +34,9 @@
     if(!isset($_SESSION['userinfo'])){
         header("location:../../../main/index.html");
     }
+
+    $sql1 = "SELECT * FROM pedido pe JOIN cliente cl ON pe.idCliente = cl.idCliente JOIN usuario us ON cl.idUsuario = us.idUsuario ORDER BY fechaPedido DESC";
+    $query1 = mysqli_query($adminconnection, $sql1);
     ?>
     <div id='cont1'>
         <header id='enc1'>
@@ -62,19 +68,22 @@
                         <td class="header">Código pedido</td>
                         <td class="header">Fecha pedido</td>
                         <td class="header">Cliente</td>
+                        <td class='header'>Valor</td>
                     </tr>
-                    <tr>
-                        <td class="field">1</td>
-                        <td class="field">A-000</td>
-                        <td class="field">15-07-2022</td>
-                        <td class="field">Juan Perez</td>
-                    </tr>
-                    <tr>
-                        <td class="field">2</td>
-                        <td class="field">A-001</td>
-                        <td class="field">25-07-2022</td>
-                        <td class="field">Fernando Bohorquez</td>
-                    </tr>
+                    <?php
+                    $i = 1;
+                    while($r = $query1->fetch_assoc()){
+                        echo "
+                        <tr>
+                        <td class='field'>$i</td>
+                        <td class='field'>" . $r['codPedido'] . "</td>
+                        <td class='field'>" . $r['fechaPedido'] . "</td>
+                        <td class='field'>" . $r['nombreUsuario'] . " " . $r['apellidosUsuario'] . "</td>
+                        <td class='field'>$" . $r['valorPedido'] . "</td>
+                        </tr>";
+                        $i++;
+                    }
+                    ?>
                 </table>
             </div>
         </section>
