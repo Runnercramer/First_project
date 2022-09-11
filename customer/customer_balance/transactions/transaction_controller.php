@@ -82,9 +82,9 @@ if(isset($_GET['send'])){
     <link rel='stylesheet' href='../../customer_styles.css'>
     <link rel='stylesheet' href='../../new_customer_styles.css'>
     <style>
-    .report_table{background-color:#ccc;width:80%;margin:20px auto;height:200px;font-size:1.5em;text-align:center;}
+    .report_table{background-color:#777;width:80%;margin:20px auto;height:200px;font-size:1.5em;text-align:center;}
     .header{background-color:#a1ca4f;border:1px solid black;font-weight:bold;}
-    .field{background-color:#aaa;border:1px solid black;}
+    .field{background-color:#ccc;border:1px solid black;}
     </style>
     <script>
     function logout(){

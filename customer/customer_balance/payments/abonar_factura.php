@@ -14,11 +14,11 @@ include("../../../connection.php");
     <link rel="stylesheet" href="../../customer_styles.css">
     <link rel="stylesheet" href="../../new_customer_styles.css">
     <style>
-        .lista_saldos{width:100%;margin:10px auto;display:grid;grid-template-columns:2fr 1fr;grid-template-rows:50px 1fr 1fr 1fr;background-color:#ddd;}
+        .lista_saldos{width:100%;margin:10px auto;display:grid;grid-template-columns:2fr 1fr;grid-template-rows:50px 1fr 1fr 1fr;}
         .first_column{text-align:center;}
         .second_column{text-align:center;display:flex;flex-direction:column;}
-        .bills_table{background-color:#777;width:95%;text-align:center;margin:10px auto;margin-top:30px;}
-        .header{background-color:#a1ca4f;font-weight:bold;font-size:1.2em;height:35px;}
+        .bills_table{background-color:#777;width:95%;text-align:center;margin:10px auto;margin-top:30px;font-weight:bold;}
+        .header{background-color:#a1ca4f;font-size:1.2em;height:35px;}
         .field{background-color:#bbb;height:30px;}
         .payment_form{width:90%;margin:0 auto;background-color:#aaa;height:400px;display:flex;flex-direction:column;align-items:center;justify-content:space-around;padding:20px;margin-top:50px;font-size:1.5em;font-weight:bold;box-shadow:3px 3px 10px 3px #333;}
         .payment_form input[type="text"], input[type="number"]{width:60%;text-align:center;height:25px;margin-top:10px;margin-bottom:10px;}

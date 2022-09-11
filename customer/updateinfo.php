@@ -1,3 +1,10 @@
+<?php
+session_start();
+include("../connection.php");
+if(!isset($_SESSION['userinfo'])){
+    header("location:../main/index.html");
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,14 +24,11 @@
         window.location.href = "../main/logout.php";
     }
 
-    function updateInfo(){
-        window.location.href="updateinfo.php";
-    }
     </script>
 </head>
 <body>
     <?php
-    session_start();
+
     if(!isset($_SESSION['userinfo'])){
         header("location:../main/index.html");
     }
@@ -33,31 +37,35 @@
     <div id="cont1">
         <header>
             <a href="vista_cliente.php"><img id="img1" src="../imagenes/descarga.png" alt="Logotipo de Vetex"></a>
-            <h1>Perfil</h1>
+            <h1>Actualización de Perfil</h1>
         </header>
         <section class="main_section">
             <div class="info">
-                <h2>PERFIL</h2>
+                <h2>ACTUALIZACIÓN DE PERFIL</h2>
                 <br>
-                <p>En esta interfaz, podrás verificar tus datos existentes y podrás modificarlos cuando quieras.</p>
+                <p>Ingresa los campos que quieras actualizar</p>
                 <br>
                 <h3>Software:</h3><p><b>SGIVT</b></p>
                 <h3>Version:</h3><p><b>1.2</b></p>
                 <h3>Desarrolladores:</h3><p>Jean Cuesta<br>Cristian Vargas</p>
                 <h3>Contactos:</h3><p>301xxx xx xx<br>3022459827</p>
             </div>
-            <div class="data">
-                <img src="../imagenes/profile.png" alt="Imágen de perfil" class="profile_img">
-                <p><b>Nombre: </b><?php echo $_SESSION['userinfo']['nombreUsuario'] . " " . $_SESSION['userinfo']['apellidosUsuario'];?></p>
-                <p><b>Cédula: </b><?php echo $_SESSION['userinfo']['idUsuario'];?></p>
-                <p><b>Email: </b><?php echo $_SESSION['useremail']['email'];?></p>
-                <p><b>Celular: </b><?php echo $_SESSION['usercell']['celular'];?></p>
-                <p><b>Tipo de usuario: </b><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);?></p>
-                <p><b>Contraseña: </b><?php ;?></p>
-                <p><b>Dirección de residencia: </b><?php echo $_SESSION['userdir']['direccion'] . " " . $_SESSION['userdir']['ciudad'] . ", " . $_SESSION['userdir']['departamento'];?></p>
+            <div>
+            <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
+            <h3>Ingresa sólo los datos a actualizar</h3>
+                <label>Nombre</label>
+                <input type="text" name="name" placeholder="Ingresa un nuevo nombre">
+                <label>Cédula</label>
+                <input type="text" name="id" placeholder="Ingresa un nuevo N° de identidad">
+                <label>Email</label>
+                <input type="text" name="email" placeholder="Ingresa un nuevo correo electrónico">
+                <label>Celular</label>
+                <input type="text" name="cell" placeholder="Ingresa un nuevo N° de celular">
+                <label>Dirección de residencia</label>
+                <input type="text" name="direction" placeholder="Ingresa una nueva dirección">
+            </form>
             </div>
             <div class="function">
-                <input class="profile_update" type="button" name="modify" value="Actualizar datos" onClick="updateInfo()">
                 <input class="logout_button" type="button" name="logout" value="Cerrar sesión" onClick="logout()">
             </div>
         </section>

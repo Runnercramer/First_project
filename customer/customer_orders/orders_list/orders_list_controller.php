@@ -8,7 +8,11 @@ if(isset($_GET['button'])){
     $date1 = mysqli_real_escape_string($connection, $_GET['date1']);
     $date2 = mysqli_real_escape_string($connection, $_GET['date2']);
     $id = $_SESSION['customerinfo']['idCliente'];
-    $query1 = "SELECT * FROM pedido pe left JOIN detallepedido de ON pe.codPedido = de.codPedido JOIN producto pr ON de.codProducto = pr.codProducto JOIN detalleproducto dp ON pr.codProducto = dp.codProducto WHERE idCliente = '$id' AND fechaPedido BETWEEN '$date1' AND '$date2' ORDER BY fechaPedido DESC";
+    $query1 = "SELECT * FROM pedido pe 
+    JOIN detallepedido de ON pe.codPedido = de.codPedidoDetalle 
+    JOIN producto pr ON de.codProducto = pr.codProducto 
+    JOIN detalleproducto dp ON pr.codProducto = dp.codProducto 
+    WHERE idCliente = '$id' AND fechaPedido BETWEEN '$date1' AND '$date2' ORDER BY fechaPedido DESC";
     
     if($date1 == "" || $date2 == ""){
         echo
@@ -75,11 +79,14 @@ if(isset($_GET['button'])){
             <style>
             .order_table{background-color:#666;text-align:center;width:100%;}
             .header{background-color:#a1ca4f;font-weight:bold;font-size:1.5em;}
-            .field{font-size:1.2em;background-color:#bbb;}
+            .field{font-size:1.2em;background-color:#bbb;font-weight:bold;}
             </style>
             <script>
+            function profile(){
+                window.location.href='../../customerprofile.php';
+            }
             function logout(){
-                window.location.href = '../../main/logout.php';
+                window.location.href = '../../../main/logout.php';
             }
             </script>
         </head>
@@ -93,7 +100,7 @@ if(isset($_GET['button'])){
                         <h3><b>";
                          echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']); 
                           echo "</b></h3>
-                        <input type='button' class='profile_button' value='Perfil &#9881'>
+                        <input type='button' class='profile_button' value='Perfil &#9881' onclick=''>
                         <input type='button' class='logout_button' value='Cerrar sesión' onClick='logout()'>
                     </div>
                 </header> 
@@ -101,7 +108,7 @@ if(isset($_GET['button'])){
                     <div class='information'>
                         <h2>Listado de pedidos</h2>
                         <br>
-                        <p>Este es u listado de los pedidos realizados por usted, en dónde se encuentran relacionados con el producto solicitado y sus cantidades.</p>
+                        <p>Este es un listado de los pedidos realizados por usted, en dónde se encuentran relacionados con el producto solicitado y sus cantidades.</p>
                         <br>
                         <h3>Software:</h3><p><b>SGIVT</b></p>
                         <h3>Version:</h3><p><b>1.2</b></p>

@@ -48,4 +48,7 @@ El reporte de pedidos debe cumplir el mismo requerimiento
 
 En el reporte de produccion, debo convertir en botones las referencias de los productos para hacer la consulta en base a ese producto
 
+El stock se hará obteniendo las existencias de los productos
+
+Debo crear una tabla que sirva como productos encargados
 Verificar el listado de produccion

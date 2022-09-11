@@ -15,9 +15,9 @@ include('../../../connection.php');
     <link rel="stylesheet" href="../../new_customer_styles.css">
     <style>
         .methods{grid-template-columns:2fr 7fr;min-height:530px;height:auto;}
-        .payment_form{width:95%;margin:30px auto;padding:15px;background-color:#ccc;box-shadow:5px 5px 20px 5px #666;display:grid;grid-template-columns:3fr 1fr;}
-        .payment_table{background-color:#999;margin:5px auto;text-align:center;box-shadow:3px 3px 15px 5px gray;}
-        td{border:1px solid black;padding:3px;background-color:#bbb;}
+        .payment_form{width:95%;margin:30px auto;padding:15px;box-shadow:5px 5px 20px 5px #666;display:grid;grid-template-columns:3fr 1fr;}
+        .payment_table{background-color:#777;margin:5px auto;text-align:center;box-shadow:3px 3px 15px 5px gray;font-weight:bold;}
+        td{padding:3px;background-color:#ccc;}
         .header_table{background-color:#a1ca4f;font-size:1.1em;font-weight:bold;}
         .payment_button{display:block;background-color:#a1ca4f;height:40px;;margin:150px auto;padding:5px;box-shadow:5px 5px 20px 5px black;font-size:1.2em;font-weight:bold;}
         .payment_button:hover{background-color:#74a118;}
