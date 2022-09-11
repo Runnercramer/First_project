@@ -112,6 +112,7 @@ if(isset($_POST['login'])){
             } 
         }
     $connection->close();
+    $adminconnection->close();
 }
 
 ?>
