@@ -359,7 +359,7 @@
                     <h3>Cable sc-410</h3>
                     <br>
                     <p>><b>Salida: </b>3.1A (Max)<br>1 metro<br>Recubierto en cordón<br>Función Carga rápida<br>Transferencia de datos<br><b>Iphone, TC, V(</b></p>
-                    <p><b>Precio: </b>$4000/p>
+                    <p><b>Precio: </b>$4000</p>
                 </div>
                 <div class="choose">
                     <label>¿Quieres este producto?</label>
@@ -683,7 +683,7 @@
                     <h3>Airpod TWS-1302</h3>
                     <br>
                     <p>Airpod por <b>unidad</b><br>Portabilidad y confiabilidad<br><b>6 horas</b> de duración<br>Base de carga en acero recubierto de TPE</p>
-                    <p><b>Precio: </b>$22000/p>
+                    <p><b>Precio: </b>$22000</p>
                 </div>
                 <div class="choose">
                     <label>¿Quieres este producto?</label>

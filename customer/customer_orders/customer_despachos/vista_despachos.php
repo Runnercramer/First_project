@@ -30,6 +30,18 @@ include("../../../connection.php");
     function profile(){
         window.location.href = "../../customerprofile.php";
     }
+
+    function coord(){
+        window.location.href="https://www.coordinadora.com/portafolio-de-servicios/servicios-en-linea/rastrear-guias/";
+    }
+
+    function tcc(){
+        window.location.href="https://tcc.com.co/courier/mensajeria/productos-y-servicios/rastrear-envio/";
+    }
+
+    function inter(){
+        window.location.href="https://www.interrapidisimo.com/sigue-tu-envio/";
+    }
     </script>
 </head>
 <body>
@@ -66,9 +78,9 @@ include("../../../connection.php");
             </div>
             <div>
                 <div class="transportadoras">
-                    <input class="trans_button" type="button" name="coord" value="Coordinadora" oncLick="">
-                    <input class="trans_button"  type="button" name="tcc" value="TCC" oncLick="">
-                    <input class="trans_button"  type="button" name="inter" value="Interrapidisimo" oncLick="">
+                    <input class="trans_button" type="button" name="coord" value="Coordinadora" oncLick="coord()">
+                    <input class="trans_button"  type="button" name="tcc" value="TCC" oncLick="tcc()">
+                    <input class="trans_button"  type="button" name="inter" value="Interrapidisimo" oncLick="inter()">
                 </div>
                 <table class="main_table">
                     <tr>

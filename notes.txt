@@ -7,11 +7,6 @@ Falta la interfaz del carrito
 
 Falta crear un botón para que el administrador pueda ver todos los usuarios existentes.
 
-select email, count(email)
-from usuario
-group by email
-having count(email)>1
-
 En la vista pagos falta válidar el saldo de los pedidos
 Falta el controlador nuevo pedido customer
 Falta la vista para actualizar pedido
@@ -52,3 +47,14 @@ El stock se hará obteniendo las existencias de los productos
 
 Debo crear una tabla que sirva como productos encargados
 Verificar el listado de produccion
+
+El administrador debe ingresar nuevas cantidadse de productos desde la interfaz de inventarios
+
+Debo validar que un cliente no pueda ingresar a las interfaces de un colaborador o administrador
+
+Verificar la búsqueda de resultados de clientes desde administrador
+
+Ya cargué las imagenes en la base de datos
+Falta hacer la consulta para renderizar la imágen y recuperrar la imagen cargada
+
+Actualizar adminconnection runnercramer1012462271
