@@ -43,7 +43,7 @@ if(isset($_GET['send'])){
 </head>
 <body>
 ";
-if(!isset($_SESSION['userinfo'])){
+if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'administrador'){
     header("location:../../main/index.html");
 }
 echo "

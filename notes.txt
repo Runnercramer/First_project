@@ -58,3 +58,5 @@ Ya cargué las imagenes en la base de datos
 Falta hacer la consulta para renderizar la imágen y recuperrar la imagen cargada
 
 Actualizar adminconnection runnercramer1012462271
+
+A los módulos de empleado hay que agregarle  || $_SESSION['userinfo']['tipoUsuario'] != 'empleado'

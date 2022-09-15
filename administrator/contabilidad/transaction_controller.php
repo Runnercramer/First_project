@@ -35,7 +35,7 @@ if(isset($_GET['search_button'])){
     </script>
 </head>
 <body>";
-if(!isset($_SESSION['userinfo'])){
+if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'administrador'){
     header("location:../../main/index.html");
 }
     echo "<div id='cont1'>
@@ -96,7 +96,7 @@ if(!isset($_SESSION['userinfo'])){
     </script>
         </head>
         <body>";
-        if(!isset($_SESSION['userinfo'])){
+        if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'administrador'){
             header("location:../../main/index.html");
         }
             echo "<div id='cont1'>

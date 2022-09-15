@@ -36,7 +36,7 @@ if(!isset($_SESSION['userinfo'])){
 <body>
     <?php
 
-    if(!isset($_SESSION['userinfo'])){
+    if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'cliente'){
         header("location:../main/index.html");
     }
     include("../main/login.php");

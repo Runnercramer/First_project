@@ -40,7 +40,7 @@ if(isset($_POST['send'])){
 </head>
 <body>";
 
-    if(!isset($_SESSION['userinfo'])){
+    if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'administrador'){
         header('location:../../../main/index.html');
     }
     echo "
@@ -108,7 +108,7 @@ if(isset($_POST['send'])){
 </head>
 <body>";
 
-    if(!isset($_SESSION['userinfo'])){
+    if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'administrador'){
         header('location:../../../main/index.html');
     }
     echo "
@@ -175,7 +175,7 @@ if(isset($_POST['send'])){
 </head>
 <body>";
 
-    if(!isset($_SESSION['userinfo'])){
+    if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'administrador'){
         header('location:../../../main/index.html');
     }
     echo "
@@ -255,7 +255,7 @@ if(isset($_POST['send'])){
         </head>
 <body>";
 
-    if(!isset($_SESSION['userinfo'])){
+    if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'administrador'){
         header('location:../../../main/index.html');
     }
     echo "
@@ -324,7 +324,7 @@ if(isset($_POST['send'])){
 </head>
 <body>";
 
-    if(!isset($_SESSION['userinfo'])){
+    if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'administrador'){
         header('location:../../../main/index.html');
     }
     echo "
