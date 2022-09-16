@@ -10,6 +10,9 @@
     <link href='https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap' rel='stylesheet'>
     <link rel="stylesheet" href="administrator_styles.css">
     <link rel="stylesheet" href="new_admin_styles.css">
+    <style>
+        .button7{grid-column-start:1; grid-column-end:2;}
+    </style>
     <script>
         function profile(){
             window.location.href = "adminprofile.php";
@@ -45,6 +48,10 @@
 
         function production(){
             window.location.href = "production/vista_produccion.php";
+        }
+
+        function producto(){
+            window.location.href="product/vista_producto.php";
         }
     </script>
 </head>
@@ -85,6 +92,7 @@
                 <div class="button5"><input class="button" type="button" onClick="stock()" value="Inventario"></div>
                 <div class="button6"><input class="button" type="button" onClick="orders()" value="Pedidos"></div>
                 <div class="button7"><input class="button" type="button" onClick="production()" value="Producción"></div>
+                <div class="button8"><input class="button" type="button" onClick="producto()" value="Producto"></div>
             </div>
         </section>
         <footer id='pa2'>
