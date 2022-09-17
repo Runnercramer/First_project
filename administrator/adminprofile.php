@@ -17,6 +17,9 @@
         window.location.href = "../main/logout.php";
     }
 
+    function updateProfile(){
+        window.location.href="updateinfo.php";
+    }
     </script>
 </head>
 <body>
@@ -49,11 +52,11 @@
                 <p><b>Email: </b><?php echo $_SESSION['useremail']['email'];?></p>
                 <p><b>Celular: </b><?php echo $_SESSION['usercell']['celular'];?></p>
                 <p><b>Tipo de usuario: </b><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);?></p>
-                <p><b>Contraseña: </b><?php ;?></p>
+                <p><b>Contraseña: </b><?php echo $_SESSION['password']['pass'];;?></p>
             </div>
             <div class="function">
-                <input class="profile_update" type="button" name="modify" value="Actualizar datos" onClick="">
-                <input class="logout_button" type="button" name="logout" value="Cerrar sesión" onClick="logout()">
+                <input class="profile_update" type="button" name="modify" value="Actualizar datos" onclick="updateProfile()">
+                <input class="logout_button" type="button" name="logout" value="Cerrar sesión" onclick="logout()">
             </div>
         </section>
         <footer>

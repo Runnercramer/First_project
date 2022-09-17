@@ -2,7 +2,7 @@
 include("../../connection.php");
 if(isset($_GET['search_button'])){
     $search = mysqli_real_escape_string($connection, $_GET['search']);
-    $query1 = "SELECT * FROM usuario WHERE nombreUsuario LIKE '%$search%' OR apellidosUsuario LIKE '%$search%'"; 
+    $query1 = "SELECT * FROM usuario us RIGHT JOIN cliente cl ON us.idUsuario = cl.idUsuario WHERE nombreUsuario LIKE '%$search%' OR apellidosUsuario LIKE '%$search%' ORDER BY nombreUsuario ASC"; 
     $resultset1 = mysqli_query($adminconnection, $query1);
     $a = mysqli_num_rows($resultset1);
 
@@ -73,9 +73,9 @@ if(isset($_GET['search_button'])){
         <link rel='stylesheet' href='../administrator_styles.css'>
         <link rel='stylesheet' href='../new_admin_styles.css'>  
         <style>
-        .table1{border:1px solid black;background-color:#aaa; width:70%;margin:10px auto;text-align:center;box-shadow:5px 5px 20px 5px #666;}
-        .header{border:1px solid black;background-color:#86b32e;height:30px;font-size:1.7em;font-weight:bold;}
-        .field{background-color:#ccc;font-size:1.5em;}
+        .table1{border:1px solid black;background-color:#777; width:70%;margin:10px auto;text-align:center;box-shadow:5px 5px 20px 5px #666;}
+        .header{border:2px solid black;background-color:#86b32e;height:30px;font-size:1.7em;font-weight:bold;}
+        .field{background-color:#bbb;font-size:1.5em;border:2px solid black;}
         </style>
         <script>
         function profile(){

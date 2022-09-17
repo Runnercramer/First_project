@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="administrator_styles.css">
     <link rel="stylesheet" href="new_admin_styles.css">
     <style>
-        .button7{grid-column-start:1; grid-column-end:2;}
+        .button7{grid-column-start:1;grid-column-end:2;}
+        .button9{grid-column-start:1;grid-column-end:3;}
     </style>
     <script>
         function profile(){
@@ -53,6 +54,10 @@
         function producto(){
             window.location.href="product/vista_producto.php";
         }
+
+        function users(){
+            window.location.href="users/vista_usuarios.php";
+        }
     </script>
 </head>
 <body>
@@ -61,6 +66,7 @@
     if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'administrador'){
         header("location:../main/index.html");
     }
+
     ?>
     <div id='cont1'>
         <header id='enc1'>
@@ -93,6 +99,7 @@
                 <div class="button6"><input class="button" type="button" onClick="orders()" value="Pedidos"></div>
                 <div class="button7"><input class="button" type="button" onClick="production()" value="Producción"></div>
                 <div class="button8"><input class="button" type="button" onClick="producto()" value="Producto"></div>
+                <div class="button9"><input class="button" type="button" onClick="users()" value="Usuarios"></div>
             </div>
         </section>
         <footer id='pa2'>

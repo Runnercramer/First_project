@@ -36,13 +36,13 @@ if(!isset($_SESSION['userinfo'])){
 <body>
     <?php
 
-    if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'cliente'){
+    if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'administrador'){
         header("location:../main/index.html");
     }
     ?>
     <div id="cont1">
         <header>
-            <a href="customerprofile.php"><img id="img1" src="../imagenes/descarga.png" alt="Logotipo de Vetex"></a>
+            <a href="adminprofile.php"><img id="img1" src="../imagenes/descarga.png" alt="Logotipo de Vetex"></a>
             <h1>Actualización de Perfil<br>
             <?php if(isset($_POST['send'])){
             echo "Datos actualizados correctamente";
@@ -72,12 +72,6 @@ if(!isset($_SESSION['userinfo'])){
                 <input type="email" name="email" placeholder="Ingresa un nuevo correo electrónico">
                 <label>Celular</label>
                 <input type="text" name="cell" placeholder="Ingresa un nuevo N° de celular">
-                <label>Dirección de residencia</label>
-                <input type="text" name="direction" placeholder="Ingresa una nueva dirección">
-                <label>Ciudad</label>
-                <input type="text" name="city" placeholder="Ingrese una nueva ciudad">
-                <label>Departamento</label>
-                <input type="text" name="department" placeholder="Ingrese un nuevo departamento">
                 <label>Contraseña</label>
                 <input type="text" name="password1" placeholder="Ingrese una contraseña">
                 <label>Verificar contraseña</label>
@@ -93,14 +87,10 @@ if(!isset($_SESSION['userinfo'])){
                 $id = mysqli_real_escape_string($adminconnection, $_POST['id']);
                 $email = mysqli_real_escape_string($adminconnection, $_POST['email']);
                 $cell = mysqli_real_escape_string($adminconnection, $_POST['cell']);
-                $direction = mysqli_real_escape_string($adminconnection, $_POST['direction']);
-                $city = mysqli_real_escape_string($adminconnection, $_POST['city']);
-                $department = mysqli_real_escape_string($adminconnection, $_POST['department']);
                 $password1 = mysqli_real_escape_string($adminconnection, $_POST['password1']);
                 $password2 = mysqli_real_escape_string($adminconnection, $_POST['password2']);
 
                 $session_id = $_SESSION['userinfo']['idUsuario'];
-                $session_customer_id = $_SESSION['customerinfo']['idCliente'];
                 if($name != ""){
                     $sql1 = "UPDATE usuario SET nombreUsuario = '$name' WHERE idUsuario = '$session_id'";
                     $query =mysqli_query($adminconnection, $sql1);
@@ -123,21 +113,6 @@ if(!isset($_SESSION['userinfo'])){
 
                 if($cell != ""){
                     $sql1 = "UPDATE celular SET celular = '$cell' WHERE idUsuario = '$session_id'";
-                    $query =mysqli_query($adminconnection, $sql1);
-                }
-
-                if($direction != ""){
-                    $sql1 = "UPDATE residencia SET direccion = '$direction' WHERE idClienteResidencia = '$session_customer_id'";
-                    $query =mysqli_query($adminconnection, $sql1);
-                }
-
-                if($city != ""){
-                    $sql1 = "UPDATE residencia SET ciudad = '$city' WHERE idClienteResidencia = '$session_customer_id'";
-                    $query =mysqli_query($adminconnection, $sql1);
-                }
-
-                if($department != ""){
-                    $sql1 = "UPDATE residencia SET departamento = '$department' WHERE idClienteResidencia = '$session_customer_id'";
                     $query =mysqli_query($adminconnection, $sql1);
                 }
 

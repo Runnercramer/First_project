@@ -171,6 +171,7 @@ if(isset($_GET['send'])){
                     <table class='main_table'>
                     </tr>
                     <td class='header'>Código despacho</td>
+                    <td class='header'>Cliente</td>
                     <td class='header'>Código pedido</td>
                     <td class='header'>Encargado</td>
                     <td class='header'>Fecha</td>
@@ -181,6 +182,7 @@ if(isset($_GET['send'])){
                         echo "
                         <tr>
                         <td class='field'>" . $q['codDespacho'] . "</td>
+                        <td class='field'>" . $q['nombreUsuario'] . " " . $q['apellidosUsuario'] . "</td>
                         <td class='field'>" . $q['codPedido'] . "</td>
                         <td class='field'>" . $q['encargado'] . "</td>
                         <td class='field'>" . $q['fecha'] . "</td>

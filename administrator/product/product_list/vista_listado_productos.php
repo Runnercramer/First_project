@@ -80,7 +80,7 @@ include("../../../connection.php");
             <div class="information">
                 <h2>LISTA PRODUCTOS</h2>
                 <br>
-                <p>Un listado con los productos existentes y su estado</p>
+                <p>Un listado con los productos existentes y su estado. <br>Un producto habilitado está diponible. Uno deshabilitado está agotado.</p>
                 <br>
                 <h3>Software:</h3><p><b>SGIVT</b></p>
                 <h3>Version:</h3><p><b>1.2</b></p>

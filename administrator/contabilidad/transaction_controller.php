@@ -81,9 +81,9 @@ if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'adm
         <link rel='stylesheet' href='../administrator_styles.css'>
         <link rel='stylesheet' href='../new_admin_styles.css'>
         <style>
-        .main_table{background-color:#999;border:1px solid black;}
-        .header{background-color:#74a118;font-size:2em;text-align:center;font-weight:bold;padding:5px;width:300px;}
-        .field{background-color:#bbb;font-size:1.2em;text-align:center;padding:5px;font-weight:bold;}
+        .main_table{background-color:#777;border:1px solid black;}
+        .header{background-color:#a1ca4f;font-size:2em;text-align:center;font-weight:bold;padding:5px;width:300px;border:2px solid black;}
+        .field{background-color:#bbb;font-size:1.2em;text-align:center;padding:5px;font-weight:bold;border:2px solid black;}
         </style>
         <script>
         function profile(){

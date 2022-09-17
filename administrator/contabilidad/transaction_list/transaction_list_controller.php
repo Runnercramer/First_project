@@ -133,7 +133,7 @@ if(isset($_POST['send'])){
             <div class='information'>
                 <h2>Reporte de transacciones</h2>
                 <br>
-                <p>En las 2 tablas se detallan los gastos y los cobros realizados.</p>
+                <p>En las 2 tablas se detallan los cobros y los gastos realizados.</p>
                 <br>
                 <h3>Software:</h3><p><b>SGIVT</b></p>
                 <h3>Version:</h3><p><b>1.2</b></p>

@@ -60,3 +60,8 @@ Falta hacer la consulta para renderizar la imágen y recuperrar la imagen cargad
 Actualizar adminconnection runnercramer1012462271
 
 A los módulos de empleado hay que agregarle  || $_SESSION['userinfo']['tipoUsuario'] != 'empleado'
+
+En la atualización de datos se debe poder cargar la imagen de usuario.
+
+
+ES DE VITAL IMPORTANCIA USAR EL ENCTYPE="MULTIPART/FORM/DATA"

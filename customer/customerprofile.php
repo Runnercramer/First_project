@@ -28,7 +28,6 @@
     if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'cliente'){
         header("location:../main/index.html");
     }
-    include("../main/login.php");
     ?>
     <div id="cont1">
         <header>
@@ -53,7 +52,7 @@
                 <p><b>Email: </b><?php echo $_SESSION['useremail']['email'];?></p>
                 <p><b>Celular: </b><?php echo $_SESSION['usercell']['celular'];?></p>
                 <p><b>Tipo de usuario: </b><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);?></p>
-                <p><b>Contraseña: </b><?php ;?></p>
+                <p><b>Contraseña: </b><?php echo $_SESSION['password']['pass'];;?></p>
                 <p><b>Dirección de residencia: </b><?php echo $_SESSION['userdir']['direccion'] . " " . $_SESSION['userdir']['ciudad'] . ", " . $_SESSION['userdir']['departamento'];?></p>
             </div>
             <div class="function">
