@@ -65,3 +65,13 @@ En la atualización de datos se debe poder cargar la imagen de usuario.
 
 
 ES DE VITAL IMPORTANCIA USAR EL ENCTYPE="MULTIPART/FORM/DATA"
+
+En la vista de edicion de empleados, hacer una búsqueda para cada empleado. Luego se imprimrán los datos del empleado y se ejecutarán los comandos para cada uno.
+
+En la eliminacion de empleado, verificar la confirmación.
+
+Verificar en la creacion de despacho del administrador que el código del pedido exsita antes de ingresarlo.
+
+Agregar al administrador la funcionalidad ed actualizar el estado de un despacho
+
+Desde la interfaz de productos del administrador se deben ver las garantias

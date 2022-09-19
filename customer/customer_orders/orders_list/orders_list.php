@@ -13,8 +13,8 @@
     <style>
         .dates_form{width:60%;margin:0 auto;padding:20px 0;}
         .list_text{width:60%;font-size:3em;display:block;margin:10px auto;text-align:center;font-weight:bold;}
-        .date{display:block;width:40%;font-size:2em;margin:10px auto;box-shadow:2px 2px 10px black;}
-        .list_button{width:30%;display:block;margin:50px auto;font-size:1.5em;border:1px solid black;background-color:#85b427;padding:5px;box-shadow:5px 5px 20px 5px black;font-weight:bold;}
+        .date{display:block;width:60%;font-size:2em;margin:10px auto;box-shadow:2px 2px 10px black;border-radius:15px;text-align:center;}
+        .list_button{width:40%;display:block;margin:50px auto;font-size:1.5em;border:1px solid black;background-color:#85b427;padding:5px;box-shadow:5px 5px 20px 5px black;font-weight:bold;border-radius:15px;}
         .list_button:hover{background-color:#a1ca4f}
         .list_button:active{background-color:black;color:white}
     </style>

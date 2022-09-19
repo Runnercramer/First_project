@@ -19,7 +19,7 @@ include('../../../connection.php');
         .payment_table{background-color:#777;margin:5px auto;text-align:center;box-shadow:3px 3px 15px 5px gray;font-weight:bold;}
         td{padding:3px;background-color:#ccc;}
         .header_table{background-color:#a1ca4f;font-size:1.1em;font-weight:bold;}
-        .payment_button{display:block;background-color:#a1ca4f;height:40px;;margin:150px auto;padding:5px;box-shadow:5px 5px 20px 5px black;font-size:1.2em;font-weight:bold;}
+        .payment_button{display:block;background-color:#a1ca4f;height:40px;;margin:150px auto;padding:5px;box-shadow:5px 5px 20px 5px black;font-size:1.2em;font-weight:bold;border-radius: 15px;}
         .payment_button:hover{background-color:#74a118;}
         .payment_button:active{background-color:black;color:white;}
     </style>

@@ -7,8 +7,23 @@ include("../../../connection.php");
 //}
 
 if(isset($_POST['send'])){
-    foreach($_POST as $function => $key){
-        echo $function . " " . $key . "<br>";
+
+    foreach($_POST as $clave => $valor){
+        $i =1;
+        if($valor != "" && $clave == "cargo$i"){
+            echo $valor;
+        }
+
+        if($valor != "" && $clave == "new_labor$i"){
+            echo $valor;
+        }
+        
+        if($valor != "" && $clave == "delete_labor$i"){
+            echo $valor;
+        }
+        $i++;
     }
 }
+
+
 ?>

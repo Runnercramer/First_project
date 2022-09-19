@@ -15,7 +15,7 @@ include("../../../connection.php");
     <link rel="stylesheet" href="../../new_customer_styles.css">
     <style>
         .transportadoras{display:grid;grid-template-columns:1fr 1fr 1fr;width:80%;margin:20px auto;}
-        .trans_button{background-color:#85b427;width:50%;height:50px;font-size:1.2em;font-weight:bold;box-shadow:3px 3px 10px 3px #333;}
+        .trans_button{background-color:#85b427;width:50%;height:50px;font-size:1.2em;font-weight:bold;box-shadow:3px 3px 10px 3px #333;border-radius:15px;}
         .trans_button:hover{background-color:#a1ca4f;}
         .trans_button:active{background-color:black;color:white;}
         .main_table{text-align:center;background-color:#777;width:95%;margin:40px auto;box-shadow:5px 5px 15px 5px #333;}

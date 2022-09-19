@@ -14,7 +14,7 @@
         .transaction_form{height:auto;min-height:530px;width:60%;margin:30px auto;display:flex;flex-direction:column;justify-content:space-evenly;align-items:center;font-weight:bold;padding:15px;background-color:#ccc;box-shadow:5px 5px 20px 5px #333;}
         .transaction_form label{font-size:2em;margin:10px;}
         .transaction_form input[type="date"]{width:60%;height:40px;font-size:1em;text-align:center;border-radius:10px;font-size:1.5em;}
-        .transaction_form input[type="submit"]{height:40px;width:50%;border:1px solid black;font-size:1.5em;background-color:#74a118;font-weight:bold;box-shadow:3px 3px 10px 3px #333;}
+        .transaction_form input[type="submit"]{height:40px;width:50%;border:1px solid black;font-size:1.5em;background-color:#74a118;font-weight:bold;box-shadow:3px 3px 10px 3px #333;border-radius:15px;}
         .transaction_form input[type="submit"]:hover{background-color:#a1ca4f;}
         .transaction_form input[type="submit"]:active{background-color:black;color:white;}
     </style>

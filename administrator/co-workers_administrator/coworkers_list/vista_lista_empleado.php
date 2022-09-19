@@ -34,7 +34,7 @@ include("../../../connection.php");
         header("location:../../../main/index.html");
     }
 
-    $sql1 = "SELECT * FROM usuario us JOIN empleado em ON us.idUsuario = em.idUsuario JOIN labdesempeñadas lb ON em.idEmpleado = lb.idEmpleado;";
+    $sql1 = "SELECT * FROM usuario us JOIN empleado em ON us.idUsuario = em.idUsuario JOIN labdesempeñadas lab ON em.idEmpleado = lab.idEmpleadoLab;";
     $query1 = mysqli_query($adminconnection, $sql1);
     ?>
     <div id='cont1'>

@@ -106,7 +106,7 @@ if(isset($_POST['login'])){
 
                 }else if($_SESSION['userinfo']['tipoUsuario'] == 'empleado'){
 
-                    header("location:../colaborador/colaborador.html");
+                    header("location:../empleado/vista_empleado.php");
                 }
                 
             } 

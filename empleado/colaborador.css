@@ -34,7 +34,7 @@ margin: 8px;
 }
 
 .cola4 input[type='submit']{
-background-color: green;
+background-color: #85b427;
 width: 60%;
 margin: 10px auto;
 border-radius: 2em;
@@ -44,7 +44,7 @@ padding: 5px;
 }
 
 .cola4 input[type='submit']:hover{
-    background-color: lightgreen;
+    background-color: #a1ca4f;
     font-weight: bold;
     color:black;
 

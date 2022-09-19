@@ -24,6 +24,12 @@
         function profile(){
             window.location.href = "../../adminprofile.php";
         }   
+
+        function eliminationConfirmation(){
+            let confirmation = confirm("Está seguro de eliminar");
+            if(confirmation == true){alert("Eliminación exitosa");}
+            else{alert("Eliminación fallida");}
+        }
     </script>
 </head>
 <body>
@@ -71,7 +77,7 @@
                         <option value="no">No</option>
                         <option value="si">Sí</option>
                     </select>
-                    <input type="submit" name="send" value="Eliminar">
+                    <input type="button" name="send" value="Eliminar" onclick="eliminationConfirmation()">
                 </form>
             </div>
         </section>

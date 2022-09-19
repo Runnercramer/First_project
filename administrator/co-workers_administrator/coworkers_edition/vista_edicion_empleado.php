@@ -37,7 +37,7 @@ include("../../../connection.php");
     if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'administrador'){
         header("location:../../../main/index.html");
     }
-    $sql1 = "SELECT * FROM empleado em JOIN usuario us ON em.idUsuario = us.idUsuario JOIN imagenusuario iu ON us.idUsuario = iu.idUsuario";
+    $sql1 = "SELECT * FROM empleado em JOIN usuario us ON em.idUsuario = us.idUsuario LEFT JOIN imagenusuario iu ON us.idUsuario = iu.idUsuario";
     $query1 = mysqli_query($adminconnection, $sql1);
     ?>
     <div id='cont1'>
@@ -78,6 +78,7 @@ include("../../../connection.php");
                         $id_empleado = $r['idEmpleado'];
                         $sql2 = "SELECT * FROM labdesempeñadas ld JOIN empleado em ON ld.idEmpleadoLab = em.idEmpleado WHERE idEmpleado = '$id_empleado'";
                         $query2 = mysqli_query($adminconnection, $sql2);
+                        $i = 1;
                         echo "
                         <tr>
                         <td class='field'>" . $r['nombreUsuario'] . " " . $r['apellidosUsuario'] . "</td>
@@ -89,12 +90,13 @@ include("../../../connection.php");
                         }
                          echo"</td>
                         <td class='field function_container'>
-                        <label>Cambiar cargo: <input type='text' name='cargo" . $r['idEmpleado'] . "' placeholder='Ingresa nuevo cargo'></label>
-                        <label>Agregar labor: <input type='text' name='new_labor" . $r['idEmpleado'] . "' placeholder='Ingresa una nueva labor'></label>
-                        <label>Eliminar labor: <input type='text' name='delete_labor" . $r['idEmpleado'] . "' placeholder='Elimina una labor'></label>
+                        <label>Cambiar cargo: <input type='text' name='cargo$i' placeholder='Ingresa nuevo cargo'></label>
+                        <label>Agregar labor: <input type='text' name='new_labor$i' placeholder='Ingresa una nueva labor'></label>
+                        <label>Eliminar labor: <input type='text' name='delete_labor$i' placeholder='Elimina una labor'></label>
                         </td>
                         </tr>
                         ";
+                        $i++;
                     }
                     ?>
                     </table>  

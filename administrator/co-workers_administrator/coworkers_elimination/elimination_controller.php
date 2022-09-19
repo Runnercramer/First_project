@@ -5,7 +5,8 @@ if(!isset($_SESSION['userinfo'])){
     header("location:../../../main/index.html");
 }
 
-if(isset($_POST['send'])){
+echo "Eliminación exitosa";
+/*if(isset($_POST['send'])){
     $id = mysqli_real_escape_string($adminconnection, $_POST['id']);
     $email = mysqli_real_escape_string($adminconnection, $_POST['email']);
     $type = mysqli_real_escape_string($adminconnection, $_POST['cargo']);
@@ -366,7 +367,7 @@ if(isset($_POST['send'])){
             }
         }
     }
-}
+}*/
 
 $adminconnection->close();
 ?>
