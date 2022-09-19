@@ -11,15 +11,11 @@
     <link rel="stylesheet" href="../../customer_styles.css">
     <link rel="stylesheet" href="../../new_customer_styles.css">
     <style>
-        .products{background-color:#777;text-align:center;font-weight:bold;width:100%;box-shadow:5px 5px 20px #000;}
-        .header{background-color:#a1ca4f;font-size:1.1em;padding:4px;}
-        .field{background-color:#bbb;padding:4px;}
-        .img_product{width:35%;}
-        input[type="number"]{width:60px;}
-        .pag{display:flex;justify-content:space-evenly;}
-        .pag_button{font-size:1.3em;background-color:#a1ca4f;margin:20px;padding:5px;box-shadow:3px 3px 10px #000;}
-        .pag_button:hover{background-color:#85b427;}
-        .pag_button:active{background-color:black;color:white;}
+        .methods{grid-template-columns:2fr 7fr;}
+        .main_container{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;grid-gap:10px;}
+        .product_card{background-color:#bbb;display:flex;flex-direction:column;justify-content:space-evenly;padding:5px;}
+        .product_card>form{display:inherit;flex-direction:inherit;justify-content:inherit;}
+        .img_product{width:35%;margin:0 auto;}
     </style>
      <script>
         let cart = {};
@@ -31,8 +27,8 @@
         window.location.href = "../../customerprofile.php";
     }
 
-    function addToCart(){
-        cart.<?php echo $cod?> = "";
+    function visitCart(){
+
     }
     </script>
 </head>
@@ -44,7 +40,7 @@
     }
     include("../../../connection.php");
 
-    $tamaño_pagina = 5;
+    $tamaño_pagina = 4;
     if(isset($_GET['pagina'])){
         if($_GET['pagina'] == 1){
             header("location:/Vetex/customer/customer_orders/new_order/vista_new_order.php");
@@ -67,6 +63,11 @@
 
     $query1_limite = mysqli_query($connection, $sql1_limite);
 
+    if(isset($_SESSION['cart'])){
+        foreach($_SESSION['cart'] as $indice => $producto){
+            echo "<p>" . $producto['codigo'] . "</p> <p>" . $producto['cant'] . "</p> <p>" . $producto['nombre'] . "</p> <p>" . $producto['valor'] . "</p> <br>";
+        }
+    }
     ?>
     <div id='cont1'>
         <header id='enc1'>
@@ -90,36 +91,33 @@
                 <h3>Desarrolladores:</h3><p>Jean Cuesta<br>Cristian Vargas</p>
                 <h3>Contactos:</h3><p>301xxx xx xx<br>3022459827</p>
                 <form action="new_order_controller.php" method="POST">
-                    <input type="button" value="Agregar al carrito" name="add" onclick="addToCart()" style="margin-top:30px;margin-left:15px;width:200px;height:40px;background-color:#a1ca4f;box-shadow:3px 3px 20px 5px black;font-weight:bold;font-size:1.2em;">
-                    <input type="reset" value="Reiniciar las ordenes seleccionadas" style="margin-top:30px;margin-left:15px;width:320px;height:40px;background-color:#a1ca4f;box-shadow:3px 3px 20px 5px black;font-weight:bold;font-size:1em;">
+                    <input type="button" value="Carrito &#128722" name="add" onclick="visitCart()" style="margin-top:30px;margin-left:15px;width:200px;height:40px;background-color:beige;box-shadow:3px 3px 20px 5px black;font-weight:bold;font-size:1.2em;">
+                    <input type="button" value="Vacíar carrito" style="margin-top:30px;margin-left:15px;width:320px;height:40px;background-color:#a1ca4f;box-shadow:3px 3px 20px 5px black;font-weight:bold;font-size:1em;" onclick="vaciarCarrito()">
             </div>
             <div class="main_container">
-                <table class="products">
-                    <tr>
-                        <td class="header">Código</td>
-                        <td class="header">Producto</td>
-                        <td class="header">Descripción</td>
-                        <td class="header">Imágen</td>
-                        <td class="header">Precio</td>
-                        <td class="header">Agregar</td>
-                    </tr>
                 <?php
                     while($r = $query1_limite->fetch_assoc()){
                         $cont = $r['imagen'];
                         $cod = $r['codProducto'];
                         echo "
-                        <tr>
-                        <td class='field'>$cod</td>
-                        <td class='field'>" . $r['producto'] . "</td>
-                        <td class='field'>" . $r['descripcionProducto'] . "</td>
-                        <td class='field'><img class='img_product' src='data:image/jpeg; base64, " . base64_encode($cont) . "'></td>
-                        <td class='field'>$" . $r['valorProducto'] . "</td>
-                        <td class='field'><input type='checkbox' name='$cod' value='$cod'><input type='number' name='cant$cod'></td>
-                        </tr>
+                        <div class='product_card'>
+                        <h3 align='center'>$cod</h3>
+                        <img class='img_product' src='data:image/jpeg; base64, " . base64_encode($cont) . "'>
+                        <h3>" . $r['producto'] . "</h43>
+                        <h4>" . $r['valorProducto'] . "</h4>
+                        <p>" . $r['descripcionProducto'] . "</p>
+
+                        <form method='POST' action='new_order_controller.php'>
+                        <input type='hidden' name='codigo' value='" . $r['codProducto'] . "'>
+                        <input type='hidden' name='producto' value='" . $r['producto'] . "'>    
+                        <input type='hidden' name='valor' value='" . $r['valorProducto'] . "'>    
+                        <input type='hidden' name='cantidad' value='1'>
+                        <input type='submit' name='send' value='Agregar al carrito' >
+                        </div>
+                        </form>
                         ";
                     }
                     ?>
-                </table>
                 <div class="pag">
                     <?php
                     for($i = 1; $i<=$total_paginas; $i++){
