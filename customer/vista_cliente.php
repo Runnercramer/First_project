@@ -28,7 +28,7 @@
     }
 
     function goToCart(){
-        window.location.href = "go_to_cart/";
+        window.location.href = "go_to_cart/vista_carrito.php";
     }
 
     function profile(){

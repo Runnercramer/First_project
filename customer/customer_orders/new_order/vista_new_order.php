@@ -16,6 +16,7 @@
         .product_card{background-color:#bbb;display:flex;flex-direction:column;justify-content:space-evenly;padding:5px;}
         .product_card>form{display:inherit;flex-direction:inherit;justify-content:inherit;}
         .img_product{width:35%;margin:0 auto;}
+        .cant_input{text-align:center;}
     </style>
      <script>
         let cart = {};
@@ -28,7 +29,7 @@
     }
 
     function visitCart(){
-
+        window.location.href="../../go_to_cart/vista_carrito.php";
     }
     </script>
 </head>
@@ -62,12 +63,6 @@
     $sql1_limite = "SELECT * FROM imagenproducto im JOIN producto pr ON im.codProducto = pr.codProducto JOIN detalleproducto dp ON pr.codProducto = dp.codProducto ORDER BY producto ASC LIMIT $empezar_desde,$tamaño_pagina";
 
     $query1_limite = mysqli_query($connection, $sql1_limite);
-
-    if(isset($_SESSION['cart'])){
-        foreach($_SESSION['cart'] as $indice => $producto){
-            echo "<p>" . $producto['codigo'] . "</p> <p>" . $producto['cant'] . "</p> <p>" . $producto['nombre'] . "</p> <p>" . $producto['valor'] . "</p> <br>";
-        }
-    }
     ?>
     <div id='cont1'>
         <header id='enc1'>
@@ -92,7 +87,6 @@
                 <h3>Contactos:</h3><p>301xxx xx xx<br>3022459827</p>
                 <form action="new_order_controller.php" method="POST">
                     <input type="button" value="Carrito &#128722" name="add" onclick="visitCart()" style="margin-top:30px;margin-left:15px;width:200px;height:40px;background-color:beige;box-shadow:3px 3px 20px 5px black;font-weight:bold;font-size:1.2em;">
-                    <input type="button" value="Vacíar carrito" style="margin-top:30px;margin-left:15px;width:320px;height:40px;background-color:#a1ca4f;box-shadow:3px 3px 20px 5px black;font-weight:bold;font-size:1em;" onclick="vaciarCarrito()">
             </div>
             <div class="main_container">
                 <?php
@@ -111,8 +105,8 @@
                         <input type='hidden' name='codigo' value='" . $r['codProducto'] . "'>
                         <input type='hidden' name='producto' value='" . $r['producto'] . "'>    
                         <input type='hidden' name='valor' value='" . $r['valorProducto'] . "'>    
-                        <input type='hidden' name='cantidad' value='1'>
-                        <input type='submit' name='send' value='Agregar al carrito' >
+                        <input class='cant_input' type='number' name='cantidad' value='1'>
+                        <input type='submit' name='send' value='Agregar' >
                         </div>
                         </form>
                         ";
