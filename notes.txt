@@ -79,3 +79,7 @@ Desde la interfaz de productos del administrador se deben ver las garantias
 Agregar el nombre del usuario encima del tipo
 
 hola
+
+Averiguar como mostrar alerts.
+
+El administrador debe verificar las ordenes de compra y asignarle manualmente el codigo del pedido

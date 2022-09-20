@@ -18,6 +18,10 @@ include("../../connection.php");
         .header{background-color:#a1ca4f;font-size:1.5em;border:1px solid black;}
         .field{background-color:#bbb;border:1px solid black;font-size:1.2em;}
         .eliminate_button{background-color:red;color:white;border:1px dashed white;font-weight:bold;}
+        .contact_info{width:60%;text-align:center;margin:10px;font-size:1.2em;}
+        .payment_button{display:block;background-color:lightblue;color:black;width:200px;font-weight:bold;font-size:1.5em;border-radius:15px;margin:30px auto;padding:5px;}
+        .payment_button:hover{background-color:#6fbbd3}
+        .payment_button:active{background-color:black;color:white;}
     </style>
     <script>
     function logout(){
@@ -36,7 +40,6 @@ include("../../connection.php");
         header("location:../../main/index.html");
     }
 
-    print_r($_SESSION['cart']);
     ?>
     <div id='cont1'>
         <header id='enc1'>
@@ -71,6 +74,7 @@ include("../../connection.php");
                     </tr>
                     <?php
                     $i = 1;
+                    $total = 0;
                     foreach($_SESSION['cart'] as $indice => $producto){
                         $subtotal = $producto['valor'] * $producto['cant'];
                         echo "
@@ -84,9 +88,26 @@ include("../../connection.php");
                         </tr>
                         ";
                         $i++;
+                        $total = $total+($producto['valor'] * $producto['cant']);
                     }
                     ?>
+                    <tr>
+                        <td class='field' align="right" colspan="4">TOTAL</td>
+                        <td class='field' align="left" colspan="2">$<?php echo $total ?></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <form action="pagar.php" method="POST">
+                                <label>Correo de contacto: </label>
+                                <br>
+                                <input class='contact_info' type="email" name="email_contact" placeholder="La información de tu pedido se enviará al siguiente correo" required>
+                            
+                        </td>
+                    </tr>
                 </table>
+                <input class="payment_button" type="submit" name="send" value="Pagar">
+                </form>
+
             </div>
         </section>
         <footer id='pa2'>

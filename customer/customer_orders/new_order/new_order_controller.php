@@ -20,6 +20,13 @@ session_start();
             );
             $_SESSION['cart'][0] =  $producto; 
         }else{
+
+            $id_producto = array_column($_SESSION['cart'], 'codigo');
+
+            if(in_array($cod, $id_producto)){
+                echo "<script>alert('El producto ya ha sido seleccionado');</script>";
+            }else{
+            
             $num_productos = count($_SESSION['cart']);
 
             $producto = array(
@@ -30,6 +37,8 @@ session_start();
             );
             $_SESSION['cart'][$num_productos] = $producto;
         }
+    }
+    
 
         header("location:vista_new_order.php");
 

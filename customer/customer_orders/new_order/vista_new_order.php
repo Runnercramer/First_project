@@ -12,11 +12,15 @@
     <link rel="stylesheet" href="../../new_customer_styles.css">
     <style>
         .methods{grid-template-columns:2fr 7fr;}
-        .main_container{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;grid-gap:10px;}
-        .product_card{background-color:#bbb;display:flex;flex-direction:column;justify-content:space-evenly;padding:5px;}
-        .product_card>form{display:inherit;flex-direction:inherit;justify-content:inherit;}
+        .main_container{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;grid-gap:35px;}
+        .product_card{background-color:#bbb;display:flex;flex-direction:column;justify-content:space-evenly;padding:5px;min-height:420px;height:auto;}
         .img_product{width:35%;margin:0 auto;}
-        .cant_input{text-align:center;}
+        .add_form{display:flex;flex-direction:column;justify-content:space-evenly;align-items:left;}
+        .cant_input{text-align:center;width:45%;margin:10px;}
+        .addToCart{width:40%;background-color:beige;font-weight:bold;margin:10px;}
+
+        .pag{width:200%;display:flex;flex-direction:row;justify-content:space-evenly;}
+        .pag_button{background-color:#a1ca4f;;width:30px;font-weight:bold;font-size:1.2em;}
     </style>
      <script>
         let cart = {};
@@ -97,19 +101,18 @@
                         <div class='product_card'>
                         <h3 align='center'>$cod</h3>
                         <img class='img_product' src='data:image/jpeg; base64, " . base64_encode($cont) . "'>
-                        <h3>" . $r['producto'] . "</h43>
+                        <h3>" . $r['producto'] . "</h3>
                         <h4>" . $r['valorProducto'] . "</h4>
                         <p>" . $r['descripcionProducto'] . "</p>
 
-                        <form method='POST' action='new_order_controller.php'>
+                        <form class='add_form' method='POST' action='new_order_controller.php'>
                         <input type='hidden' name='codigo' value='" . $r['codProducto'] . "'>
                         <input type='hidden' name='producto' value='" . $r['producto'] . "'>    
                         <input type='hidden' name='valor' value='" . $r['valorProducto'] . "'>    
                         <input class='cant_input' type='number' name='cantidad' value='1'>
-                        <input type='submit' name='send' value='Agregar' >
-                        </div>
+                        <input class='addToCart' type='submit' name='send' value='Agregar'>
                         </form>
-                        ";
+                        </div>";
                     }
                     ?>
                 <div class="pag">
