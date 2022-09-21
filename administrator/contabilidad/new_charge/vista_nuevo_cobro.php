@@ -13,9 +13,9 @@
     <style>
         .new_charge{background-color:#bbb;box-shadow:5px 5px 15px 5px #888;}
         .charges_form{display:flex;flex-direction:column;padding:15px;text-align:center;font-size:2em;font-weight:bold;align-items:center;}
-        .charges_form input[type="text"], input[type="number"]{width:60%;margin:10px;height:35px;text-align:center;font-size:0.9em;}
-        .charges_form input[type="text"]:focus, input[type="number"]:focus{outline:3px dotted black;}
-        .charge_button{display:block;width:40%;height:40px;margin:10px;font-size:1em;font-weight:bold;background-color:#85b427;box-shadow:5px 5px 15px 5px #333;}
+        .charges_form input[type="text"], input[type="number"]{width:60%;margin:10px;height:35px;text-align:center;font-size:0.9em;border-radius:15px;}
+        .charges_form input[type="text"]:focus, input[type="number"]:focus{outline:3px dotted black;border-radius:15px;}
+        .charge_button{display:block;width:40%;height:40px;margin:10px;font-size:1em;font-weight:bold;background-color:#85b427;box-shadow:5px 5px 15px 5px #333;border-radius:15px;}
         .change_button:hover{background-color:#a1ca4f;}
         .change_button:active{background-color:black;color:white;}
     </style>

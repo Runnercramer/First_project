@@ -13,9 +13,9 @@
     <style>
         .new_expense{background-color:#bbb;box-shadow:5px 5px 15px 5px #888;}
         .expenses_form{display:flex;flex-direction:column;padding:15px;text-align:center;font-size:2em;font-weight:bold;align-items:center;}
-        .expenses_form input[type="text"], input[type="number"]{width:60%;margin:10px;height:40px;text-align:center;font-size:1em;}
+        .expenses_form input[type="text"], input[type="number"]{width:60%;margin:10px;height:40px;text-align:center;font-size:1em;border-radius:15px;}
         .expenses_form input[type="text"]:focus, input[type="number"]:focus{outline:3px dotted black;}
-        .expense_button{display:block;width:40%;height:45px;margin:15px;font-size:1em;font-weight:bold;background-color:#85b427;box-shadow:5px 5px 15px 5px #333;}
+        .expense_button{display:block;width:40%;height:45px;margin:15px;font-size:1em;font-weight:bold;background-color:#85b427;box-shadow:5px 5px 15px 5px #333;border-radius:15px;}
         .expense_button:hover{background-color:#a1ca4f;}
         .expense_button:active{background-color:black;color:white;}
     </style>

@@ -16,9 +16,8 @@
         .product_card{background-color:#bbb;display:flex;flex-direction:column;justify-content:space-evenly;padding:5px;min-height:420px;height:auto;}
         .img_product{width:35%;margin:0 auto;}
         .add_form{display:flex;flex-direction:column;justify-content:space-evenly;align-items:left;}
-        .cant_input{text-align:center;width:45%;margin:10px;}
-        .addToCart{width:40%;background-color:beige;font-weight:bold;margin:10px;}
-
+        .cant_input{text-align:center;width:45%;margin:10px;font-size:1.2em;}
+        .addToCart{width:40%;background-color:beige;font-weight:bold;margin:10px;font-size:1.2em;}
         .pag{width:200%;display:flex;flex-direction:row;justify-content:space-evenly;}
         .pag_button{background-color:#a1ca4f;;width:30px;font-weight:bold;font-size:1.2em;}
     </style>

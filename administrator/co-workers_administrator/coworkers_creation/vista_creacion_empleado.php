@@ -13,7 +13,7 @@
     <style>
         .creation_form{width:80%;margin:10px auto;background-color:#aaa;display:flex;flex-direction:column;padding:10px;font-size:1.2rem;align-items:center;font-weight:bold;box-shadow:5px 5px 20px 5px #333;}
         .creation_form input[type="text"], input[type="email"]{width:60%;margin:10px;text-align:center;font-size:1rem;border-radius:15px;}
-        .creation_form input[type="submit"]{width:40%;margin:10px;background-color:#85b427;font-weight:bold;height:30px;font-size:1em;box-shadow:3px 3px 10px 3px #333;}
+        .creation_form input[type="submit"]{width:40%;margin:10px;background-color:#85b427;font-weight:bold;height:30px;font-size:1em;box-shadow:3px 3px 10px 3px #333;border-radius:15px;}
         .creation_form input[type="submit"]:hover{background-color:#a1ca4f;}
         .creation_form input[type="submit"]:active{background-color:black;color:white;}
     </style>

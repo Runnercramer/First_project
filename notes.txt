@@ -1,76 +1,43 @@
 https://desarrolloweb.com/articulos/posibilidades-envio-mail-php-localhost.html
 
 
-Falta crear la interfaz para actualizar pedido
-
-Falta la interfaz del carrito
-
-Falta crear un botón para que el administrador pueda ver todos los usuarios existentes.
-
 En la vista pagos falta válidar el saldo de los pedidos
-Falta el controlador nuevo pedido customer
-Falta la vista para actualizar pedido
-
-FALTA PODER CREAR UN NUEVO PRODUCTO ADMIN
-
-Falta crear el carrito
 
 
 Crear desde el admin la posibilidad de ver pqrs
 
 Cuando un dministrador crea a un cliente, debe enviarse un correo de confirmación
 
-Debo impedir que un usuario ingrese a un modulo o interfaz no permitido
-
-Debo usar la función explode para separar el campo de labores desempeñadas
 
 Debo crear triggers para eliminacion de usuarios SQL
 
-Meterle JS a los archivos de eliminación. Para usar un prompt y confirmar la eliminación. 
 
-Falta edicion de empleados admin
-
-Verificar el funcionamiento del inventario
+Verificar el funcionamiento del inventario TRIGGER
 Averiguar como relacionar los detalles de un inventario con MySQL
+El stock se hará obteniendo las existencias de los productos
 
-Puedo imprimir botones dentro da tablas
-En la interfaz de pedidos, debo cambiar los enlaces tipo <a> a generar la lógica con JS
-Crear pedido, falta hacer la lógica. 
-
-Averiguar sobre la creación de un carrito de compras
 
 El reporte de pedidos debe cumplir el mismo requerimiento
 
 En el reporte de produccion, debo convertir en botones las referencias de los productos para hacer la consulta en base a ese producto
 
-El stock se hará obteniendo las existencias de los productos
 
 Debo crear una tabla que sirva como productos encargados
 Verificar el listado de produccion
 
 El administrador debe ingresar nuevas cantidadse de productos desde la interfaz de inventarios
 
-Debo validar que un cliente no pueda ingresar a las interfaces de un colaborador o administrador
+Cerrar las conexiones a la base de datos, todos los archivos.
 
-Verificar la búsqueda de resultados de clientes desde administrador
+En la actualización de datos se debe poder cargar la imagen de usuario.
 
-Ya cargué las imagenes en la base de datos
-Falta hacer la consulta para renderizar la imágen y recuperrar la imagen cargada
-
-Actualizar adminconnection runnercramer1012462271
-
-A los módulos de empleado hay que agregarle  || $_SESSION['userinfo']['tipoUsuario'] != 'empleado'
-
-En la atualización de datos se debe poder cargar la imagen de usuario.
-
-
-ES DE VITAL IMPORTANCIA USAR EL ENCTYPE="MULTIPART/FORM/DATA"
+ES DE VITAL IMPORTANCIA USAR EL ENCTYPE="MULTIPART/FORM/DATA" cargar imagenes a la base de datos
 
 En la vista de edicion de empleados, hacer una búsqueda para cada empleado. Luego se imprimrán los datos del empleado y se ejecutarán los comandos para cada uno.
 
 En la eliminacion de empleado, verificar la confirmación.
 
-Verificar en la creacion de despacho del administrador que el código del pedido exsita antes de ingresarlo.
+Verificar en la creacion de despacho del administrador que el código del pedido exista antes de ingresarlo.
 
 Agregar al administrador la funcionalidad ed actualizar el estado de un despacho
 
@@ -78,8 +45,14 @@ Desde la interfaz de productos del administrador se deben ver las garantias
 
 Agregar el nombre del usuario encima del tipo
 
-hola
+Cuando se haga un nuevo pedido desde el cliente, enviar un correo de verificacion al administrador y al cliente
 
-Averiguar como mostrar alerts.
+Verificar customer_admin_controller.php
 
-El administrador debe verificar las ordenes de compra y asignarle manualmente el codigo del pedido
+listado de empleados, verificar la consulta para no obtener valoers repetidos 
+
+Validar eliminación de empleado
+
+Pedidos de administrador copiar lso controladores desde el cliente
+
+En los catalogos, sólo mostrar los productos habilitados

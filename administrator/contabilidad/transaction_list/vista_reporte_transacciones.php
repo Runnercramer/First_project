@@ -15,7 +15,7 @@
         .transaction_form{display:flex;flex-direction:column;padding:15px;text-align:center;font-size:2em;font-weight:bold;align-items:center;justify-content:space_between;}
         .transaction_form input[type="date"]{width:60%;margin:15px;height:60px;text-align:center;font-size:1em;border-radius:15px;}
         .transaction_form input[type="date"]:focus{outline:3px dotted black;}
-        .expense_button{display:block;width:40%;height:50px;margin:15px;font-size:1em;font-weight:bold;background-color:#85b427;box-shadow:5px 5px 15px 5px #333;}
+        .expense_button{display:block;width:40%;height:50px;margin:15px;font-size:1em;font-weight:bold;background-color:#85b427;box-shadow:5px 5px 15px 5px #333;border-radius:15px;}
         .expense_button:hover{background-color:#a1ca4f;}
         .expense_button:active{background-color:black;color:white;}
     </style>

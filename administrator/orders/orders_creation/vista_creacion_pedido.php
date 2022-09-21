@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="../../new_admin_styles.css">
     <style>
         .orders_function{background-color:#aaa;width:90%;display:flex;flex-direction:column;align-items:center;padding:10px;font-size:2em;font-weight:bold;height:auto;min-height:530px;justify-content:space-evenly;box-shadow:5px 5px 20px 5px #333;}
-        input[type="text"], input[type="date"], input[type="number"]{width:60%;text-align:center;height:30px;font-size:0.7em;}
-        select{width:60%;height:30px;text-align:center;}
-        .button_form, input[type="submit"]{background-color:#a1ca4f;width:40%;height:30px;text-align:center;margin:10px;box-shadow:3px 3px 10px 3px #333;font-weight:bold;font-size:0.6em;}
+        input[type="text"], input[type="date"], input[type="number"]{width:60%;text-align:center;height:30px;font-size:0.7em;border-radius:15px;}
+        select{width:60%;height:30px;text-align:center;border-radius:15px;}
+        .button_form, input[type="submit"]{background-color:#a1ca4f;width:40%;height:30px;text-align:center;margin:10px;box-shadow:3px 3px 10px 3px #333;font-weight:bold;font-size:0.6em;border-radius:15px;}
         .button_form:hover, input[type="submit"]:hover{background-color:#74a118;}
         .button_form:active, input[type="submit"]:active{background-color:black;color:white;}
     </style>

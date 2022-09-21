@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="../../new_admin_styles.css">
     <style>
         .main_form{display:flex;flex-direction:column;align-items:center;background-color:#bbb;width:80%;margin:10px auto;padding:15px; font-size:1.5em;font-weight:bold;box-shadow:5px 5px 20px 5px #333;}
-        .main_form input[type="text"], input[type="email"]{width:60%;margin:10px;height:25px;text-align:center;}
-        select{width:60%;margin:10px;height:25px;}
-        .main_form input[type="submit"]{width:40%;background-color:#a3cf4b;margin:15px;height:30px;font-weight:bold;font-size:1em;box-shadow:3px 3px 10px 3px #333;}
+        .main_form input[type="text"], input[type="email"]{width:60%;margin:10px;height:25px;text-align:center;border-radius:15px;}
+        select{width:60%;margin:10px;height:25px;border-radius:15px;}
+        .main_form input[type="submit"]{width:40%;background-color:#a3cf4b;margin:15px;height:30px;font-weight:bold;font-size:1em;box-shadow:3px 3px 10px 3px #333;border-radius:15px;}
         select{text-align:center;}
     </style>
            <script>

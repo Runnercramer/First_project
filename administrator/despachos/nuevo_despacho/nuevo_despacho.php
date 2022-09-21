@@ -13,7 +13,7 @@
     <style>
         .main_form{margin:10px auto;width:90%;background-color:#aaa; display:flex;flex-direction:column;align-items:center;justify-content:space-evenly;padding:10px;font-size:2em;font-weight:bold;box-shadow:5px 5px 20px 5px #333;}
         .main_form input[type="text"], input[type="number"], input[type="date"]{width:65%;margin:15px;height:40px;text-align:center;font-size:0.7em;border-radius:15px;}
-        .main_form input[type="submit"]{width:45%;background-color:#74a118;font-weight:bold;text-align:center;height:40px;margin:15px;font-size:0.6em;box-shadow:3px 3px 10px 3px #333;}
+        .main_form input[type="submit"]{width:45%;background-color:#74a118;font-weight:bold;text-align:center;height:40px;margin:15px;font-size:0.6em;box-shadow:3px 3px 10px 3px #333;border-radius:15px;}
         .main_form input[type="submit"]:hover{background-color:#a1ca4f;}
         .main_form input[type="submit"]:active{background-color:black;color:white;}
     </style>

@@ -15,8 +15,8 @@
         .main_form{background-color:#ccc;width:60%;margin:20px auto;display:flex;flex-direction:column;padding:20px;box-shadow:10px 10px 20px 5px #aaa;}
         .main_form h3{font-size:1.8em;text-align:center;}
         .main_form label{font-size:1.4em;text-align:center;margin:5px;}
-        .main_form select{width:70%;margin:5px auto;}
-        .main_form input[type="text"], input[type="email"]{width:60%;height:3vh;margin:5px auto;text-align:center;}
+        .main_form select{width:70%;margin:5px auto;border-radius:15px;}
+        .main_form input[type="text"], input[type="email"]{width:60%;height:3vh;margin:5px auto;text-align:center;border-radius:15px;}
         .main_form textarea{width:60%;height:15vh;margin:5px auto;padding:10px;border:1px solid black;text-align:center;}
         .main_form input[type="submit"]{width:50%;background-color:#a1ca4f;margin:20px auto;height:30px;font-weight:bold;font-size:1.2em;box-shadow:5px 5px 20px black;border-radius:10px;}
         .main_form input[type="submit"]:hover{background-color:#74a118;}

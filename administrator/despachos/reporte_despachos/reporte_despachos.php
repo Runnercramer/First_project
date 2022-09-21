@@ -15,7 +15,7 @@
         .subcontainer{width:70%;display:flex;flex-direction:column;align-items:center;}
         .subcontainer label{margin:10px;}
         .subcontainer input[type="date"], input[type="search"]{width:80%;margin:10px;height:30px;text-align:center;font-size:1rem;border-radius:15px;}
-        .main_button{background-color:#74a118;width:40%;height:30px;text-align:center;font-weight:bold;margin:15px;font-size:1.2rem;box-shadow:3px 3px 10px 3px #333;}
+        .main_button{background-color:#74a118;width:40%;height:30px;text-align:center;font-weight:bold;margin:15px;font-size:1.2rem;box-shadow:3px 3px 10px 3px #333;border-radius:15px;}
         .main_button:hover{background-color:#a1ca4f;}
         .main_button:active{background-color:black;color:white;}
     </style>

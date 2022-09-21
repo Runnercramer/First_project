@@ -28,7 +28,7 @@
     }
 
     function updateOrder(){
-        window.location.href = "update_order/";
+        window.location.href = "update_order/vista_actualizar_pedido.php";
     }
 
     function profile(){

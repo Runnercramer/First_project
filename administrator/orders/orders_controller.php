@@ -108,5 +108,6 @@ echo "
 </html>";
     }
 }
+$connection->close();
 $adminconnection->close();
 ?>

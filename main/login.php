@@ -1,7 +1,7 @@
 <?php
 include('../connection.php');
 if(isset($_POST['login'])){
-   // error_reporting(0);
+    error_reporting(0);
     $email = mysqli_real_escape_string($connection, $_POST['email']);
     $password = mysqli_real_escape_string($connection, $_POST['password']);
     $query1 = "SELECT * FROM email WHERE email = '$email'";

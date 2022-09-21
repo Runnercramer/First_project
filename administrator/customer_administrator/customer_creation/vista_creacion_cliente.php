@@ -12,9 +12,10 @@
     <link rel="stylesheet" href="../../new_admin_styles.css">
     <style>
         .customer_creation{width:70%;margin:10px auto;border:1px solid black;background-color:#ccc;display:flex;flex-direction:column;text-align:center;box-shadow:5px 5px 20px 5px #555;padding:10px;font-size:1.2em;font-weight:bold;}
-        .customer_creation input[type="text"], input[type="email"]{width:60%;margin:5px auto;height:25px;text-align:center;}
-        .customer_creation select{width:65%;margin:5px auto;height:25px;text-align:center;}
-        .customer_creation input[type="submit"]{width:50%;margin:10px auto;padding:5px;background-color:#a1ca4f;font-size:1.2em;font-weight:bold;box-shadow:3px 3px 10px #222;}
+        .customer_creation input[type="text"], input[type="email"]{width:60%;margin:5px auto;height:25px;text-align:center;border-radius:15px;}
+        .customer_creation select{width:65%;margin:5px auto;height:25px;text-align:center;border-radius:15px;}
+        .customer_creation input[type="submit"]{width:50%;margin:10px auto;padding:5px;background-color:#a1ca4f;font-size:1.2em;font-weight:bold;box-shadow:3px 3px 10px #222;border-radius
+        :15px;}
         .customer_creation input[type="submit"]:hover{background-color:#74a118}
         .customer_creation input[type="submit"]:active{background-color:black;color:white;}
     </style>

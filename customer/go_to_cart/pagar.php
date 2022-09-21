@@ -17,7 +17,7 @@ if(isset($_POST['send'])){
     $id_cliente = $_SESSION['customerinfo']['idCliente'];
     $sql1 = "INSERT INTO pedido (idCliente, valorPedido, codSesion) VALUES ('$id_cliente', '$total_pagar', '$session_id')";
     $query1 = mysqli_query($connection, $sql1);
-    if($query1){echo "Exito";}else{echo "Error";}
+    
     foreach($_SESSION['cart'] as $indice => $producto){
         $cod = $producto['codigo'];
         $cant = $producto['cant'];
@@ -26,3 +26,15 @@ if(isset($_POST['send'])){
     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago</title>
+</head>
+<body>
+    
+</body>
+</html>

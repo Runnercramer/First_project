@@ -106,7 +106,7 @@ include("../../../connection.php");
                             <td class="header">Código</td>
                             <td class="header">Nombre</td>
                             <td class="header">Estado</td>
-                            <td class="header">Habilitar</td>
+                            <td class="header">Deshabilitar</td>
                         </tr>
                         <?php
                         while($r = $query1_limite->fetch_assoc()){
