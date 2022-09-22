@@ -25,11 +25,6 @@
             window.location.href = "../../adminprofile.php";
         }   
 
-        function eliminationConfirmation(){
-            let confirmation = confirm("Está seguro de eliminar");
-            if(confirmation == true){alert("Eliminación exitosa");}
-            else{alert("Eliminación fallida");}
-        }
     </script>
 </head>
 <body>
@@ -69,15 +64,13 @@
                     <input type="email" name="email" placeholder="Ingrese el correo electrónico del empleado" required>
                     <label>Nombre empleado</label>
                     <input type="text" name="name" placeholder="Ingrese un nombre del empleado">
-                    <label>Tipo de usuario</label>
-                    <input type="text" name="cargo" placeholder="Ingrese el cargo del empleado" required>
                     <label>Confirmación</label>
                     <select name="confirmation" required>
                         <option value="0">---------------------</option>
                         <option value="no">No</option>
                         <option value="si">Sí</option>
                     </select>
-                    <input type="button" name="send" value="Eliminar" onclick="eliminationConfirmation()">
+                    <input class='delete_button' type="submit" name="send" value="Eliminar" >
                 </form>
             </div>
         </section>

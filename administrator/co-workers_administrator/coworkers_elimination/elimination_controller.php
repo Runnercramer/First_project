@@ -1,19 +1,16 @@
 <?php
 include('../../../connection.php');
 session_start();
-if(!isset($_SESSION['userinfo'])){
+if(!isset($_SESSION['userinfo']) || $_SESSION['']){
     header("location:../../../main/index.html");
 }
 
-echo "Eliminación exitosa";
-/*if(isset($_POST['send'])){
+if(isset($_POST['send'])){
     $id = mysqli_real_escape_string($adminconnection, $_POST['id']);
     $email = mysqli_real_escape_string($adminconnection, $_POST['email']);
-    $type = mysqli_real_escape_string($adminconnection, $_POST['cargo']);
-    $cargo = mb_strtolower($type);
     $confirmation = mysqli_real_escape_string($adminconnection, $_POST['confirmation']);
 
-    if($id == "" || $email == "" || $type == ""){
+    if($id == "" || $email == ""){
         echo "
         <!DOCTYPE html>
 <html lang='es'>
@@ -225,8 +222,7 @@ echo "Eliminación exitosa";
             $array2 = $query2->fetch_assoc();
             $a = $array1['email'];
             $b = $array2['idUsuario'];
-            $c = $array2['tipoUsuario'];
-                if($email == $a && $id == $b && $cargo == $c){
+                if($email == $a && $id == $b){
                     $sql3 = "DELETE FROM usuario WHERE idUsuario = '$id' AND tipoUsuario = '$cargo'";
                     $query3 = mysqli_query($adminconnection, $sql3);
                         if($query3){
@@ -367,7 +363,7 @@ echo "Eliminación exitosa";
             }
         }
     }
-}*/
-
+}
+$connection->close();
 $adminconnection->close();
 ?>

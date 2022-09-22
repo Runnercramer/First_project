@@ -25,11 +25,7 @@ Cerrar las conexiones a la base de datos, todos los archivos.
 
 ES DE VITAL IMPORTANCIA USAR EL ENCTYPE="MULTIPART/FORM/DATA" cargar imagenes a la base de datos
 
-En la vista de edicion de empleados, hacer una búsqueda para cada empleado. Luego se imprimrán los datos del empleado y se ejecutarán los comandos para cada uno.
 
-En la eliminacion de empleado, verificar la confirmación.
-
-Verificar en la creacion de despacho del administrador que el código del pedido exista antes de ingresarlo.
 
 Agregar al administrador la funcionalidad ed actualizar el estado de un despacho
 
