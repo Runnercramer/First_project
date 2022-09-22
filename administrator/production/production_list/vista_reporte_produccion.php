@@ -15,8 +15,9 @@ include("../../../connection.php");
     <link rel="stylesheet" href="../../new_admin_styles.css">
     <style>
         .production_table{width:70%;margin:20px auto;background-color:#777;text-align:center;font-weight:bold;}
-        .header{background-color:#a1ca4f;font-size:1.5em;}
-        .field{background-color:#bbb;font-size:1.2em;}
+        .header{background-color:#a1ca4f;font-size:1.4em;border:1px solid black;}
+        .field{background-color:#bbb;font-size:1.15em;border:1px solid black;}
+        .production_button{background-color:#bbb;border:1px hidden;font-weight:bold;font-size:1em;}
     </style>
     <script>
         function profile(){
@@ -40,7 +41,7 @@ include("../../../connection.php");
     JOIN produccion pr ON pe.codProduccion = pr.codProduccion 
     JOIN productoproduccion pp ON pr.codProduccion = pp.codProduccion
     JOIN producto ON pp.codProducto = producto.codProducto 
-    ORDER BY fecha DESC";
+    ORDER BY pp.codProduccion ASC";
     $query1 = mysqli_query($adminconnection, $sql1);
     ?>
     <div id='cont1'>
@@ -58,7 +59,7 @@ include("../../../connection.php");
             <div class="information">
                 <h2>REPORTE PRODUCCIÓN</h2>
                 <br>
-                <p>En esta interfaz obtendrás un listado de la producción general de la bodega. Puedes oprimir sobre la referencia de un producto para ver la producción de ese producto.</p>
+                <p>En esta interfaz obtendrás un listado de la producción general de la bodega.<br><b>Puedes oprimir sobre la referencia de un producto para ver la producción de ese producto.</b></p>
                 <br>
                 <h3>Software:</h3><p><b>SGIVT</b></p>
                 <h3>Version:</h3><p><b>1.2</b></p>
@@ -71,22 +72,57 @@ include("../../../connection.php");
                         <td class="header">Cód Producción</td>
                         <td class="header">Producto</td>
                         <td class="header">Cantidad</td>
-                        <td class="header">Fecha</td>
-                        <td class="header">Empleado</td>
                     </tr>
                     <?php
                     while($r = $query1->fetch_assoc()){
+                        $producto = $r['codProducto'];
                         echo "
                         <tr>
                         <td class='field'>" . $r['codProduccion'] . "</td>
-                        <td class='field'>" . $r['producto'] . "</td>
+                        <td class='field'>
+                        <form action='#' method='GET'>
+                        <input type='hidden' name='producto' value='$producto'>
+                        <input class='production_button' type='submit' name='send' value='$producto'>
+                        </form>
+                        </td>
                         <td class='field'>" . $r['cantProduccion'] . "</td>
-                        <td class='field'>" . $r['fecha'] . "</td>
-                        <td class='field'>" . $r['nombreUsuario'] . " " . $r['apellidosUsuario'] . "</td>
                         </tr>";
                     }
                     ?>
                 </table>
+                <br><br><br>
+                <?php
+                if(isset($_GET['send'])){
+                    $codigo_producto = $_GET['producto'];
+                    $sql2 = "SELECT * FROM usuario us JOIN empleado em ON us.idUsuario = em.idUsuario
+                    JOIN produccionempleado pe ON em.idEmpleado = pe.idEmpleado 
+                    JOIN produccion pr ON pe.codProduccion = pr.codProduccion 
+                    JOIN productoproduccion pp ON pr.codProduccion = pp.codProduccion
+                    JOIN producto ON pp.codProducto = producto.codProducto WHERE pp.codProducto = '$codigo_producto'
+                    ORDER BY fecha DESC";
+                    $query2 = mysqli_query($connection, $sql2);
+                    echo "
+                    <table class='production_table'>
+                    <tr><td colspan='3' class='header'>$codigo_producto</td></tr>
+                    <tr>
+                    <td class='header'>Código Producción</td>
+                    <td class='header'>Fecha</td>
+                    <td class='header'>Empleado</td>
+                    </tr>";
+                    while($q = $query2->fetch_assoc()){
+                        echo "
+                        <tr>
+                        <td class='field'>" . $q['codProduccion'] . "</td>
+                        <td class='field'>" . $q['fecha'] . "</td>
+                        <td class='field'>" . $q['nombreUsuario'] . " " . $q['apellidosUsuario'] . "</td>
+                        </tr>
+                        ";
+                    }
+                    echo"
+                    </table>
+                    ";
+                }
+                ?>
             </div>
         </section>
         <footer id='pa2'>

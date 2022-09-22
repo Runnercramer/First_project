@@ -34,13 +34,13 @@ include("../../../connection.php");
         header("location:../../../main/index.html");
     }
 
-    $sql1 = "SELECT * FROM usuario us JOIN empleado em ON us.idUsuario = em.idUsuario JOIN labdesempeñadas lab ON em.idEmpleado = lab.idEmpleadoLab;";
+    $sql1 = "SELECT * FROM usuario us JOIN empleado em ON us.idUsuario = em.idUsuario";
     $query1 = mysqli_query($adminconnection, $sql1);
     ?>
     <div id='cont1'>
         <header id='enc1'>
             <a href='../vista_empleados.php'><img id='img1' src='../../../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
-            <h1>LISTADO EMPLEADOS</h1>
+            <h1>Lista de empleados</h1>
             <div class="profile">
                 <img id="profile_image" src="../../../imagenes/profile.png" alt="Imagen de perfil">
                 <h3><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);?></h3>
@@ -50,7 +50,7 @@ include("../../../connection.php");
         </header>  
         <section class="methods">
             <div class="information">
-                <h2>Listado empleados</h2>
+                <h2>LISTADO DE EMPLEADOS</h2>
                 <br>
                 <p>En esta interfaz obtendrás una lista con los datos generales de cada empleado.</p>
                 <br>
@@ -71,12 +71,19 @@ include("../../../connection.php");
                     <?php
                     $i = 1;
                     while($r = $query1->fetch_assoc()){
+                        $id_empleado = $r['idEmpleado'];
+                        $sql2 = "SELECT * FROM labdesempeñadas ld JOIN empleado em ON ld.idEmpleadoLab = em.idEmpleado WHERE idEmpleado = '$id_empleado'";
+                        $query2 = mysqli_query($adminconnection, $sql2);
                         echo "<tr>
                         <td class='field'>$i</td>
                         <td class='field'>" . $r['idUsuario'] . "</td>
                         <td class='field'>" . $r['nombreUsuario'] . " " . $r['apellidosUsuario'] . "</td>
                         <td class='field'>" . $r['cargo'] . "</td>
-                        <td class='field'>" . $r['labordesempeñada'] . "</td>
+                        <td class='field'>";
+                        while($q = $query2->fetch_assoc()){
+                            echo $q['labordesempeñada'] . "<br>";
+                        }
+                        echo"</td>
                         </tr>";
                         $i++;
                     }

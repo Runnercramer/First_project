@@ -15,7 +15,7 @@
         .production_button{width:90%;height:40px;background-color:#a1ca4f;font-weight:bold;font-size:0.7em;margin-top:20px;border-radius:20px;box-shadow:3px 3px 10px 3px #333;}
         .production_button:hover{background-color:#74a118;}
         .production_button:active{background-color:black;color:white;}
-        input[type="search"]{width:90%;height:30px;text-align:center;}
+        input[type="search"]{width:90%;height:30px;text-align:center;border-radius:15px;}
         input[type="submit"]{width:30px;height:30px;border-radius:50%;margin-left:45%;background-color:#a1ca4f;}
         input[type="submit"]:hover{background-color:#74a118;}
         input[type="submit"]:active{background-color:black;}

@@ -61,7 +61,9 @@ if(!isset($_SESSION['userinfo'])){
                 <h3>Contactos:</h3><p>301xxx xx xx<br>3022459827</p>
             </div>
             <div>
-            <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" class="main_form">
+            <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" class="main_form" enctype="multipart/form-data">
+                <label>Foto 2Mb (PNG, JPG, JPEG)</label>
+                <input type="file" name='photo'>
                 <label>Nombre</label>
                 <input type="text" name="name" placeholder="Ingresa un nuevo nombre">
                 <label>Apellidos</label>
@@ -89,6 +91,43 @@ if(!isset($_SESSION['userinfo'])){
                 $cell = mysqli_real_escape_string($adminconnection, $_POST['cell']);
                 $password1 = mysqli_real_escape_string($adminconnection, $_POST['password1']);
                 $password2 = mysqli_real_escape_string($adminconnection, $_POST['password2']);
+
+                if(isset($_FILES['photo'])){
+                $nombreimagen = $_FILES['photo']['name'];
+                $tipoimagen = $_FILES['photo']['type'];
+                $tamañoimagen = $_FILES['photo']['size'];
+
+                if($tamañoimagen <2000000){
+                    if($tipoimagen == "image/jpeg" || $tipoimagen == "image/jpg" || $tipoimagen == "image/png"){
+
+                    $destinoimagen = $_SERVER['DOCUMENT_ROOT'] . '/Vetex/imagenes/';
+                    move_uploaded_file($_FILES['imagen']['tmp_name'], $destinoimagen.$nombreimagen);
+
+                    $archivoobjetivo = fopen($destinoimagen . $nombreimagen, "r+");
+                    $contenido = fread($archivoobjetivo, $tamañoimagen);
+                    $contenido = addslashes($contenido);
+                    fclose($archivoobjetivo);
+
+                    $id_usuario = $_SESSION['userinfo']['idUsuario'];
+                    $sql2 = "SELECT * FROM imagenusuario WHERE idUsuario = '$id_usuario'";
+                    $query2 = mysqli_query($adminconnection, $sql2);
+                    $row = $query2->num_rows;
+
+                    if($row == 0){
+                        $sql3 = "INSERT INTO imagenusuario (idUsuario, imagen, tipoImagen) VALUES ('$id_usuario', '$contenido', '$tipoimagen')";
+                        $query3 = mysqli_query($adminconnection, $sql3);
+                    }else{
+                        $sql3 = "UPDATE imagenusuario SET imagen = '$contenido' WHERE idUsuario = '$id_usuario'";
+                        $sql4 = "UPDATE imagenusuario SET tipoImagen = '$tipoimagen' WHERE idUsuario = '$id_usuario'";
+                        $query3 = mysqli_query($adminconnection, $sql3);
+                        $query4 = mysqli_query($adminconnection, $sql4);
+                    }
+
+                        }else{echo "<h3>La imágen sólo puede ser tipo JPG, JPEG o PNG</h3>";}
+                    }else{echo "<h3>La imágen no puede ser de más de 2 Mb</h3>";}
+                }
+
+                
 
                 $session_id = $_SESSION['userinfo']['idUsuario'];
                 if($name != ""){
@@ -123,6 +162,7 @@ if(!isset($_SESSION['userinfo'])){
                     $query =mysqli_query($adminconnection, $sql1);
                     }
                 }
+
             }?>
             <div class="function">
                 <input class="logout_button" type="button" name="logout" value="Cerrar sesión" onClick="logout()">

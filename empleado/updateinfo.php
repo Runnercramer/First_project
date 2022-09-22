@@ -61,7 +61,9 @@ if(!isset($_SESSION['userinfo'])){
                 <h3>Contactos:</h3><p>301xxx xx xx<br>3022459827</p>
             </div>
             <div>
-            <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" class="main_form">
+            <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" class="main_form" enctype="multipart/form-data">
+                <label>Foto 2Mb (PNG, JPG, JPEG)</label>
+                <input type="file" name='photo'>
                 <label>Nombre</label>
                 <input type="text" name="name" placeholder="Ingresa un nuevo nombre">
                 <label>Apellidos</label>
@@ -82,46 +84,83 @@ if(!isset($_SESSION['userinfo'])){
             <?php
             
             if(isset($_POST['send'])){
-                $name = mysqli_real_escape_string($adminconnection, $_POST['name']);
-                $lastname = mysqli_real_escape_string($adminconnection, $_POST['lastname']);
-                $id = mysqli_real_escape_string($adminconnection, $_POST['id']);
-                $email = mysqli_real_escape_string($adminconnection, $_POST['email']);
-                $cell = mysqli_real_escape_string($adminconnection, $_POST['cell']);
-                $password1 = mysqli_real_escape_string($adminconnection, $_POST['password1']);
-                $password2 = mysqli_real_escape_string($adminconnection, $_POST['password2']);
+                $name = mysqli_real_escape_string($connection, $_POST['name']);
+                $lastname = mysqli_real_escape_string($connection, $_POST['lastname']);
+                $id = mysqli_real_escape_string($connection, $_POST['id']);
+                $email = mysqli_real_escape_string($connection, $_POST['email']);
+                $cell = mysqli_real_escape_string($connection, $_POST['cell']);
+                $password1 = mysqli_real_escape_string($connection, $_POST['password1']);
+                $password2 = mysqli_real_escape_string($connection, $_POST['password2']);
 
+
+                if(isset($_FILES['photo'])){
+                    $nombreimagen = $_FILES['photo']['name'];
+                    $tipoimagen = $_FILES['photo']['type'];
+                    $tamañoimagen = $_FILES['photo']['size'];
+    
+                    if($tamañoimagen <2000000){
+                        if($tipoimagen == "image/jpeg" || $tipoimagen == "image/jpg" || $tipoimagen == "image/png"){
+    
+                        $destinoimagen = $_SERVER['DOCUMENT_ROOT'] . '/Vetex/imagenes/';
+                        move_uploaded_file($_FILES['imagen']['tmp_name'], $destinoimagen.$nombreimagen);
+    
+                        $archivoobjetivo = fopen($destinoimagen . $nombreimagen, "r+");
+                        $contenido = fread($archivoobjetivo, $tamañoimagen);
+                        $contenido = addslashes($contenido);
+                        fclose($archivoobjetivo);
+    
+                        $id_usuario = $_SESSION['userinfo']['idUsuario'];
+                        $sql2 = "SELECT * FROM imagenusuario WHERE idUsuario = '$id_usuario'";
+                        $query2 = mysqli_query($connection, $sql2);
+                        $row = $query2->num_rows;
+    
+                        if($row == 0){
+                            $sql3 = "INSERT INTO imagenusuario (idUsuario, imagen, tipoImagen) VALUES ('$id_usuario', '$contenido', '$tipoimagen')";
+                            $query3 = mysqli_query($connection, $sql3);
+                        }else{
+                            $sql3 = "UPDATE imagenusuario SET imagen = '$contenido' WHERE idUsuario = '$id_usuario'";
+                            $sql4 = "UPDATE imagenusuario SET tipoImagen = '$tipoimagen' WHERE idUsuario = '$id_usuario'";
+                            $query3 = mysqli_query($connection, $sql3);
+                            $query4 = mysqli_query($connection, $sql4);
+                        }
+    
+                            }else{echo "<h3>La imágen sólo puede ser tipo JPG, JPEG o PNG</h3>";}
+                        }else{echo "<h3>La imágen no puede ser de más de 2 Mb</h3>";}
+                    }
+
+
+                    
                 $session_id = $_SESSION['userinfo']['idUsuario'];
-                $session_customer_id = $_SESSION['customerinfo']['idCliente'];
                 if($name != ""){
                     $sql1 = "UPDATE usuario SET nombreUsuario = '$name' WHERE idUsuario = '$session_id'";
-                    $query =mysqli_query($adminconnection, $sql1);
+                    $query =mysqli_query($connection, $sql1);
                 }
 
                 if($lastname != ""){
                     $sql1 = "UPDATE usuario SET apellidosUsuario = '$lastname' WHERE idUsuario = '$session_id'";
-                    $query =mysqli_query($adminconnection, $sql1);
+                    $query =mysqli_query($connection, $sql1);
                 }
 
                 if($id != ""){
                     $sql1 = "UPDATE usuario SET idUsaurio = '$id' WHERE idUsuario = '$session_id'";
-                    $query =mysqli_query($adminconnection, $sql1);
+                    $query =mysqli_query($connection, $sql1);
                 }
 
                 if($email != ""){
                     $sql1 = "UPDATE email SET email = '$email' WHERE idUsuario = '$session_id'";
-                    $query =mysqli_query($adminconnection, $sql1);
+                    $query =mysqli_query($connection, $sql1);
                 }
 
                 if($cell != ""){
                     $sql1 = "UPDATE celular SET celular = '$cell' WHERE idUsuario = '$session_id'";
-                    $query =mysqli_query($adminconnection, $sql1);
+                    $query =mysqli_query($connection, $sql1);
                 }
 
                 if($password1 != "" && $password2 != ""){
                     if($password1 == $password2){
                     $crypted_password = password_hash($password1, PASSWORD_DEFAULT);
                     $sql1 = "UPDATE usuario SET contraseñaUsuario = '$crypted_password' WHERE idUsuario = '$session_id'";
-                    $query =mysqli_query($adminconnection, $sql1);
+                    $query =mysqli_query($connection, $sql1);
                     }
                 }
             }?>

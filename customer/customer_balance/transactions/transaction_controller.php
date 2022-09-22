@@ -102,9 +102,11 @@ if(isset($_GET['send'])){
             <a href='vista_transaccion.php'><img id='img1' src='../../../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
             <h1>Reporte de transacciones</h1>
             <div class='profile'>
-                <img id='profile_image' src='../../../imagenes/profile.png' alt='Imagen de perfil'>";
+                <img id='profile_image' src='../../../imagenes/profile.png' alt='Imagen de perfil'><h3>";
+                echo mb_strtoupper($_SESSION['userinfo']['nombreUsuario']);
+                 echo"</h3><h3>";
                 echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);
-                echo "<input type='button' class='profile_button' value='Perfil &#9881' onClick='profile()'>
+                echo "</h3><input type='button' class='profile_button' value='Perfil &#9881' onClick='profile()'>
                 <input type='button' class='logout_button' value='Cerrar sesión' onClick='logout()'>
             </div>
         </header> 

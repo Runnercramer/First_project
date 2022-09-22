@@ -17,19 +17,11 @@ Averiguar como relacionar los detalles de un inventario con MySQL
 El stock se hará obteniendo las existencias de los productos
 
 
-El reporte de pedidos debe cumplir el mismo requerimiento
-
-En el reporte de produccion, debo convertir en botones las referencias de los productos para hacer la consulta en base a ese producto
-
-
 Debo crear una tabla que sirva como productos encargados
-Verificar el listado de produccion
 
-El administrador debe ingresar nuevas cantidadse de productos desde la interfaz de inventarios
+El administrador debe ingresar nuevas cantidades de productos desde la interfaz de inventarios
 
 Cerrar las conexiones a la base de datos, todos los archivos.
-
-En la actualización de datos se debe poder cargar la imagen de usuario.
 
 ES DE VITAL IMPORTANCIA USAR EL ENCTYPE="MULTIPART/FORM/DATA" cargar imagenes a la base de datos
 
@@ -56,3 +48,7 @@ Validar eliminación de empleado
 Pedidos de administrador copiar lso controladores desde el cliente
 
 En los catalogos, sólo mostrar los productos habilitados
+
+Las paginaciones se harán al final
+
+Cuando se cree un usuario, se debe poner una imagen por defecto. Para poder actualizarla
