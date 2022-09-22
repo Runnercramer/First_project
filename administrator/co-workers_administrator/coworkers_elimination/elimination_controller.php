@@ -366,4 +366,5 @@ if(isset($_POST['send'])){
 }
 $connection->close();
 $adminconnection->close();
+$connection->close();
 ?>

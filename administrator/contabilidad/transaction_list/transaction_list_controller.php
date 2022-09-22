@@ -199,6 +199,6 @@ if(isset($_POST['send'])){
 </html>";
     }
 }
-
 $adminconnection->close();
+$connection->close();
 ?>

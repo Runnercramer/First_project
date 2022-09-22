@@ -183,4 +183,7 @@ if(isset($_GET['send'])){
     }
 }
 }
+
+$adminconnection->close();
+$connection->close();
 ?>

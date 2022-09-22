@@ -142,4 +142,5 @@ if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'adm
 }
 
 $adminconnection->close();
+$connection->close();
 ?>

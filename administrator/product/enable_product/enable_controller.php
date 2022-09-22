@@ -15,4 +15,8 @@ if(isset($_POST['send'])){
 
     print_r($state);
 }
+$adminconnection->close();
+$connection->close();
+?>
+
 ?>

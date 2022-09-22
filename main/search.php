@@ -48,4 +48,8 @@ if(isset($_GET['button1'])){
     </body>
     </html>";
 }
+$adminconnection->close();
+$connection->close();
+?>
+
 ?>

@@ -98,6 +98,6 @@ include("../../../connection.php");
 </body>
 </html>
 <?php
-
 $adminconnection->close();
+$connection->close();
 ?>

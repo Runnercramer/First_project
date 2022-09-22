@@ -85,3 +85,7 @@
     </div>
 </body>
 </html>
+<?php
+$adminconnection->close();
+$connection->close();
+?>

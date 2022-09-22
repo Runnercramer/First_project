@@ -127,3 +127,8 @@ include("../../../connection.php");
     </div>
 </body>
 </html>
+<?php
+$adminconnection->close();
+$connection->close();
+?>
+

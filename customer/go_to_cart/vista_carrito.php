@@ -121,3 +121,7 @@ if(isset($_POST['send'])){
     echo "<script>alert('Has eliminado un producto');</script>";
 }
 ?>
+<?php
+$adminconnection->close();
+$connection->close();
+?>

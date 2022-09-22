@@ -199,3 +199,7 @@ if(!isset($_SESSION['userinfo'])){
     </div>
 </body>
 </html>
+<?php
+$adminconnection->close();
+$connection->close();
+?>

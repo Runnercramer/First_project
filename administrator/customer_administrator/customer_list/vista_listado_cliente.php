@@ -97,4 +97,5 @@
 </html>
 <?php
 $adminconnection->close();
+$connection->close();
 ?>
