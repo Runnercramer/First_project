@@ -38,3 +38,7 @@ if(isset($_POST['send'])){
     
 </body>
 </html>
+<?php
+$adminconnection->close();
+$connection->close();
+?>

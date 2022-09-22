@@ -57,4 +57,7 @@ session_start();
 
             break;
         }
+
+$adminconnection->close();
+$connection->close();
 ?>

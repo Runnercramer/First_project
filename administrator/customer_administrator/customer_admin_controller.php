@@ -136,4 +136,5 @@ if(isset($_GET['search_button'])){
 }
 
 $adminconnection->close();
+$connection->close();
 ?>

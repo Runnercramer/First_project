@@ -370,4 +370,5 @@ echo "Eliminación exitosa";
 }*/
 
 $adminconnection->close();
+$connection->close();
 ?>

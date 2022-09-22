@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="new_admin_styles.css">
     <style>
         .button7{grid-column-start:1;grid-column-end:2;}
-        .button9{grid-column-start:1;grid-column-end:3;}
+        .button9{grid-column-start:1;grid-column-end:2;}
+        .button10{grid-column-start:2;grid-column-end:3;}
     </style>
     <script>
         function profile(){
@@ -58,6 +59,9 @@
         function users(){
             window.location.href="users/vista_usuarios.php";
         }
+        function pqr(){
+            window.location.href="pqr/pqr.php";
+        }
     </script>
 </head>
 <body>
@@ -100,6 +104,7 @@
                 <div class="button7"><input class="button" type="button" onClick="production()" value="Producción"></div>
                 <div class="button8"><input class="button" type="button" onClick="producto()" value="Producto"></div>
                 <div class="button9"><input class="button" type="button" onClick="users()" value="Usuarios"></div>
+                <div class="button10"><input class="button" type="button" onClick="pqr()" value="PQR"></div>
             </div>
         </section>
         <footer id='pa2'>

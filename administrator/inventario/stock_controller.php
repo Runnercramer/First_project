@@ -24,4 +24,6 @@ if(isset($_POST['send'])){
 
     }else if($creationdate == "" && $encargado == "" && $searchdate == "" && $togetdate != "")
 }
+$adminconnection->close();
+$connection->close();
 ?>

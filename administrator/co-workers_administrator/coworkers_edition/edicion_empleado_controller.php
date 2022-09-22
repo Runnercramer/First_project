@@ -25,5 +25,6 @@ if(isset($_POST['send'])){
     }
 }
 
-
+$adminconnection->close();
+$connection->close();
 ?>

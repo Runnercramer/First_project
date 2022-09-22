@@ -4,8 +4,6 @@ https://desarrolloweb.com/articulos/posibilidades-envio-mail-php-localhost.html
 En la vista pagos falta válidar el saldo de los pedidos
 
 
-Crear desde el admin la posibilidad de ver pqrs
-
 Cuando un dministrador crea a un cliente, debe enviarse un correo de confirmación
 
 
