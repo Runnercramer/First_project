@@ -27,7 +27,6 @@ ES DE VITAL IMPORTANCIA USAR EL ENCTYPE="MULTIPART/FORM/DATA" cargar imagenes a 
 
 Desde la interfaz de productos del administrador se deben ver las garantias
 
-Agregar el nombre del usuario encima del tipo
 
 Cuando se haga un nuevo pedido desde el cliente, enviar un correo de verificacion al administrador y al cliente
 
@@ -40,3 +39,5 @@ En los catalogos, sólo mostrar los productos habilitados
 Las paginaciones se harán al final
 
 Cuando se cree un usuario, se debe poner una imagen por defecto. Para poder actualizarla
+
+Falta finalizar el reporte de pedidos administrador

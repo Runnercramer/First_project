@@ -71,6 +71,7 @@ include("../../../connection.php");
             <h1>Hay <?php echo $num_filas?> resultados<br>Mostrando la página <?php echo $pagina?> de <?php echo $total_paginas?></h1>
             <div class="profile">
                 <img id="profile_image" src="../../../imagenes/profile.png" alt="Imagen de perfil">.
+                <h3><?php echo mb_strtoupper($_SESSION['userinfo']['nombreUsuario']);?></h3>
                 <h3><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);?></h3>
                 <input type="button" class="profile_button" value="Perfil &#9881" onclick="profile()">
                 <input type="button" class="logout_button" value="Cerrar sesión" onclick="logout()">
