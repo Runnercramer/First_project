@@ -52,6 +52,7 @@
             <h1>Empleados</h1>
             <div class="profile">
                 <img id="profile_image" src="../../imagenes/profile.png" alt="Imagen de perfil">
+                <h3><?php echo mb_strtoupper($_SESSION['userinfo']['nombreUsuario']);?></h3>
                 <h3><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);?></h3>
                 <input type="button" class="profile_button" value="Perfil &#9881" onclick="profile()">
                 <input type="button" class="logout_button" value="Cerrar sesión" onClick="logout()">

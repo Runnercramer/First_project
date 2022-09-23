@@ -46,6 +46,7 @@
     <div id='cont1'>
         <header id='enc1'>
             <a href='vista_empleado.php'><img id='img1' src='../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
+            <h3><?php echo mb_strtoupper($_SESSION['userinfo']['nombreUsuario']);?></h3>
             <h1>Bienvenid@ <?php echo $_SESSION['userinfo']['nombreUsuario']?></h1>
             <div class="profile">
                 <img id="profile_image" src="../imagenes/profile.png" alt="Imagen de perfil">.
