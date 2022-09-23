@@ -18,9 +18,10 @@ include("../../../connection.php");
         .header{background-color:#a1ca4f;font-size:1.4em;}
         .field{background-color:#bbb;font-size:1.2em;}
         .img_user{width:150px;border-radius:50%;}
-        .function_container{display:flex;flex-direction:column;align-items:center;}
-        .function_container label{margin:9px auto;}
         .button{width:30%;}
+        .update_button{width:40%;margin:15px auto;background-color:beige;font-size:0.9em;font-weight:bold;border-radius:15px;}
+        .test_field{display:flex;flex-direction:column;height:100%;}
+        .function_form{display:flex;flex-direction:column;align-items:center;}
     </style>
        <script>
         function logout(){
@@ -79,7 +80,6 @@ include("../../../connection.php");
                         $id_empleado = $r['idEmpleado'];
                         $sql2 = "SELECT * FROM labdesempeñadas ld JOIN empleado em ON ld.idEmpleadoLab = em.idEmpleado WHERE idEmpleado = '$id_empleado'";
                         $query2 = mysqli_query($adminconnection, $sql2);
-                        $i = 1;
                         echo "
                         <tr>
                         <td class='field'>" . $r['nombreUsuario'] . " " . $r['apellidosUsuario'] . "</td>
@@ -90,14 +90,17 @@ include("../../../connection.php");
                             echo $q['labordesempeñada'] . "<br>";
                         }
                          echo"</td>
-                        <td class='field function_container'>
-                        <label>Cambiar cargo: <input type='text' name='cargo$i' placeholder='Ingresa nuevo cargo'></label>
-                        <label>Agregar labor: <input type='text' name='new_labor$i' placeholder='Ingresa una nueva labor'></label>
-                        <label>Eliminar labor: <input type='text' name='delete_labor$i' placeholder='Elimina una labor'></label>
+                        <td class='field test_field'>
+                        <form class='function_form' action='edicion_empleado_controller.php' method='POST'>
+                        <input type='hidden' name='id' value='$id_empleado'>
+                        <label>Cambiar cargo: <input type='text' name='cargo' placeholder='Ingresa nuevo cargo'></label>
+                        <label>Agregar labor: <input type='text' name='new_labor' placeholder='Ingresa una nueva labor'></label>
+                        <label>Eliminar labor: <input type='text' name='delete_labor' placeholder='Elimina una labor'></label>
+                        <input class='update_button' type='submit' name='send' value='Actualizar'>
+                        </form>
                         </td>
                         </tr>
                         ";
-                        $i++;
                     }
                     ?>
                     </table>  
