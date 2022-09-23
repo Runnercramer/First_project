@@ -29,7 +29,6 @@ Agregar al administrador la funcionalidad ed actualizar el estado de un despacho
 
 Desde la interfaz de productos del administrador se deben ver las garantias. JEAN
 
-Agregar el nombre del usuario encima del tipo. JEAN
 
 Cuando se haga un nuevo pedido desde el cliente, enviar un correo de verificacion al administrador y al cliente
 
