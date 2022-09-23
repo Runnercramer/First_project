@@ -49,7 +49,7 @@
         </header>  
         <section class="methods">
             <div class="information">
-                <h>REPORTE DESPACHOS</h2>
+                <h2>REPORTE DESPACHOS</h2>
                 <br>
                 <p>En esta interfaz podrás obtener el reporte de los despachos en general si ingresas las 2 fechas solicitadas o un listado de los despachos relacionados a un cliente.</p>
                 <br>

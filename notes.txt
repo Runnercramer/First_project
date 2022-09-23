@@ -25,8 +25,6 @@ ES DE VITAL IMPORTANCIA USAR EL ENCTYPE="MULTIPART/FORM/DATA" cargar imagenes a 
 
 
 
-Agregar al administrador la funcionalidad ed actualizar el estado de un despacho
-
 Desde la interfaz de productos del administrador se deben ver las garantias
 
 Agregar el nombre del usuario encima del tipo
@@ -35,11 +33,7 @@ Cuando se haga un nuevo pedido desde el cliente, enviar un correo de verificacio
 
 Verificar customer_admin_controller.php
 
-listado de empleados, verificar la consulta para no obtener valoers repetidos 
-
-Validar eliminación de empleado
-
-Pedidos de administrador copiar lso controladores desde el cliente
+En la vista de modificación de pedidos y listado de pedidos, falta desplegar un listado con los pedidos y los detalles del mismo.
 
 En los catalogos, sólo mostrar los productos habilitados
 

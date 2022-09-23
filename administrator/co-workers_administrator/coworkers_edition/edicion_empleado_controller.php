@@ -6,7 +6,6 @@ if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'adm
     header("location:../../../main/index.html");
 }
 
-<<<<<<< HEAD
 if(isset($_POST['send'])){
     $id = mysqli_real_escape_string($adminconnection, $_POST['id']);
     $cargo = mysqli_real_escape_string($adminconnection, $_POST['cargo']);
@@ -167,8 +166,3 @@ if(isset($_POST['send'])){
     }
 }
 ?>
-=======
-$adminconnection->close();
-$connection->close();
-?>
->>>>>>> 4523f5cf6fd741887102687ff85bfc6320b8ed4d

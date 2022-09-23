@@ -12,11 +12,12 @@
     <link rel="stylesheet" href="../new_admin_styles.css">
     <style>
         .orders_function{height:auto;min-height:530px;background-color:#bbb;display:grid;grid-template-columns:repeat(2, 1fr);grid-template-rows:repeat(2, 1fr);box-shadow:5px 5px 20px 5px #333;}
-        .button{font-size:1.5em;margin:100px;width:60%;}
+        .button{font-size:1.8em;margin:100px;width:60%;}
         .order_query{display:flex;flex-direction:column;text-align:center;align-items:center;}
         label{font-size:2em;margin:25px;font-weight:bold;}
         input[type="search"]{width:70%;height:40px;text-align:center;font-size:1.2em;}
         .search_field{width:80%;display:flex;flex-direction:row;justify-content:space-around;}
+        .search_input{border-radius:15px;}
         .submit_button{border-radius:50%;width:40px;height:40px;font-size:1.2em;background-color:#74a118;}
         .submit_button:hover{background-color:#a1ca4f;}
         .submit_button:active{background-color:black;color:white;}
@@ -86,7 +87,7 @@ if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'adm
                     <div class="order order_query">
                         <label>Buscar pedido</label>
                         <div class="search_field">
-                        <input type="search" name="search" placeholder="Ingresa el nombre del cliente">
+                        <input class='search_input' type="search" name="search" placeholder="Ingresa el nombre del cliente">
                         <input class="submit_button" type="submit" name="send" value="&#128269">
                     </div>
                     </div>
