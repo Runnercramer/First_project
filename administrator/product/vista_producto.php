@@ -41,6 +41,9 @@
         function vergarantias(){
             window.location.href= "ver_garantias/vistagarantias.php";
         }
+        function actualizarexistencias(){
+            window.location.href= "existencias/verexistencias.php";
+        }
 
     </script>
 </head>
@@ -80,6 +83,7 @@
                 <div class="button3"><input class="button" type="button" value="Habilitar producto" onclick="habilitarProducto()"></div>
                 <div class="button4"><input class="button" type="button" value="Deshabilitar producto" onclick="deshabilitarProducto()"></div>
                 <div class="button5"><input class="button" type="button" value="Ver Garantias" onclick="vergarantias()"></div>
+                <div class="button6"><input class="button" type="button" value="Actualizar Existencias" onclick="actualizarexistencias()"></div>
             </div>
         </section>
         <footer id='pa2'>

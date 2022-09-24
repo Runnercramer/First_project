@@ -8,8 +8,6 @@ Debo crear triggers para eliminacion de usuarios SQL
 
 Debo crear una tabla que sirva como productos encargados
 
-El administrador debe ingresar nuevas cantidades de productos desde la interfaz de inventarios
-
 Cerrar las conexiones a la base de datos, todos los archivos.
 
 ES DE VITAL IMPORTANCIA USAR EL ENCTYPE="MULTIPART/FORM/DATA" cargar imagenes a la base de datos
