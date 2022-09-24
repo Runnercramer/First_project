@@ -1,6 +1,3 @@
-https://desarrolloweb.com/articulos/posibilidades-envio-mail-php-localhost.html
-
-
 En la vista pagos falta válidar el saldo de los pedidos
 
 
@@ -9,11 +6,7 @@ Cuando un dministrador crea a un cliente, debe enviarse un correo de confirmaci�
 
 Debo crear triggers para eliminacion de usuarios SQL
 
-Debo crear una tabla que sirva como productos encargados
-
 El administrador debe ingresar nuevas cantidades de productos desde la interfaz de inventarios
-
-Cerrar las conexiones a la base de datos, todos los archivos.
 
 ES DE VITAL IMPORTANCIA USAR EL ENCTYPE="MULTIPART/FORM/DATA" cargar imagenes a la base de datos
 
@@ -31,5 +24,7 @@ Las paginaciones se harán al final
 
 Cuando se cree un usuario, se debe poner una imagen por defecto. Para poder actualizarla
 
+Falta la lógica de PQRS
 
 Validar existencias en base a los pedidos
+Conectar la pasarela de pago con la api de paypal desde el modulo de cliente
