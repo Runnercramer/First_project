@@ -4,7 +4,7 @@ include("../../connection.php");
 <!DOCTYPE html>
 <html lang='es'>
 <head>
-    <title>Lista de PQR</title>
+    <title>PQRS</title>
     <meta charset='UTF-8' />
     <link rel='stylesheet' href='../../main/estilos.css'/>
     <link rel='icon' href='../../imagenes/vetex.ico'/>
@@ -16,8 +16,9 @@ include("../../connection.php");
     <style>
         .pqr_table{width:100%;margin:20px auto;background-color:#777;text-align:center;font-weight:bold;}
         .header{background-color:#a1ca4f;font-size:1.4em;border:1px solid black;}
-        .field{background-color:#bbb;font-size:1.15em;border:1px solid black;}
-
+        .field{background-color:#bbb;font-size:1.15em;border:1px solid black;padding:2px;}
+        .update_field{border-radius:15px;text-align:center;}
+        .update_button{background-color:beige;font-weight:bold;padding:2px;}
     </style>
     <script>
         function profile(){
@@ -36,13 +37,13 @@ include("../../connection.php");
     if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'administrador'){
         header("location:../../main/index.html");
     }
-    $sql1 = "SELECT * FROM usuario us JOIN cliente cl ON us.idUsuario = cl.idUsuario JOIN pqrs pq ON cl.idCliente = pq.idCliente";
+    $sql1 = "SELECT * FROM usuario us JOIN cliente cl ON us.idUsuario = cl.idUsuario JOIN pqrs pq ON cl.idCliente = pq.idCliente JOIN email em ON us.idUsuario = em.idUsuario JOIN celular ce ON us.idUsuario = ce.idUsuario";
     $query1 = mysqli_query($adminconnection,$sql1);
     ?>
     <div id='cont1'>
         <header id='enc1'>
             <a href='../vista_administrador.php'><img id='img1' src='../../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
-            <h1>PQR</h1>
+            <h1>PQRS</h1>
             <div class="profile">
                 <img id="profile_image" src="../../imagenes/profile.png" alt="Imagen de perfil">.
                 <h3><?php echo mb_strtoupper($_SESSION['userinfo']['nombreUsuario']);?></h3>
@@ -53,9 +54,9 @@ include("../../connection.php");
         </header>  
         <section class="methods">
             <div class="information">
-                <h2>Listado PQR</h2>
+                <h2>Listado PQRS</h2>
                 <br>
-                <p>En este módulo podrás ver un listado de todos los PQR que los clientes han realacionado detalladamente.</p>
+                <p>En este módulo podrás ver un listado de todos los PQRS que los clientes han realacionado detalladamente.<br><b>Puedes actualizar el estado de la solicitud.</b></p>
                 <br>
                 <h3>Software:</h3><p><b>SGIVT</b></p>
                 <h3>Version:</h3><p><b>1.2</b></p>
@@ -65,28 +66,43 @@ include("../../connection.php");
             <div class="function_pqr">
             <table class="pqr_table">
                     <tr>
-                        <td class="header">Id. Cliente</td>
+                        <td class='header'>Código</td>
                         <td class="header">Nombre</td>
-                        <td class="header">Tipo de Solicitud</td>
+                        <td class="header">Email</td>
+                        <td class="header">Tipo de solicitud</td>
                         <td class="header">Solicitud</td>
                         <td class="header">Fecha</td>
                         <td class="header">Estado</td>
+                        <td class="header">Actualizar</td>
                     </tr>
                     <?php
                     while($p = $query1->fetch_assoc()){
-                        //$p = $p[''];
+                        $codigo_solicitud = $p['idSolicitud'];
                         echo "
                         <tr>
-                        <td class='field'>" . $p['idCliente'] . "</td>
-                        <td class='field'>" . $p['nombreUsuario'] . "</td>
-                        <td class='field'>" . $p['tipoSolicitud'] . "</td>
+                        <td class='field'>$codigo_solicitud</td>
+                        <td class='field'>" . $p['nombreUsuario'] . " " . $p['apellidosUsuario'] . "</td>
+                        <td class='field'>" . $p['email'] . "</td>
+                        <td class='field'>" . mb_strtoupper($p['tipoSolicitud']) . "</td>
                         <td class='field'>" . $p['solicitud'] . "</td>
                         <td class='field'>" . $p['fecha'] . "</td>
-                        <td class='field'>" . $p['estadoSolicitud'] . "</td>
+                        <td class='field'>" . mb_strtoupper($p['estadoSolicitud']) . "</td>
+                        <td class='field'>
+                        <form action='#' method='GET'>
+                        <input type='hidden' name='codigo' value='$codigo_solicitud'>
+                        <input class='update_field' type='text' name='state' value='" . $p['estadoSolicitud'] . "'>
+                        <input class='update_button' type='submit' name='send' value='Actualizar'>
+                        </form>
+                        </td>
                         </tr>";
                     }
                     ?>
                 </table>
+                <?php
+                if(isset($_GET['send'])){
+
+                }
+                ?>
 
             </div>
         </section>

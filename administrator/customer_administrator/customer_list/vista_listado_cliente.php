@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="../../administrator_styles.css">
     <link rel="stylesheet" href="../../new_admin_styles.css">
     <style>
-        .main_table{background-color:#777;width:100%;}
-        .header_table1{background-color:#74a118;text-align:center;font-size:1.2em;font-weight:bold;padding:5px;}
-        .field{background-color:#bbb;font-weight:bold;text-align:center;padding:3px;}
+        .main_table{background-color:#777;width:100%;text-align:center;}
+        .header_table1{background-color:#a1ca4f;font-size:1.5em;font-weight:bold;bordeR:1px solid black;}
+        .field{background-color:#bbb;font-weight:bold;font-size:1.2em;border:1px solid black;}
     </style>
             <?php
             include('../../../connection.php');
@@ -44,6 +44,7 @@
             <h1>Se recuperaron <?php echo $a;?> resultados del listado de clientes</h1>
             <div class="profile">
                 <img id="profile_image" src="../../../imagenes/profile.png" alt="Imagen de perfil">
+                <h3> <?php echo mb_strtoupper($_SESSION['userinfo']['nombreUsuario']);?></h3>
                 <h3> <?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);?></h3>
                 <input type="button" class="profile_button" value="Perfil &#9881" onclick="profile()">
                 <input type="button" class="logout_button" value="Cerrar sesión" onclick="logout()">

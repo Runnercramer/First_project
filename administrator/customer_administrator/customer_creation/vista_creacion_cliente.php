@@ -19,7 +19,7 @@
         .customer_creation input[type="submit"]:hover{background-color:#74a118}
         .customer_creation input[type="submit"]:active{background-color:black;color:white;}
     </style>
-             <script>
+        <script>
         function profile(){
             window.location.href = "../../adminprofile.php";
         }

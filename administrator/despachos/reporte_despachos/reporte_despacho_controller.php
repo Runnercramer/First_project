@@ -31,8 +31,13 @@ if(isset($_GET['send'])){
             <link rel='stylesheet' href='../../new_admin_styles.css'>
             <style>
                 .main_table{background-color:#777;width:100%;text-align:center;font-weight:bold;}
-                .header{background-color:#a1ca4f;font-size:1.5em;}
-                .field{background-color:#bbb;font-size:1.2em;}
+                .header{background-color:#a1ca4f;font-size:1.5em;border:1px solid black;}
+                .field{background-color:#bbb;font-size:1.2em;border:1px solid black;}
+                .state_input{width:70%;text-align:center;margin:5px;}
+                .update_form{display:flex;flex-direction:column;align-items:center;}
+                .submit_form{margin:5px;font-weight:bold;background-color:beige;padding:2px;}
+                .error{background-color:red;color:white;margin:15px auto;}
+                .notification_message{margin:15px auto;}
             </style>
                      <script>
                 function profile(){
@@ -56,6 +61,9 @@ if(isset($_GET['send'])){
                     <div class='profile'>
                         <img id='profile_image' src='../../../imagenes/profile.png' alt='Imagen de perfil'>
                         <h3>"; 
+                        echo mb_strtoupper($_SESSION['userinfo']['nombreUsuario']);
+                        echo "</h3>
+                        <h3>"; 
                         echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);
                         echo "</h3>
                         <input type='button' class='profile_button' value='Perfil &#9881' onclick='profile()'>
@@ -66,7 +74,7 @@ if(isset($_GET['send'])){
                     <div class='information'>
                         <h2>REPORTE DESPACHOS</h2>
                         <br>
-                        <p>Este es un reporte general de los últimos despachos realizados entre $date1 y $date2</p>
+                        <p>Este es un reporte general de los últimos despachos realizados entre $date1 y $date2.<br>Podrás actualizar el estado del despacho</p>
                         <br>
                         <h3>Software:</h3><p><b>SGIVT</b></p>
                         <h3>Version:</h3><p><b>1.2</b></p>
@@ -81,9 +89,12 @@ if(isset($_GET['send'])){
                     <td class='header'>Encargado</td>
                     <td class='header'>Fecha</td>
                     <td class='header'>Estado</td>
+                    <td class='header'>Actualizar</td>
                     <td class='header'>Guia</td>
                     </tr>";
                     while($r = $query1->fetch_assoc()){
+                        $cod_despacho = $r['codDespacho'];
+                        $estado = $r['estado'];
                         echo "
                         <tr>
                         <td class='field'>" . $r['codDespacho'] . "</td>
@@ -91,12 +102,37 @@ if(isset($_GET['send'])){
                         <td class='field'>" . $r['encargado'] . "</td>
                         <td class='field'>" . $r['fecha'] . "</td>
                         <td class='field'>" . $r['estado'] . "</td>
+                        <td class='field'>
+                        <form class='update_form' action='#' method='POST'>
+                        <input type='hidden' name='cod_despacho' value='$cod_despacho'>
+                        <input class='state_input' type='text' name='estado' value='$estado'>
+                        <input class='submit_form' type='submit' name='send' value='Aplicar'>
+                        </form>
+                        </td>
                         <td class='field'>" . $r['guia'] . "</td>
                         </tr>
                         ";
                     }
                     echo"
-                    </table>
+                    </table>";
+
+                    if(isset($_POST['send'])){
+                        $codigo = $_POST['cod_despacho'];
+                        $estado_despacho = mysqli_real_escape_string($adminconnection, $_POST['estado']);
+
+                        if($estado_despacho != ""){
+                            $sql3 = "UPDATE despacho SET estado = '$estado_despacho' WHERE codDespacho = '$codigo'";
+                            $query3 = mysqli_query($adminconnection, $sql3);
+                            if($query3){
+                                echo "<h3 class='notification_message'>El estado del despacho $codigo ha sido actualizado exitosamente</h3>";
+                            }else{
+                                echo "<h3 class='error'>Ocurrió un error al intentar actualizar la información</h3>";
+                            }
+                        }else{
+                            echo "<h3 class='error'>Debe ingresar un nuevo estado no vacío</h3>";
+                        }
+                    }
+                    echo"
                     </div>
                 </section>
                 <footer id='pa2'>
@@ -124,8 +160,8 @@ if(isset($_GET['send'])){
             <link rel='stylesheet' href='../../new_admin_styles.css'>
             <style>
                 .main_table{background-color:#777;width:100%;text-align:center;font-weight:bold;}
-                .header{background-color:#a1ca4f;font-size:1.5em;}
-                .field{background-color:#bbb;font-size:1.2em;}
+                .header{background-color:#a1ca4f;font-size:1.5em;border:1px solid black;}
+                .field{background-color:#bbb;font-size:1.2em;border:1px solid black;}
             </style>
                      <script>
                 function profile(){
@@ -148,6 +184,9 @@ if(isset($_GET['send'])){
                     <h1>Reporte individual</h1>
                     <div class='profile'>
                         <img id='profile_image' src='../../../imagenes/profile.png' alt='Imagen de perfil'>
+                        <h3>"; 
+                        echo mb_strtoupper($_SESSION['userinfo']['nombreUsuario']);
+                        echo "</h3>
                         <h3>"; 
                         echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);
                         echo "</h3>

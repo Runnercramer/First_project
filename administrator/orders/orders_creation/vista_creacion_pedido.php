@@ -1,3 +1,6 @@
+<?php
+include("../../../connection.php");
+?>
 <!DOCTYPE html>
 <html lang='es'>
 <head>
@@ -11,20 +14,28 @@
     <link rel="stylesheet" href="../../administrator_styles.css">
     <link rel="stylesheet" href="../../new_admin_styles.css">
     <style>
-        .orders_function{background-color:#aaa;width:90%;display:flex;flex-direction:column;align-items:center;padding:10px;font-size:2em;font-weight:bold;height:auto;min-height:530px;justify-content:space-evenly;box-shadow:5px 5px 20px 5px #333;}
-        input[type="text"], input[type="date"], input[type="number"]{width:60%;text-align:center;height:30px;font-size:0.7em;border-radius:15px;}
-        select{width:60%;height:30px;text-align:center;border-radius:15px;}
-        .button_form, input[type="submit"]{background-color:#a1ca4f;width:40%;height:30px;text-align:center;margin:10px;box-shadow:3px 3px 10px 3px #333;font-weight:bold;font-size:0.6em;border-radius:15px;}
-        .button_form:hover, input[type="submit"]:hover{background-color:#74a118;}
-        .button_form:active, input[type="submit"]:active{background-color:black;color:white;}
+        .main_container{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr 100px;grid-gap:20px;}
+        .order_form{background-color:#bbb;width:60%;margin:0 auto;display:flex;flex-direction:column;align-items:center;padding:10px;font-weight:bold;font-size:1.2em;height:180px;justify-content:space-evenly;grid-column-start:1;grid-column-end:3;box-shadow:5px 5px 15px 5px #333;}
+        .order_input{width:60%;font-size:1em;text-align:center;border-radius:15px;}
+        .query_button{background-color:beige;box-shadow:3px 3px 10px 3px #333;width:30%;font-weight:bold;font-size:1em;margin:5px;border-radius:15px;}
+        .product_card{display:flex;flex-direction:column;align-items:center;background-color:#ccc;box-shadow:3px 3px 10px 3px #333;padding:10px;justify-content:space-evenly;}
+        .img_product{width:200px;}
+        .cant_input{width:50%;text-align:center;}
+        .addToCart{background-color:beige;padding:2px;font-weight:bold;}
+        .pag{grid-column-start:1;grid-column-end:3;display:flex;flex-direction:row;justify-content:space-evenly;}
+        .pag_button{font-size:1.1em;padding:3px 5px;background-color:beige;box-shadow:3px 3px 10px #333;}
     </style>
-               <script>
+    <script>
         function profile(){
             window.location.href = "../../adminprofile.php";
         }
 
         function logout(){
             window.location.href = "../../../main/logout.php";
+        }
+
+        function goToCart(){
+            window.location.href = "cart.php";
         }
     </script>
 </head>
@@ -51,35 +62,71 @@
             <div class="information">
                 <h2>CREACIÓN PEDIDOS</h2>
                 <br>
-                <p>Ingresa los datos solicitados en el formulario para crear un nuevo pedido.</p>
+                <p>Selecciona los productos y las cantidades que quieras agregar al pedido.<br>Luego puedes visitar el carrito de la compra</p>
                 <br>
                 <h3>Software:</h3><p><b>SGIVT</b></p>
                 <h3>Version:</h3><p><b>1.2</b></p>
                 <h3>Desarrolladores:</h3><p>Jean Cuesta<br>Cristian Vargas</p>
                 <h3>Contactos:</h3><p>301xxx xx xx<br>3022459827</p>
+                <input type="button" class='query_button' name="send" value="Carrito" onclick="goToCart()">
             </div>
-            <div>
-                <form class="orders_function" action="creation_orders_controller.php" method="POST">
-                    <label>Cód Pedido</label>
-                    <input type="text" name="idpedido" placeholder="Ingresa el código (X-XXX)" required>
-                    <label>Cédula cliente</label>
-                    <input type="text" name="idcliente" placeholder="Ingresa la cédula del cliente" required>
-                    <label>Fecha</label>
-                    <input type="date" name="date1" placeholder="Ingresa la fecha en que se realizó el pedido">
-                    <label>Productos</label>
-                <!--Debo transaformar este archivo en PHP, para que el listado se actualice a medida que se agreguen nuevos productos-->
-                    <select name="product">
-                        <option value="0">-----------------------</option>
-                        <option value="QCM-255">QCM-255</option>
-                        <option value="QCM-256">QCM-256</option>
-                        <option value="QCM-257">QCM-257</option>
-                        <option value="QCM-260">QCM-260</option>
-                    </select>
-                    <label>Cantidad</label>
-                    <input type="number" name="cantidad" placeholder="Ingresa la cantidad">
-                    <input class="button_form" type="button" name="newproduct" value="Agregar producto">
-                    <input type="submit" name="send" value="Crear">
-                </form>
+            <?php
+            $tamaño_pagina = 4;
+            if(isset($_GET['pagina'])){
+                if($_GET['pagina'] == 1){
+                    header("location:/Vetex/administrator/orders/orders_creation/vista_creacion_pedido.php");
+                }else{
+                    $pagina = $_GET['pagina'];
+                }
+            }else{
+                $pagina = 1;
+            }
+            $empezar_desde = ($pagina - 1) * $tamaño_pagina;
+
+            $sql1 = "SELECT * FROM imagenproducto im JOIN producto pr ON im.codProducto = pr.codProducto JOIN detalleproducto dp ON pr.codProducto = dp.codProducto WHERE estadoProducto = 'habilitado' ORDER BY producto ASC";
+            $query1 = mysqli_query($adminconnection, $sql1);
+
+            $num_filas = $query1->num_rows;
+
+            $total_paginas = ceil($num_filas/$tamaño_pagina);
+
+            $sql1_limite = "SELECT * FROM imagenproducto im JOIN producto pr ON im.codProducto = pr.codProducto JOIN detalleproducto dp ON pr.codProducto = dp.codProducto WHERE estadoProducto = 'habilitado' ORDER BY producto ASC LIMIT $empezar_desde,$tamaño_pagina";
+
+            $query1_limite = mysqli_query($adminconnection, $sql1_limite);
+            
+            ?>
+            <div class="main_container">
+               <?php
+                   while($r = $query1_limite->fetch_assoc()){
+                        $cont = $r['imagen'];
+                        $cod = $r['codProducto'];
+                        echo "
+                        <div class='product_card'>
+                        <h3 align='center'>$cod</h3>
+                        <img class='img_product' src='data:image/jpeg; base64, " . base64_encode($cont) . "'>
+                        <h3>" . $r['producto'] . "</h3>
+                        <h4>" . $r['valorProducto'] . "</h4>
+                        <p>" . $r['descripcionProducto'] . "</p>
+
+                        <form class='add_form' method='POST' action='new_order_controller.php'>
+                        <input type='hidden' name='codigo' value='" . $r['codProducto'] . "'>
+                        <input type='hidden' name='producto' value='" . $r['producto'] . "'>    
+                        <input type='hidden' name='valor' value='" . $r['valorProducto'] . "'>    
+                        <input class='cant_input' type='number' name='cantidad' value='1'>
+                        <input class='addToCart' type='submit' name='send' value='Agregar'>
+                        </form>
+                        </div>";
+                    }
+                    ?>
+                <div class="pag">
+                    <?php
+                    for($i = 1; $i<=$total_paginas; $i++){
+                        echo "<a href='?pagina=" . $i . "'><input class='pag_button' type='button' value='$i'></a>";
+                    }
+                
+                    ?>
+                    
+                    </div>
             </div>
         </section>
         <footer id='pa2'>

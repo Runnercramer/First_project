@@ -11,24 +11,23 @@
     <link rel="stylesheet" href="../administrator_styles.css">
     <link rel="stylesheet" href="../new_admin_styles.css">
     <style>
-        .form_inventory{display:grid;grid-template-columns:3fr 2fr;padding:10px;background-color:#bbb;box-shadow:5px 5px 20px 5px #333;}
-        .stock_date, .inventory_dates{display:flex;flex-direction:column;align-items:center;padding:10px;font-size:1.5em;}
-        .inventory_table{border:1px solid black;width:80%;text-align:center;margin:20px auto;font-size:0.80em;background-color:#999;}
-        .field{border:2px solid black;}
-        .header{font-weight:bold;background-color:#a1ca4f;border:2px solid black;}
-        label{font-weight:bold;margin:10px;}
-        input[type="date"], input[type="text"]{width:60%;height:25px;text-align:center;margin:15px;}
-        input[type="submit"]{background-color:#a1ca4f;width:40%;height:25px;font-weight:bold;margin:20px;box-shadow:3px 3px 10px 3px #333;}
-        input[type="submit"]:hover{background-color:#74a118;}
-        input[type="submit"]:active{background-color:black;color:white;}
+        .function_inventory{display:grid;grid-template-rows:1fr 1fr;}
     </style>
              <script>
         function profile(){
-            window.location.href = "../adminprofile.php";
+            window.location.href = '../adminprofile.php';
         }
 
         function logout(){
-            window.location.href = "../../main/logout.php";
+            window.location.href = '../../main/logout.php';
+        }
+
+        function newStock(){
+            window.location.href = 'new_stock/vista_nuevo_inventario.php';
+        }
+
+        function stockReport(){
+            window.location.href = 'stock_report/vista_reporte_inventario.php';
         }
     </script>
 </head>
@@ -55,48 +54,20 @@
             <div class="information">
                 <h2>INVENTARIO</h2>
                 <br>
-                <p>En esta interfaz se presenta un listado con las fechas de los inventarios realizados, al escoger una fecha, obtendrás un listado con todos los productos y sus existencias para ese día.<br>Tambien podrás ver un inventario actualizado a día de hoy o hasta el día deseado.</p>
+                <p>En esta interfaz podrás registrar un nuevo inventario realizado y obtener infirmación de un inventario en específico.</p>
                 <br>
                 <h3>Software:</h3><p><b>SGIVT</b></p>
                 <h3>Version:</h3><p><b>1.2</b></p>
                 <h3>Desarrolladores:</h3><p>Jean Cuesta<br>Cristian Vargas</p>
                 <h3>Contactos:</h3><p>301xxx xx xx<br>3022459827</p>
             </div>
-            <div class="function_inventory">    
-                <form class="form_inventory" action="stock_controller.php" method="POST"> 
-                <div class="inventory_dates">
-                    <h3 class="subtitle">Inventarios</h3>
-                    <label>Ingresar nuevo inventario</label>
-                    <input type="date" name="creationdate">
-                    <label>Encargado</label>
-                    <input type="text" name="encargado" placeholder="Nombre de quien realiza el inventario">
-                    <label>Supervisor</label>
-                    <input type="text" name="supervisor" placeholder="Nombre de quien supervisa">
-                    <table class="inventory_table">
-                        <tr>
-                           <td class="header">N°</td> 
-                           <td class="header">Fecha</td> 
-                           <td class="header">Encargado</td>
-                           <td class="header">Supervisor</td>
-                        </tr>
-                        <tr>
-                            <td class="field">1</td> 
-                            <td class="field">05-07-2021</td> 
-                            <td class="field">Marta Bulevar</td>
-                            <td class="field">Juan Moreno</td>
-                        </tr>
-                    </table>
-
+            <div class="function_inventory">   
+                <div>
+                    <input class='button' type='button' name='create_stock' value='Registrar un inventario' onclick='newStock()'>
                 </div>
-                <div class="stock_date">
-                    <h3>Obtener inventario</h3>
-                    <input type="date" name="searchdate"><br><br><br>
-                    <h3 class="subtitle">Existencias</h3>
-                    <label>Fecha de existencias</label>
-                    <input type="date" name="togetdate">
-                    <input type="submit" name="send" value="Consultar">
-                </div>
-                </form>
+                <div>
+                    <input class='button' type='button' name='stock_report' value='Reporte inventarios' onclick='stockReport()'>
+                </div> 
             </div>
         </section>
         <footer id='pa2'>

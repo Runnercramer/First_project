@@ -1,5 +1,6 @@
 <?php
 include("../../connection.php");
+session_start();
 if(isset($_GET['search_button'])){
     $search = mysqli_real_escape_string($connection, $_GET['search']);
     $query1 = "SELECT * FROM usuario us RIGHT JOIN cliente cl ON us.idUsuario = cl.idUsuario WHERE nombreUsuario LIKE '%$search%' OR apellidosUsuario LIKE '%$search%' ORDER BY nombreUsuario ASC"; 
@@ -94,6 +95,13 @@ if(isset($_GET['search_button'])){
             <h1>Los resultados asociados a su búsqueda corresponden a: $a resultados</h1>
             <div class='profile'>
                 <img id='profile_image' src='../../imagenes/profile.png' alt='Imagen de perfil'>
+                <h3>";
+                echo mb_strtoupper($_SESSION['userinfo']['nombreUsuario']);
+                
+                echo"</h3>
+                <h3>";
+                echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);
+                echo"</h3>
                 <input type='button' class='profile_button' value='Perfil &#9881' onclick='profile()'>
                 <input type='button' class='logout_button' value='Cerrar sesión' onclick='logout()'>
             </div>

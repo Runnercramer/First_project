@@ -56,14 +56,14 @@
     }
     $empezar_desde = ($pagina - 1) * $tamaño_pagina;
 
-    $sql1 = "SELECT * FROM imagenproducto im JOIN producto pr ON im.codProducto = pr.codProducto JOIN detalleproducto dp ON pr.codProducto = dp.codProducto ORDER BY producto ASC";
+    $sql1 = "SELECT * FROM imagenproducto im JOIN producto pr ON im.codProducto = pr.codProducto JOIN detalleproducto dp ON pr.codProducto = dp.codProducto WHERE estadoProducto = 'habilitado' ORDER BY producto ASC";
     $query1 = mysqli_query($connection, $sql1);
 
     $num_filas = $query1->num_rows;
 
     $total_paginas = ceil($num_filas/$tamaño_pagina);
 
-    $sql1_limite = "SELECT * FROM imagenproducto im JOIN producto pr ON im.codProducto = pr.codProducto JOIN detalleproducto dp ON pr.codProducto = dp.codProducto ORDER BY producto ASC LIMIT $empezar_desde,$tamaño_pagina";
+    $sql1_limite = "SELECT * FROM imagenproducto im JOIN producto pr ON im.codProducto = pr.codProducto JOIN detalleproducto dp ON pr.codProducto = dp.codProducto WHERE estadoProducto = 'habilitado' ORDER BY producto ASC LIMIT $empezar_desde,$tamaño_pagina";
 
     $query1_limite = mysqli_query($connection, $sql1_limite);
     ?>

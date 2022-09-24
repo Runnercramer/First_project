@@ -45,6 +45,9 @@ if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'adm
             <div class='profile'>
                 <img id='profile_image' src='../../imagenes/profile.png' alt='Imagen de perfil'>
                 <h3>";
+                echo mb_strtoupper($_SESSION['userinfo']['nombreUsuario']);
+                echo "</h3>
+                <h3>";
                 echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);
                 echo "</h3><input type='button' class='profile_button' value='Perfil &#9881' onclick'profile()'>
                 <input type='button' class='logout_button' value='Cerrar sesión' onclick'logout()'>
@@ -82,7 +85,7 @@ if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'adm
         <link rel='stylesheet' href='../new_admin_styles.css'>
         <style>
         .main_table{background-color:#777;border:1px solid black;}
-        .header{background-color:#a1ca4f;font-size:2em;text-align:center;font-weight:bold;padding:5px;width:300px;border:2px solid black;}
+        .header{background-color:#a1ca4f;font-size:1.5em;text-align:center;font-weight:bold;padding:5px;width:300px;border:2px solid black;}
         .field{background-color:#bbb;font-size:1.2em;text-align:center;padding:5px;font-weight:bold;border:2px solid black;}
         </style>
         <script>
@@ -105,6 +108,9 @@ if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'adm
                     <h1>La búsqueda obtuvo $num resultados</h1>
                     <div class='profile'>
                         <img id='profile_image' src='../../imagenes/profile.png' alt='Imagen de perfil'>
+                        <h3>";
+                        echo mb_strtoupper($_SESSION['userinfo']['nombreUsuario']);                        
+                        echo "</h3>
                         <h3>";
                         echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);                        
                         echo "</h3><input type='button' class='profile_button' value='Perfil &#9881' onclick='profile()'>

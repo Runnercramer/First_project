@@ -14,9 +14,13 @@ include("../../../connection.php");
     <link rel="stylesheet" href="../../administrator_styles.css">
     <link rel="stylesheet" href="../../new_admin_styles.css">
     <style>
-        .main_table{background-color:#bbb;width:50%;margin:20px auto;height:auto;text-align:center;font-weight:bold;}
-        .header{background-color:#a1ca4f;font-size:1.5em;}
-        .field{background-color:#999;font-size:1.2em;}
+        .main_table{background-color:#777;width:80%;margin:20px auto;height:auto;text-align:center;font-weight:bold;}
+        .header{background-color:#a1ca4f;font-size:1.5em;border:1px solid black;}
+        .field{background-color:#bbb;font-size:1.2em;border:1px solid black;}
+        .update_button{background-color:#bbb;font-weight:bold;font-size:1em;border:1px hidden;}
+        .modification_button{background-color:lightblue;width:45%;font-weight:bold;border:1px solid black;color:black;}
+        .elimination_button{background-color:red;width:45%;font-weight:bold;border:1px solid white;color:white;}
+        .cant_modification{width:50%;margin:5px 0;text-align:center;}
     </style>
                   <script>
         function profile(){
@@ -74,16 +78,70 @@ include("../../../connection.php");
                     <?php
                     $i = 1;
                     while($r = $query1->fetch_assoc()){
+                        $codigo_pedido = $r['codPedido'];
                         echo "
                         <tr>
                         <td class='field'>$i</td>
-                        <td class='field'>" . $r['codPedido'] . "</td>
+                        <td class='field'>
+                        <form action='#' method='GET'>
+                        <input type='hidden' name='codigopedido' value='$codigo_pedido'>
+                        <input class='update_button' type='submit' name='send' value='$codigo_pedido'>
+                        </form>
+                        </td>
                         <td class='field'>" . $r['fechaPedido'] . "</td>
                         <td class='field'>" . $r['nombreUsuario'] . " " . $r['apellidosUsuario'] . "</td>
                         </tr>";
+                        $i++;
                     }
                     ?>
                 </table>
+
+                <?php
+                if(isset($_GET['send'])){
+                    $codigopedido = $_GET['codigopedido'];
+
+                    $sql2 = "SELECT * FROM detallepedido detped JOIN pedido pe ON detped.codPedidoDetalle = pe.codPedido WHERE codPedidoDetalle = '$codigopedido'";
+                    $query2 = mysqli_query($adminconnection, $sql2);
+
+                    echo "<table class='main_table'>
+                    <tr>
+                    <td colspan='4' class='header'>$codigopedido</td>
+                    </tr>
+                    <tr>
+                    <td class='header'>Producto</td>
+                    <td class='header'>Cantidad</td>
+                    <td class='header'>Modificar</td>
+                    <td class='header'>Eliminar</td>
+                    </tr>";
+                    while($q = $query2->fetch_assoc()){
+                        $codigo_producto = $q['codProducto'];
+                        $cod_pedido = $q['codPedido'];
+                        $cant = $q['cantidad'];
+                        echo "
+                        <tr>
+                        <td class='field'>" . $q['codProducto'] . "</td>
+                        <td class='field'>" . $q['cantidad'] . "</td>
+                        <td class='field'>
+                        <form action='order_modification_controller.php' method='POST'>
+                        <input type='hidden' name='codigopedido' value='$cod_pedido'>
+                        <input type='hidden' name='codigoproducto' value='$codigo_producto'>
+                        <input class='cant_modification' type='number' name='cant' value='$cant'>
+                        <input class='modification_button' type='submit' name='send' value='Modificar'>
+                        </form>
+                        </td>
+                        <td class='field'>
+                        <form action='order_modification_controller.php' method='POST'>
+                        <input type='hidden' name='codigopedido' value='$cod_pedido'>
+                        <input type='hidden' name='codigoproducto' value='$codigo_producto'>
+                        <input class='elimination_button' type='submit' name='send' value='Eliminar'>
+                        </form>
+                        </td>    
+                        </tr>
+                        ";
+                    }
+                    echo "</table>";
+                }
+                ?>
             </div>
         </section>
         <footer id='pa2'>

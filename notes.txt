@@ -1,19 +1,10 @@
 https://desarrolloweb.com/articulos/posibilidades-envio-mail-php-localhost.html
 
-
 En la vista pagos falta válidar el saldo de los pedidos
-
 
 Cuando un dministrador crea a un cliente, debe enviarse un correo de confirmación
 
-
 Debo crear triggers para eliminacion de usuarios SQL
-
-
-Verificar el funcionamiento del inventario TRIGGER
-Averiguar como relacionar los detalles de un inventario con MySQL
-El stock se hará obteniendo las existencias de los productos
-
 
 Debo crear una tabla que sirva como productos encargados
 
@@ -23,23 +14,14 @@ Cerrar las conexiones a la base de datos, todos los archivos.
 
 ES DE VITAL IMPORTANCIA USAR EL ENCTYPE="MULTIPART/FORM/DATA" cargar imagenes a la base de datos
 
-
-
-Agregar al administrador la funcionalidad ed actualizar el estado de un despacho
-
-
 Cuando se haga un nuevo pedido desde el cliente, enviar un correo de verificacion al administrador y al cliente
 
 Verificar customer_admin_controller.php
-
-listado de empleados, verificar la consulta para no obtener valoers repetidos 
-
-Validar eliminación de empleado
-
-Pedidos de administrador copiar lso controladores desde el cliente
 
 En los catalogos, sólo mostrar los productos habilitados
 
 Las paginaciones se harán al final
 
 Cuando se cree un usuario, se debe poner una imagen por defecto. Para poder actualizarla
+
+Validar existencias en base a los pedidos
