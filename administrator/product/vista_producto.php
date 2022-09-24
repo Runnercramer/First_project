@@ -38,6 +38,9 @@
         function deshabilitarProducto(){
             window.location.href= "disable_product/vista_deshabilitar.php";
         }
+        function vergarantias(){
+            window.location.href= "ver_garantias/vistagarantias.php";
+        }
 
     </script>
 </head>
@@ -76,6 +79,7 @@
                 <div class="button2"><input class="button" type="button" value="Crear producto" onclick="nuevoProducto()"></div>
                 <div class="button3"><input class="button" type="button" value="Habilitar producto" onclick="habilitarProducto()"></div>
                 <div class="button4"><input class="button" type="button" value="Deshabilitar producto" onclick="deshabilitarProducto()"></div>
+                <div class="button5"><input class="button" type="button" value="Ver Garantias" onclick="vergarantias()"></div>
             </div>
         </section>
         <footer id='pa2'>
