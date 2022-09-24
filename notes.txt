@@ -9,12 +9,6 @@ Cuando un dministrador crea a un cliente, debe enviarse un correo de confirmaci�
 
 Debo crear triggers para eliminacion de usuarios SQL
 
-
-Verificar el funcionamiento del inventario TRIGGER
-Averiguar como relacionar los detalles de un inventario con MySQL
-El stock se hará obteniendo las existencias de los productos
-
-
 Debo crear una tabla que sirva como productos encargados
 
 El administrador debe ingresar nuevas cantidades de productos desde la interfaz de inventarios
@@ -24,7 +18,6 @@ Cerrar las conexiones a la base de datos, todos los archivos.
 ES DE VITAL IMPORTANCIA USAR EL ENCTYPE="MULTIPART/FORM/DATA" cargar imagenes a la base de datos
 
 
-
 Desde la interfaz de productos del administrador se deben ver las garantias
 
 
@@ -32,12 +25,11 @@ Cuando se haga un nuevo pedido desde el cliente, enviar un correo de verificacio
 
 Verificar customer_admin_controller.php
 
-En la vista de modificación de pedidos y listado de pedidos, falta desplegar un listado con los pedidos y los detalles del mismo.
-
 En los catalogos, sólo mostrar los productos habilitados
 
 Las paginaciones se harán al final
 
 Cuando se cree un usuario, se debe poner una imagen por defecto. Para poder actualizarla
 
-Falta finalizar el reporte de pedidos administrador
+
+Validar existencias en base a los pedidos

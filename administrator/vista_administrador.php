@@ -105,7 +105,7 @@
                 <div class="button7"><input class="button" type="button" onClick="production()" value="Producción"></div>
                 <div class="button8"><input class="button" type="button" onClick="producto()" value="Producto"></div>
                 <div class="button9"><input class="button" type="button" onClick="users()" value="Usuarios"></div>
-                <div class="button10"><input class="button" type="button" onClick="pqr()" value="PQR"></div>
+                <div class="button10"><input class="button" type="button" onClick="pqr()" value="PQRS"></div>
             </div>
         </section>
         <footer id='pa2'>

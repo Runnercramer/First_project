@@ -57,7 +57,7 @@ include("../../../connection.php");
             <div class="information">
                 <h2>CARRITO</h2>
                 <br>
-                <p>Este es un listado con los productos que han sido agregados al carrito de la compra.</p>
+                <p>Este es un listado con los productos que han sido agregados al carrito de la compra.El pedido se hará a nombre del cliente cuyo código dsea ingresado.</p>
                 <br>
                 <h3>Software:</h3><p><b>SGIVT</b></p>
                 <h3>Version:</h3><p><b>1.2</b></p>

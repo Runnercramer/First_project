@@ -31,8 +31,8 @@ if(isset($_GET['send'])){
             <link rel='stylesheet' href='../../new_admin_styles.css'>
             <style>
                 .main_table{background-color:#777;width:100%;text-align:center;font-weight:bold;}
-                .header{background-color:#a1ca4f;font-size:1.5em;}
-                .field{background-color:#bbb;font-size:1.2em;}
+                .header{background-color:#a1ca4f;font-size:1.5em;border:1px solid black;}
+                .field{background-color:#bbb;font-size:1.2em;border:1px solid black;}
                 .state_input{width:70%;text-align:center;margin:5px;}
                 .update_form{display:flex;flex-direction:column;align-items:center;}
                 .submit_form{margin:5px;font-weight:bold;background-color:beige;padding:2px;}
@@ -60,6 +60,9 @@ if(isset($_GET['send'])){
                     <h1>Reporte general</h1>
                     <div class='profile'>
                         <img id='profile_image' src='../../../imagenes/profile.png' alt='Imagen de perfil'>
+                        <h3>"; 
+                        echo mb_strtoupper($_SESSION['userinfo']['nombreUsuario']);
+                        echo "</h3>
                         <h3>"; 
                         echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);
                         echo "</h3>
@@ -157,8 +160,8 @@ if(isset($_GET['send'])){
             <link rel='stylesheet' href='../../new_admin_styles.css'>
             <style>
                 .main_table{background-color:#777;width:100%;text-align:center;font-weight:bold;}
-                .header{background-color:#a1ca4f;font-size:1.5em;}
-                .field{background-color:#bbb;font-size:1.2em;}
+                .header{background-color:#a1ca4f;font-size:1.5em;border:1px solid black;}
+                .field{background-color:#bbb;font-size:1.2em;border:1px solid black;}
             </style>
                      <script>
                 function profile(){
@@ -181,6 +184,9 @@ if(isset($_GET['send'])){
                     <h1>Reporte individual</h1>
                     <div class='profile'>
                         <img id='profile_image' src='../../../imagenes/profile.png' alt='Imagen de perfil'>
+                        <h3>"; 
+                        echo mb_strtoupper($_SESSION['userinfo']['nombreUsuario']);
+                        echo "</h3>
                         <h3>"; 
                         echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']);
                         echo "</h3>

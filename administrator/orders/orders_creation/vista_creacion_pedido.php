@@ -90,7 +90,7 @@ include("../../../connection.php");
 
             $total_paginas = ceil($num_filas/$tamaño_pagina);
 
-            $sql1_limite = "SELECT * FROM imagenproducto im JOIN producto pr ON im.codProducto = pr.codProducto JOIN detalleproducto dp ON pr.codProducto = dp.codProducto ORDER BY producto ASC LIMIT $empezar_desde,$tamaño_pagina";
+            $sql1_limite = "SELECT * FROM imagenproducto im JOIN producto pr ON im.codProducto = pr.codProducto JOIN detalleproducto dp ON pr.codProducto = dp.codProducto WHERE estadoProducto = 'habilitado' ORDER BY producto ASC LIMIT $empezar_desde,$tamaño_pagina";
 
             $query1_limite = mysqli_query($adminconnection, $sql1_limite);
             

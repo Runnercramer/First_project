@@ -76,6 +76,7 @@ include("../../connection.php");
                     <?php
                     $i = 1;
                     $total = 0;
+                    if(isset($_SESSION['cart'])){
                     foreach($_SESSION['cart'] as $indice => $producto){
                         $subtotal = $producto['valor'] * $producto['cant'];
                         echo "
@@ -91,6 +92,7 @@ include("../../connection.php");
                         $i++;
                         $total = $total+($producto['valor'] * $producto['cant']);
                     }
+                }
                     ?>
                     <tr>
                         <td class='field' align="right" colspan="4">TOTAL</td>

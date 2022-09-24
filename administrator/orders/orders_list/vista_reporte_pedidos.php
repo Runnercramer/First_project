@@ -14,9 +14,10 @@ include("../../../connection.php");
     <link rel="stylesheet" href="../../administrator_styles.css">
     <link rel="stylesheet" href="../../new_admin_styles.css">
     <style>
-        .main_table{background-color:#bbb;width:80%;margin:20px auto;height:auto;text-align:center;font-weight:bold;}
-        .header{background-color:#a1ca4f;font-size:1.5em;}
-        .field{background-color:#999;font-size:1.2em;}
+        .main_table{background-color:#777;width:80%;margin:20px auto;height:auto;text-align:center;font-weight:bold;}
+        .header{background-color:#a1ca4f;font-size:1.5em;border:1px solid black;}
+        .field{background-color:#bbb;font-size:1.2em;border:1px solid black;}
+        .report_button{background-color:#bbb;font-weight:bold;font-size:1em;border:1px hidden;}
     </style>
                   <script>
         function profile(){
@@ -74,10 +75,16 @@ include("../../../connection.php");
                     <?php
                     $i = 1;
                     while($r = $query1->fetch_assoc()){
+                        $pedido = $r['codPedido'];
                         echo "
                         <tr>
                         <td class='field'>$i</td>
-                        <td class='field'>" . $r['codPedido'] . "</td>
+                        <td class='field'>
+                        <form action='#' method='GET'>
+                        <input type='hidden' name='pedido' value='$pedido'>
+                        <input class='report_button' type='submit' name='send' value='$pedido'>
+                        </form>
+                        </td>
                         <td class='field'>" . $r['fechaPedido'] . "</td>
                         <td class='field'>" . $r['nombreUsuario'] . " " . $r['apellidosUsuario'] . "</td>
                         <td class='field'>$" . $r['valorPedido'] . "</td>
@@ -86,6 +93,44 @@ include("../../../connection.php");
                     }
                     ?>
                 </table>
+                <?php
+                    if(isset($_GET['send'])){
+                        $pedido = $_GET['pedido'];
+                        echo "
+                        <table class='main_table'>
+                        <tr>
+                        <td colspan='3' class='header'>$pedido</td>
+                        </tr>
+                        <tr>
+                        <td class='header'>Producto</td>
+                        <td class='header'>Cantidad</td>
+                        <td class='header'>Subtotal</td>
+                        </tr>";
+                        $sql2 = "SELECT * FROM pedido  JOIN detallepedido  ON codPedido = codPedidoDetalle JOIN producto ON detallepedido.codProducto = producto.codProducto JOIN detalleproducto ON producto.codProducto = detalleproducto.codProducto WHERE codPedido = '$pedido'";
+                        $query2 = mysqli_query($adminconnection, $sql2);
+                        $total = 0;
+                        while($s = $query2->fetch_assoc()){
+                            $cantidad = $s['cantidad'];
+                            $valor = $s['valorProducto'];
+                            $subtotal = $cantidad * $valor;
+                            echo "
+                            <tr>
+                            <td class='field'>" . $s['codProducto'] . "</td>
+                            <td class='field'>" . $s['cantidad'] . "</td>
+                            <td class='field'>$$subtotal</td>
+                            </tr>
+                            ";
+                            $total = $total + $subtotal;
+                        }
+                        echo "
+                        <tr>
+                        <td colspan='2' align='right' class='field'>TOTAL</td>
+                        <td align='left' class='field'>$$total</td>
+                        </tr>
+                        </table>
+                        ";
+                    }
+                ?>
             </div>
         </section>
         <footer id='pa2'>

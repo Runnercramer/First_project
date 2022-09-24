@@ -16,8 +16,9 @@ include("../../connection.php");
     <style>
         .pqr_table{width:100%;margin:20px auto;background-color:#777;text-align:center;font-weight:bold;}
         .header{background-color:#a1ca4f;font-size:1.4em;border:1px solid black;}
-        .field{background-color:#bbb;font-size:1.15em;border:1px solid black;}
-
+        .field{background-color:#bbb;font-size:1.15em;border:1px solid black;padding:2px;}
+        .update_field{border-radius:15px;text-align:center;}
+        .update_button{background-color:beige;font-weight:bold;padding:2px;}
     </style>
     <script>
         function profile(){
@@ -55,7 +56,7 @@ include("../../connection.php");
             <div class="information">
                 <h2>Listado PQRS</h2>
                 <br>
-                <p>En este módulo podrás ver un listado de todos los PQRS que los clientes han realacionado detalladamente.</p>
+                <p>En este módulo podrás ver un listado de todos los PQRS que los clientes han realacionado detalladamente.<br><b>Puedes actualizar el estado de la solicitud.</b></p>
                 <br>
                 <h3>Software:</h3><p><b>SGIVT</b></p>
                 <h3>Version:</h3><p><b>1.2</b></p>
@@ -65,29 +66,43 @@ include("../../connection.php");
             <div class="function_pqr">
             <table class="pqr_table">
                     <tr>
+                        <td class='header'>Código</td>
                         <td class="header">Nombre</td>
                         <td class="header">Email</td>
-                        <td class="header">Celular</td>
                         <td class="header">Tipo de solicitud</td>
                         <td class="header">Solicitud</td>
                         <td class="header">Fecha</td>
                         <td class="header">Estado</td>
+                        <td class="header">Actualizar</td>
                     </tr>
                     <?php
                     while($p = $query1->fetch_assoc()){
+                        $codigo_solicitud = $p['idSolicitud'];
                         echo "
                         <tr>
+                        <td class='field'>$codigo_solicitud</td>
                         <td class='field'>" . $p['nombreUsuario'] . " " . $p['apellidosUsuario'] . "</td>
                         <td class='field'>" . $p['email'] . "</td>
-                        <td class='field'>" . $p['celular'] . "</td>
                         <td class='field'>" . mb_strtoupper($p['tipoSolicitud']) . "</td>
                         <td class='field'>" . $p['solicitud'] . "</td>
                         <td class='field'>" . $p['fecha'] . "</td>
                         <td class='field'>" . mb_strtoupper($p['estadoSolicitud']) . "</td>
+                        <td class='field'>
+                        <form action='#' method='GET'>
+                        <input type='hidden' name='codigo' value='$codigo_solicitud'>
+                        <input class='update_field' type='text' name='state' value='" . $p['estadoSolicitud'] . "'>
+                        <input class='update_button' type='submit' name='send' value='Actualizar'>
+                        </form>
+                        </td>
                         </tr>";
                     }
                     ?>
                 </table>
+                <?php
+                if(isset($_GET['send'])){
+
+                }
+                ?>
 
             </div>
         </section>
