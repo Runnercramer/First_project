@@ -1,18 +1,14 @@
 En la vista pagos falta válidar el saldo de los pedidos
 
-
 Cuando un dministrador crea a un cliente, debe enviarse un correo de confirmación
-
 
 Debo crear triggers para eliminacion de usuarios SQL
 
-El administrador debe ingresar nuevas cantidades de productos desde la interfaz de inventarios
+Debo crear una tabla que sirva como productos encargados
+
+Cerrar las conexiones a la base de datos, todos los archivos.
 
 ES DE VITAL IMPORTANCIA USAR EL ENCTYPE="MULTIPART/FORM/DATA" cargar imagenes a la base de datos
-
-
-Desde la interfaz de productos del administrador se deben ver las garantias
-
 
 Cuando se haga un nuevo pedido desde el cliente, enviar un correo de verificacion al administrador y al cliente
 
