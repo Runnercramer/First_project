@@ -1,8 +1,6 @@
 En la vista pagos falta válidar el saldo de los pedidos Cristian
 
-Cuando un dministrador crea a un cliente, debe enviarse un correo de confirmación Cristian
-
-Debo crear triggers para eliminacion de usuarios SQL Cristian
+Debo crear triggers para eliminacion de usuarios SQL
 
 Cuando se haga un nuevo pedido desde el cliente, enviar un correo de verificacion al administrador y al cliente Cristian
 
