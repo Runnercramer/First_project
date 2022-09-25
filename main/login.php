@@ -46,7 +46,7 @@ if(isset($_POST['login'])){
         <body>
             <div id='cont1'>
                 <header id='enc1'>
-                    <a href='index.html'><img id='img1' src='../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
+                    <a href='../index.html'><img id='img1' src='../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
                 </header>  
                 <h1 class='error1'>Ingrese los datos solicitados</h1>
             </div>
@@ -76,7 +76,7 @@ if(isset($_POST['login'])){
                 <body>
                     <div id='cont1'>
                         <header id='enc1'>
-                            <a href='index.html'><img id='img1' src='../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
+                            <a href='../index.html'><img id='img1' src='../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
                         </header>  
                         <h1 class='error1'>Hubo un error en la autenticación de datos</h1>
                     </div>

@@ -2,7 +2,7 @@
 session_start();
 include("../connection.php");
 if(!isset($_SESSION['userinfo'])){
-    header("location:../main/index.html");
+    header("location:../index.html");
 }
 ?>
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ if(!isset($_SESSION['userinfo'])){
     <?php
 
     if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'cliente'){
-        header("location:../main/index.html");
+        header("location:../index.html");
     }
     ?>
     <div id="cont1">

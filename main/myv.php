@@ -14,7 +14,7 @@
 <body>
     <div id="cont1">
         <header>
-            <a href="index.html"><img id="img1" src="../imagenes/descarga.png" alt="Logotipo de Vetex"></a>
+            <a href="../index.html"><img id="img1" src="../imagenes/descarga.png" alt="Logotipo de Vetex"></a>
             <h1>Calidad a los mejores precios</h1><br><h1>¿Quiénes somos?</h1>
         </header>
             <div class="cont1">

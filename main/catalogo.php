@@ -32,7 +32,7 @@ include("../connection.php");
 ?>
     <div id="cont1">
         <header>
-            <a href="index.html"><img id="img1" src="../imagenes/descarga.png" alt="Logotipo de Vetex"></a>
+            <a href="../index.html"><img id="img1" src="../imagenes/descarga.png" alt="Logotipo de Vetex"></a>
             <h1>Calidad a los mejores precios</h1><br><h1>Catálogo</h1>
         </header>
             <div class='main_container'> 

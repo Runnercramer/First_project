@@ -33,7 +33,7 @@ include("../../../connection.php");
     <?php
     session_start();
     if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'administrador'){
-        header("location:../../../main/index.html");
+        header("location:../../../index.html");
     }
 
     $sql1 = "SELECT codProducto,fecha,cantidad,idCliente FROM garantia";

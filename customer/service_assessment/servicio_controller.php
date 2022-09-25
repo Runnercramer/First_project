@@ -2,7 +2,7 @@
 include("../../connection.php");
 session_start();
 if(!isset($_SESSION['userinfo'])){
-    header("location:../../main/index.hrml");
+    header("location:../../index.hrml");
 }
 
 if(isset($_POST['send'])){
@@ -42,7 +42,7 @@ if(isset($_POST['send'])){
 
     session_start();
     if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'cliente'){
-        header('location:../../main/index.html');
+        header('location:../../index.html');
     }
  
     echo "

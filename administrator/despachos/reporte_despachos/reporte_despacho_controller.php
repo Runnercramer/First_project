@@ -2,7 +2,7 @@
 include("../../../connection.php");
 session_start();
 if(!isset($_SESSION['userinfo'])){
-    header("location:../../../main/index.html");
+    header("location:../../../index.html");
 }
 
 if(isset($_GET['send'])){
@@ -51,7 +51,7 @@ if(isset($_GET['send'])){
         </head>
         <body>";
             if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'administrador'){
-                header("location:../../../main/index.html");
+                header("location:../../../index.html");
             }
             echo "
             <div id='cont1'>
@@ -175,7 +175,7 @@ if(isset($_GET['send'])){
         </head>
         <body>";
             if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'administrador'){
-                header("location:../../../main/index.html");
+                header("location:../../../index.html");
             }
             echo "
             <div id='cont1'>
@@ -272,7 +272,7 @@ if(isset($_GET['send'])){
         </head>
         <body>";
             if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'administrador'){
-                header("location:../../../main/index.html");
+                header("location:../../../index.html");
             }
             echo "
             <div id='cont1'>

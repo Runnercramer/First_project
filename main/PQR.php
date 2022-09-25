@@ -1,3 +1,6 @@
+<?php
+include("../connection.php");
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,16 +24,38 @@
     </style>
 </head>
 <body>
+<?php
+            if(isset($_POST['send'])){
+                $email = mysqli_real_escape_string($connection, $_POST['email']);
+                $celular = mysqli_real_escape_string($connection, $_POST['celular']);
+                $nombre = mysqli_real_escape_string($connection, $_POST['name']);
+                $apellido = mysqli_real_escape_string($connection, $_POST['lastname']);
+                $tipo_solicitud = mysqli_real_escape_string($connection, $_POST['type']);
+                $solicitud = mysqli_real_escape_string($connection, $_POST['solicitud']);
+                $tipo_solicitud = mb_strtoupper($tipo_solicitud);
+                $info = $nombre . " " . $apellido . " " . $email . " " . $celular;
+
+                $sql1 = "INSERT INTO pqrs (tipoSolicitud, idCliente, infoSolicitante, solicitud, estadoSolicitud) VALUES ('$tipo_solicitud', null, '$info', '$solicitud', 'pendiente')"; 
+                $query1 = mysqli_query($connection, $sql1);
+            }
+            ?>
     <div id="cont1">
         <header id="enc1">
-            <a href="index.html"><img id="img1" src="../imagenes/descarga.png" alt="Logotipo de Vetex"></a>
+            <a href="../index.html"><img id="img1" src="../imagenes/descarga.png" alt="Logotipo de Vetex"></a>
             <h1 id="tit1">Peticiones, Quejas, Reclamos o Sugerencias</h1>
         </header>
         <section class="main_container">
                 <div class="sample_container">
+                    <?php
+                    if(isset($_POST)){
+                        if($query1){
+                            echo "<h2>La consulta ha sido exitosa</h2>";
+                        }
+                    }
+                    ?>
                 <a href="catalogo.php"><img class='sample_image' id="img100" src="../imagenes/img9.jpg"></a>
                     <h2>Información Importante</h2>
-                    <p>Acorde a los artículos 5, 6 y 12 de la Ley 1581 de 2012, a continuación, le informamos que recolectaremos datos sensibles. Usted no está obligado a compartir estos datos, por lo tanto, si no quiere compartir datos sensibles, recuerde que puede escalar su PQRSF de forma anónima. Los datos sensibles son recolectados por nuestra entidad con fines netamente estadísticos, con el fin de elaborar planes de acción y procurar una mejora continua en la atención al ciudadano y las políticas de participación ciudadana. Si oprime el botón "Enviar", está autorizando el tratamiento de estos datos.</p>
+                    <p>Acorde a los artículos 5, 6 y 12 de la Ley 1581 de 2012, a continuación, le informamos que recolectaremos datos sensibles. Usted no está obligado a compartir estos datos, por lo tanto, si no quiere compartir datos sensibles, le recomendamos comunicarse con alguna de las líneas telefónicas suminstradas. Los datos sensibles son recolectados por nuestra entidad con fines netamente estadísticos, con el fin de elaborar planes de acción y procurar una mejora continua en la atención al ciudadano y las políticas de participación ciudadana. Si oprime el botón "Enviar", está autorizando el tratamiento de estos datos.</p>
                 </div>
                 <div>
                 <form class="main_form" action="#" method="POST">
@@ -41,12 +66,12 @@
                         <option value="pregunta">Pregunta</option>
                         <option value="queja">Queja</option>
                         <option value="reclamo">Reclamo</option>
-                        <option value="sugenrecia">Sugerencia</option>
+                        <option value="sugerencia">Sugerencia</option>
                     </select> 
                 <label>Correo</label>
                 <input type="email" name="email" placeholder="Ingresa un correo de contacto">
-                <label>Número</label>
-                <input type="text" name="tipo" required placeholder="Número de identificación">
+                <label>Celular</label>
+                <input type="text" name="celular" required placeholder="Número de celular">
                 <label>Nombres</label>
                 <input type="text" name="name" required placeholder="Nombres">
                 <label>Apellidos</label>
@@ -57,11 +82,6 @@
                 <input type="reset" value="Borrar">
                 </form>   
             </div>
-            <?php
-            if(isset($_POST['send'])){
-                
-            }
-            ?>
         </section>
         <footer id="pa2">
             <p>Contáctanos<br>018000222222<br>Línea gratuita nacional<br>3014568137</p>

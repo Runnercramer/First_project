@@ -1,9 +1,6 @@
 <?php
 session_start();
 include("../connection.php");
-if(!isset($_SESSION['userinfo'])){
-    header("location:../main/index.html");
-}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -37,7 +34,7 @@ if(!isset($_SESSION['userinfo'])){
     <?php
 
     if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'administrador'){
-        header("location:../main/index.html");
+        header("location:../index.html");
     }
     ?>
     <div id="cont1">

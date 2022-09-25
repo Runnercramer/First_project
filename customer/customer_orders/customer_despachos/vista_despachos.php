@@ -48,7 +48,7 @@ include("../../../connection.php");
     <?php
     session_start();
     if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'cliente'){
-        header("location:../../../main/index.html");
+        header("location:../../../index.html");
     }
 
     $c = $_SESSION['customerinfo']['idCliente'];

@@ -35,7 +35,7 @@ include("../../../connection.php");
     <?php
     session_start();
     if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'empleado'){
-        header("location:../../../main/index.html");
+        header("location:../../../index.html");
     }
     $id = $_SESSION['userinfo']['idUsuario'];
     $sql0 = "SELECT * FROM empleado WHERE idUsuario = '$id'";

@@ -17,7 +17,7 @@
 <body id="bod5">
     <div id="cont1">
     <header>
-        <a href="index.html"><img id="img1" src="../imagenes/descarga.png"></a>
+        <a href="../index.html"><img id="img1" src="../imagenes/descarga.png"></a>
         <h1>Términos y condiciones para el manejo de datos y uso de sitio Web.</h1>
     </header>
     <section id="secc10">

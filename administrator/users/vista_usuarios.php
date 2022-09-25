@@ -33,7 +33,7 @@ include("../../connection.php");
     <?php
     session_start();
     if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'administrador'){
-        header("location:../../main/index.html");
+        header("location:../../index.html");
     }
     $sql1 = "SELECT * FROM email em JOIN usuario us ON em.idUsuario = us.idUsuario JOIN celular ce ON us.idUsuario = ce.idUsuario ORDER BY tipoUsuario ASC";
     $query1 = mysqli_query($adminconnection, $sql1);

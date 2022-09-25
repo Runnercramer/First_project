@@ -2,7 +2,7 @@
 include("../../connection.php");
 session_start();
 if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'cliente'){
-    header("location:../../main/index.html");
+    header("location:../../index.html");
 }
 
 if(isset($_POST['send'])){

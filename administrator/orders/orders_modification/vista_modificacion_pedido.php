@@ -36,7 +36,7 @@ include("../../../connection.php");
     <?php
     session_start();
     if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'administrador'){
-        header("location:../../../main/index.html");
+        header("location:../../../index.html");
     }
 
     //La siguiente consulta me permite obtener registros que no están dentro de la segunda consulta

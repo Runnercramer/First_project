@@ -36,7 +36,7 @@ include("../../../connection.php");
     <?php
     session_start();
     if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'administrador'){
-        header("location:../../../main/index.html");
+        header("location:../../../index.html");
     }
     $sql1 = "SELECT * FROM inventario inv JOIN administrador ad ON inv.idAdmin = ad.idAdmin JOIN usuario us ON ad.idUsuario = us.idUsuario ORDER BY fecha DESC";
     $query1 = mysqli_query($adminconnection, $sql1);

@@ -41,7 +41,7 @@ include('../../../connection.php');
     <?php
     session_start();
     if(!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['tipoUsuario'] != 'cliente'){
-        header("location:../../../main/index.html");
+        header("location:../../../index.html");
     }
     $id = $_SESSION['customerinfo']['idCliente'];
     $sql1 = "SELECT * FROM pedido pe JOIN cobro co ON pe.codPedido = co.codPedido JOIN transaccion tr ON co.codTransaccion = tr.codTransaccion WHERE pe.idCliente = '$id' ORDER BY fechaPedido ASC";

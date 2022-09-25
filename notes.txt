@@ -20,7 +20,6 @@ Las paginaciones se harán al final
 
 Cuando se cree un usuario, se debe poner una imagen por defecto. Para poder actualizarla
 
-Falta la lógica de PQRS
 
 Validar existencias en base a los pedidos
 Conectar la pasarela de pago con la api de paypal desde el modulo de cliente

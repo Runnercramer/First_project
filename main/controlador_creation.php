@@ -137,7 +137,7 @@ if(isset($_POST['send'])){
                         <body>
                             <div id='cont1'>
                                 <header id='enc1'>
-                                    <a href='index.html'><img id='img1' src='../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
+                                    <a href='../index.html'><img id='img1' src='../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
                                 </header>  
                                 <h1 class='correcto1'>El usuario ha sido creado exitosamente</h1>
                             </div>
