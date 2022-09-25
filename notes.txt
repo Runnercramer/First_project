@@ -1,7 +1,5 @@
 En la vista pagos falta válidar el saldo de los pedidos
 
-Cuando un dministrador crea a un cliente, debe enviarse un correo de confirmación
-
 Debo crear triggers para eliminacion de usuarios SQL
 
 Debo crear una tabla que sirva como productos encargados
