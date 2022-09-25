@@ -238,6 +238,27 @@ if(isset($_POST['send'])){
             $query3 = mysqli_query($adminconnection, $sql3);
             $query4 = mysqli_query($adminconnection, $sql4);
 
+
+
+            $to = $email;
+            $subject = "Confirmación de creación";
+            $message = "Este es un correo de confirmación de creción de Cliente.";
+            $message .= $name . "\r\n";
+            $message .= $lastname . "\r\n";
+            $message .= $email . "\r\n";
+            $message .= $cell . "\r\n";
+            $message .= $id_creation . "\r\n";
+            $message .= $department . "\r\n";
+            $message .= $city . "\r\n";
+            $message .= $direction . "\r\n";
+            $message .= $password1 . "\r\n";
+            $message .= $password2 . "\r\n";
+            $headers = 'From: cristiandavidvargasmesa@gmail.com' . "\r\n" .
+           'Reply - To: cristiandavidvargasmesa@gmail.com' . "\r\n" . 
+           'X-Mailer : PHP/' . phpversion();
+
+            $envio = mail($to,$subject,$message,$headers);
+
             if($query1){
                 if($query2){
                     if($query3){
