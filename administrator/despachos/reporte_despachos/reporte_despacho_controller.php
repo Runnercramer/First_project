@@ -15,7 +15,6 @@ if(isset($_GET['send'])){
         $sql1 = "SELECT * FROM despacho WHERE fecha BETWEEN '$date1' AND '$date2' ORDER BY fecha DESC";
         $query1 = mysqli_query($adminconnection, $sql1);
 
-
         echo
         "<!DOCTYPE html>
         <html lang='es'>
@@ -38,6 +37,8 @@ if(isset($_GET['send'])){
                 .submit_form{margin:5px;font-weight:bold;background-color:beige;padding:2px;}
                 .error{background-color:red;color:white;margin:15px auto;}
                 .notification_message{margin:15px auto;}
+                .pag{grid-column-start:1;grid-column-end:5;display:flex;flex-direction:row;align-items:center;justify-content:space-evenly;margin-top:30px}
+                .pag_button{background-color:beige;font-size:1.2em;font-weight:bold;padding:5px;box-shadow:3px 3px 10px 3px #333;color:black;}
             </style>
                      <script>
                 function profile(){
@@ -145,6 +146,7 @@ if(isset($_GET['send'])){
     }else if($search != "" && $date1 == "" && $date2 == ""){
         $sql2 = "SELECT * FROM usuario us JOIN cliente cl ON us.idUsuario = cl.idUsuario JOIN pedido pe ON cl.idCliente = pe.idCliente JOIN despacho de ON pe.codPedido = de.codPedido WHERE nombreUsuario LIKE '%$search%' OR apellidosUsuario LIKE '%$search%' ORDER BY fecha DESC";
         $query2 = mysqli_query($adminconnection, $sql2);
+
         echo "
         <!DOCTYPE html>
         <html lang='es'>
@@ -162,6 +164,8 @@ if(isset($_GET['send'])){
                 .main_table{background-color:#777;width:100%;text-align:center;font-weight:bold;}
                 .header{background-color:#a1ca4f;font-size:1.5em;border:1px solid black;}
                 .field{background-color:#bbb;font-size:1.2em;border:1px solid black;}
+                .pag{grid-column-start:1;grid-column-end:5;display:flex;flex-direction:row;align-items:center;justify-content:space-evenly;margin-top:30px}
+                .pag_button{background-color:beige;font-size:1.2em;font-weight:bold;padding:5px;box-shadow:3px 3px 10px 3px #333;color:black;}
             </style>
                      <script>
                 function profile(){

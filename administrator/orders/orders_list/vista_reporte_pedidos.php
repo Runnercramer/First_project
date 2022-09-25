@@ -1,5 +1,6 @@
 <?php
 include("../../../connection.php");
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang='es'>
@@ -14,10 +15,14 @@ include("../../../connection.php");
     <link rel="stylesheet" href="../../administrator_styles.css">
     <link rel="stylesheet" href="../../new_admin_styles.css">
     <style>
-        .main_table{background-color:#777;width:80%;margin:20px auto;height:auto;text-align:center;font-weight:bold;}
+        .main_table{background-color:#777;width:90%;margin:20px auto;height:auto;text-align:center;font-weight:bold;}
         .header{background-color:#a1ca4f;font-size:1.5em;border:1px solid black;}
         .field{background-color:#bbb;font-size:1.2em;border:1px solid black;}
         .report_button{background-color:#bbb;font-weight:bold;font-size:1em;border:1px hidden;}
+        .pag{grid-column-start:1;grid-column-end:5;display:flex;flex-direction:row;align-items:center;justify-content:space-evenly;margin-top:30px;}
+        .pag_button{background-color:beige;font-size:1.2em;font-weight:bold;padding:5px;box-shadow:3px 3px 10px 3px #333;color:black;}
+        .update_field{text-align:center;border-radius:10px;width:60%;}
+        .update_button{background-color:beige;font-weight:bold;border-radius:10px;box-shadow:3px 3px 15px #333;padding:2px;}
     </style>
                   <script>
         function profile(){
@@ -38,6 +43,26 @@ include("../../../connection.php");
 
     $sql1 = "SELECT * FROM pedido pe JOIN cliente cl ON pe.idCliente = cl.idCliente JOIN usuario us ON cl.idUsuario = us.idUsuario ORDER BY fechaPedido DESC";
     $query1 = mysqli_query($adminconnection, $sql1);
+    $tamaño_pagina = 8;
+    if(isset($_GET['pagina'])){
+        if($_GET['pagina'] == 1){
+            header("location:/Vetex/administrator/orders/orders_list/vista_reporte_pedidos.php");
+        }else{
+            $pagina = $_GET['pagina'];
+        }
+    }else{
+        $pagina = 1;
+    }
+    $empezar_desde = ($pagina - 1) * $tamaño_pagina;
+
+    $num_filas = $query1->num_rows;
+
+    $total_paginas = ceil($num_filas/$tamaño_pagina);
+
+    $sql1_limite = "SELECT * FROM pedido pe JOIN cliente cl ON pe.idCliente = cl.idCliente JOIN usuario us ON cl.idUsuario = us.idUsuario ORDER BY fechaPedido DESC LIMIT $empezar_desde,$tamaño_pagina";
+
+    $query1_limite = mysqli_query($adminconnection, $sql1_limite);
+
     ?>
     <div id='cont1'>
         <header id='enc1'>
@@ -55,7 +80,7 @@ include("../../../connection.php");
             <div class="information">
                 <h2>REPORTE PEDIDOS</h2>
                 <br>
-                <p>En esta interfaz obtendrás un listado con todos los pedidos realizados. Puedes oprimir en el código del pedido para ver los detalles del mismo.<p>
+                <p>En esta interfaz obtendrás un listado con todos los pedidos realizados. Puedes oprimir en el código del pedido para ver los detalles del mismo.<br><b>Puedes actualizar el código del pedido ingresando el nuevo código en el campo y oprimineto el botón actualizar<p>
                 <br>
                 <h3>Software:</h3><p><b>SGIVT</b></p>
                 <h3>Version:</h3><p><b>1.2</b></p>
@@ -64,6 +89,11 @@ include("../../../connection.php");
             </div>
             <div>
                 <!--Al clicar en el código del pedido, deberá redirigir a una página que muestre todo el pedido-->
+                <?php
+                if($query3 == true && $query4 == true){
+                            echo "<h3>Los datos han sido actualizados correctamente.</h3>";
+                        }
+                ?>
                 <table class="main_table">
                     <tr>
                         <td class="header">N°</td>
@@ -71,10 +101,11 @@ include("../../../connection.php");
                         <td class="header">Fecha pedido</td>
                         <td class="header">Cliente</td>
                         <td class='header'>Valor</td>
+                        <td class='header'>Actualizar</td>
                     </tr>
                     <?php
                     $i = 1;
-                    while($r = $query1->fetch_assoc()){
+                    while($r = $query1_limite->fetch_assoc()){
                         $pedido = $r['codPedido'];
                         echo "
                         <tr>
@@ -88,11 +119,26 @@ include("../../../connection.php");
                         <td class='field'>" . $r['fechaPedido'] . "</td>
                         <td class='field'>" . $r['nombreUsuario'] . " " . $r['apellidosUsuario'] . "</td>
                         <td class='field'>$" . $r['valorPedido'] . "</td>
+                        <td class='field'>
+                        <form action='#' method='POST'>
+                        <input type='hidden' name='codigoactual' value='$pedido'>
+                        <input class='update_field' type='text' name='codigonuevo' value='$pedido'>
+                        <input class='update_button' type='submit' name='update_button' value='Actualizar'>
+                        </form>
+                        </td>
                         </tr>";
                         $i++;
                     }
                     ?>
                 </table>
+
+                <div class="pag">
+                        <?php
+                        for($i = 1; $i<=$total_paginas; $i++){
+                            echo "<a href='?pagina=" . $i . "'><input class='pag_button' type='button' value='$i'></a>";
+                        }
+                        ?>
+                    </div>
                 <?php
                     if(isset($_GET['send'])){
                         $pedido = $_GET['pedido'];
@@ -127,8 +173,20 @@ include("../../../connection.php");
                         <td colspan='2' align='right' class='field'>TOTAL</td>
                         <td align='left' class='field'>$$total</td>
                         </tr>
-                        </table>
-                        ";
+                        </table>";
+                    }
+
+
+                    if(isset($_POST['update_button'])){
+                        $codigoactual = mysqli_real_escape_string($adminconnection, $_POST['codigoactual']);
+                        $codigonuevo = mysqli_real_escape_string($adminconnection, $_POST['codigonuevo']);
+
+                        $sql3 = "UPDATE pedido SET codPedido = '$codigonuevo' WHERE codPedido = '$codigoactual'";
+                        $query3 = mysqli_query($adminconnection, $sql3);
+                        $sql4 = "UPDATE detallepedido SET codPedidoDetalle = '$codigonuevo' WHERE codPedidoDetalle = '$codigoactual'";
+                        $query4 = mysqli_query($adminconnection, $sql4);
+
+
                     }
                 ?>
             </div>

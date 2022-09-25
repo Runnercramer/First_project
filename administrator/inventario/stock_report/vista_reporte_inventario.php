@@ -21,6 +21,8 @@ include("../../../connection.php");
         .child_header{background-color:#a1ca4f;font-size:1.2em;border:1px solid black;}
         .child_field{background-color:#bbb;border:1px solid black;font-size:1em;}
         .stock_button{font-weight:bold;font-size:1em;background-color:#bbb;border:1px hidden;width:50%;}
+        .pag{grid-column-start:1;grid-column-end:5;display:flex;flex-direction:row;align-items:center;justify-content:space-evenly;margin-top:30px;}
+        .pag_button{background-color:beige;font-size:1.2em;font-weight:bold;padding:5px;box-shadow:3px 3px 10px 3px #333;color:black;}
     </style>
              <script>
         function profile(){
@@ -40,6 +42,26 @@ include("../../../connection.php");
     }
     $sql1 = "SELECT * FROM inventario inv JOIN administrador ad ON inv.idAdmin = ad.idAdmin JOIN usuario us ON ad.idUsuario = us.idUsuario ORDER BY fecha DESC";
     $query1 = mysqli_query($adminconnection, $sql1);
+
+    $tamaño_pagina = 5;
+    if(isset($_GET['pagina'])){
+        if($_GET['pagina'] == 1){
+            header("location:/Vetex/administrator/inventario/stock_report/vista_reporte_inventario.php");
+        }else{
+            $pagina = $_GET['pagina'];
+        }
+    }else{
+        $pagina = 1;
+    }
+    $empezar_desde = ($pagina - 1) * $tamaño_pagina;
+
+    $num_filas = $query1->num_rows;
+
+    $total_paginas = ceil($num_filas/$tamaño_pagina);
+
+    $sql1_limite = "SELECT * FROM inventario inv JOIN administrador ad ON inv.idAdmin = ad.idAdmin JOIN usuario us ON ad.idUsuario = us.idUsuario ORDER BY fecha DESC LIMIT $empezar_desde,$tamaño_pagina";
+
+    $query1_limite = mysqli_query($adminconnection, $sql1_limite);
     ?>
     <div id='cont1'>
         <header id='enc1'>
@@ -73,7 +95,7 @@ include("../../../connection.php");
                         <td class='header'>Encargado</td>
                     </tr>
                     <?php
-                    while($r = $query1->fetch_assoc()){
+                    while($r = $query1_limite->fetch_assoc()){
                         $inventario = $r['codInventario'];
                         $date = $r['fecha'];
                         echo "
@@ -121,6 +143,13 @@ include("../../../connection.php");
                     ";
                 }
                 ?>
+                    <div class="pag">
+                        <?php
+                        for($i = 1; $i<=$total_paginas; $i++){
+                            echo "<a href='?pagina=" . $i . "'><input class='pag_button' type='button' value='$i'></a>";
+                        }
+                        ?>
+                    </div>
             </div>
         </section>
         <footer id='pa2'>

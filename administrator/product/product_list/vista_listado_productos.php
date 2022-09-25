@@ -96,6 +96,7 @@ include("../../../connection.php");
                         <td class="header">Descripción</td>
                         <td class="header">Imágen</td>
                         <td class="header">Estado</td>
+                        <td class="header">Existencias</td>
                     </tr>
                     <?php
                     while($r = $query1_limite->fetch_assoc()){
@@ -107,6 +108,7 @@ include("../../../connection.php");
                         <td class='field'>" . $r['descripcionProducto'] . "</td>
                         <td class='field'><img class='img_product' src='data:image/jpeg; base64, " . base64_encode($cont) . "'></td>
                         <td class='field'>" . mb_strtoupper($r['estadoProducto']) . "</td>
+                        <td class='field'>" . $r['existencias'] . " unidades</td>
                         </tr>
                         ";
                     }

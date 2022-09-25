@@ -15,13 +15,15 @@ include("../../../connection.php");
     <link rel="stylesheet" href="../../new_admin_styles.css">
     <style>
         .main_table{background-color:#777;text-align:center;width:100%;font-weight:bold;}
-        .header{background-color:#a1ca4f;font-size:1.4em;}
-        .field{background-color:#bbb;font-size:1.2em;}
+        .header{background-color:#a1ca4f;font-size:1.4em;border:1px solid black;}
+        .field{background-color:#bbb;font-size:1.2em;border:1px solid black;}
         .img_user{width:150px;border-radius:50%;}
         .button{width:30%;}
         .update_button{width:40%;margin:15px auto;background-color:beige;font-size:0.9em;font-weight:bold;border-radius:15px;}
         .test_field{display:flex;flex-direction:column;height:100%;}
         .function_form{display:flex;flex-direction:column;align-items:center;}
+        .pag{grid-column-start:1;grid-column-end:5;display:flex;flex-direction:row;align-items:center;justify-content:space-evenly;margin-top:30px;}
+        .pag_button{background-color:beige;font-size:1.2em;font-weight:bold;padding:5px;box-shadow:3px 3px 10px 3px #333;color:black;}
     </style>
        <script>
         function logout(){
@@ -40,6 +42,26 @@ include("../../../connection.php");
     }
     $sql1 = "SELECT * FROM empleado em JOIN usuario us ON em.idUsuario = us.idUsuario LEFT JOIN imagenusuario iu ON us.idUsuario = iu.idUsuario";
     $query1 = mysqli_query($adminconnection, $sql1);
+
+    $tamaño_pagina = 4;
+                if(isset($_GET['pagina'])){
+                    if($_GET['pagina'] == 1){
+                        header("location:/Vetex/administrator/co-workers_administrator/coworkers_edition/vista_edicion_empleado.php");
+                    }else{
+                        $pagina = $_GET['pagina'];
+                    }
+                }else{
+                    $pagina = 1;
+                }
+                $empezar_desde = ($pagina - 1) * $tamaño_pagina;
+
+                $num_filas = $query1->num_rows;
+
+                $total_paginas = ceil($num_filas/$tamaño_pagina);
+
+                $sql1_limite = "SELECT * FROM empleado em JOIN usuario us ON em.idUsuario = us.idUsuario LEFT JOIN imagenusuario iu ON us.idUsuario = iu.idUsuario LIMIT $empezar_desde,$tamaño_pagina";
+
+                $query1_limite = mysqli_query($adminconnection, $sql1_limite);
     ?>
     <div id='cont1'>
         <header id='enc1'>
@@ -75,7 +97,7 @@ include("../../../connection.php");
                         <td class="header">Modificar</td>                   
                     </tr>
                     <?php
-                    while($r = $query1->fetch_assoc()){
+                    while($r = $query1_limite->fetch_assoc()){
                         $cont = $r['imagen'];
                         $id_empleado = $r['idEmpleado'];
                         $sql2 = "SELECT * FROM labdesempeñadas ld JOIN empleado em ON ld.idEmpleadoLab = em.idEmpleado WHERE idEmpleado = '$id_empleado'";
@@ -104,6 +126,13 @@ include("../../../connection.php");
                     }
                     ?>
                     </table>  
+                    <div class="pag">
+                        <?php
+                        for($i = 1; $i<=$total_paginas; $i++){
+                            echo "<a href='?pagina=" . $i . "'><input class='pag_button' type='button' value='$i'></a>";
+                        }
+                        ?>
+                    </div>
                     <input class="button" type="submit" name="send" value="Cambiar">
                 </form> 
             </div>

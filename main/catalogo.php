@@ -21,7 +21,7 @@ include("../connection.php");
         .products_form{display:grid;grid-template-columns:repeat(4, 1fr);grid-template-rows:450px 100px;}
         .product_card{background-color:#aaa;display:flex;flex-direction:column;align-items:center;justify-content:space-evenly;padding:5px;margin:10px;box-shadow:3px 3px 10px 3px #333;}
         .img_product{width:230px;}
-        .pag{grid-column-start:1;grid-column-end:5;display:flex;flex-direction:row;align-items:center;justify-content:space-evenly;}
+        .pag{grid-column-start:1;grid-column-end:5;display:flex;flex-direction:row;align-items:center;justify-content:space-evenly;margin-top:30px;}
         .pag_button{background-color:beige;font-size:1.2em;font-weight:bold;padding:5px;box-shadow:3px 3px 10px 3px #333;color:black;}
     </style>
 </head>

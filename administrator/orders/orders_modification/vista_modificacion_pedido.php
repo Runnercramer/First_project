@@ -21,6 +21,8 @@ include("../../../connection.php");
         .modification_button{background-color:lightblue;width:45%;font-weight:bold;border:1px solid black;color:black;}
         .elimination_button{background-color:red;width:45%;font-weight:bold;border:1px solid white;color:white;}
         .cant_modification{width:50%;margin:5px 0;text-align:center;}
+        .pag{grid-column-start:1;grid-column-end:5;display:flex;flex-direction:row;align-items:center;justify-content:space-evenly;margin-top:25px;}
+        .pag_button{background-color:beige;font-size:1.2em;font-weight:bold;padding:5px;box-shadow:3px 3px 10px 3px #333;color:black;}
     </style>
                   <script>
         function profile(){
@@ -42,6 +44,26 @@ include("../../../connection.php");
     //La siguiente consulta me permite obtener registros que no están dentro de la segunda consulta
     $sql1 = "SELECT * FROM pedido pe JOIN cliente cl ON pe.idCliente = cl.idCliente JOIN usuario us ON cl.idUsuario = us.idUsuario WHERE pe.codPedido NOT IN (SELECT de.codPedido FROM despacho de)";
     $query1 = mysqli_query($adminconnection, $sql1);
+
+    $tamaño_pagina = 5;
+                if(isset($_GET['pagina'])){
+                    if($_GET['pagina'] == 1){
+                        header("location:/Vetex/administrator/orders/oreders_modification/vista_modificacion_pedido.php");
+                    }else{
+                        $pagina = $_GET['pagina'];
+                    }
+                }else{
+                    $pagina = 1;
+                }
+                $empezar_desde = ($pagina - 1) * $tamaño_pagina;
+
+                $num_filas = $query1->num_rows;
+
+                $total_paginas = ceil($num_filas/$tamaño_pagina);
+
+                $sql1_limite = "SELECT * FROM pedido pe JOIN cliente cl ON pe.idCliente = cl.idCliente JOIN usuario us ON cl.idUsuario = us.idUsuario WHERE pe.codPedido NOT IN (SELECT de.codPedido FROM despacho de) ORDER BY fechaPedido DESC LIMIT $empezar_desde,$tamaño_pagina";
+
+                $query1_limite = mysqli_query($adminconnection, $sql1_limite);
     ?>
     <div id='cont1'>
         <header id='enc1'>
@@ -77,7 +99,7 @@ include("../../../connection.php");
                     </tr>
                     <?php
                     $i = 1;
-                    while($r = $query1->fetch_assoc()){
+                    while($r = $query1_limite->fetch_assoc()){
                         $codigo_pedido = $r['codPedido'];
                         echo "
                         <tr>
@@ -95,6 +117,14 @@ include("../../../connection.php");
                     }
                     ?>
                 </table>
+
+                <div class="pag">
+                        <?php
+                        for($i = 1; $i<=$total_paginas; $i++){
+                            echo "<a href='?pagina=" . $i . "'><input class='pag_button' type='button' value='$i'></a>";
+                        }
+                        ?>
+                    </div>
 
                 <?php
                 if(isset($_GET['send'])){

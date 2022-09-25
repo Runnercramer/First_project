@@ -14,12 +14,14 @@
         .main_table{background-color:#777;width:100%;text-align:center;}
         .header_table1{background-color:#a1ca4f;font-size:1.5em;font-weight:bold;bordeR:1px solid black;}
         .field{background-color:#bbb;font-weight:bold;font-size:1.2em;border:1px solid black;}
+        .pag{grid-column-start:1;grid-column-end:5;display:flex;flex-direction:row;align-items:center;justify-content:space-evenly;}
+        .pag_button{background-color:beige;font-size:1.2em;font-weight:bold;padding:5px;box-shadow:3px 3px 10px 3px #333;color:black;margin:30px auto;}
     </style>
             <?php
             include('../../../connection.php');
-            $query1 = "SELECT * FROM usuario join cliente on usuario.idUsuario=cliente.idUsuario join celular on usuario.idUsuario=celular.idUsuario join email on usuario.idUsuario=email.idUsuario join residencia on cliente.idCliente=residencia.idClienteResidencia ORDER BY idCliente ASC";
-            $resultset1 = mysqli_query($adminconnection, $query1);
-            $a = mysqli_num_rows($resultset1);
+            $sql2 = "SELECT * FROM usuario join cliente on usuario.idUsuario=cliente.idUsuario join celular on usuario.idUsuario=celular.idUsuario join email on usuario.idUsuario=email.idUsuario join residencia on cliente.idCliente=residencia.idClienteResidencia ORDER BY idCliente ASC";
+            $query2 = mysqli_query($adminconnection, $sql2);
+            $a = mysqli_num_rows($query2);
             ?>
     <script>
         function profile(){
@@ -38,6 +40,37 @@
         header("location:../../../index.html");
     }
     ?>
+    <?php
+                $tamaño_pagina = 10;
+                if(isset($_GET['pagina'])){
+                    if($_GET['pagina'] == 1){
+                        header("location:/Vetex/administrator/customer_administrator/customer_list/vista_listado_cliente.php");
+                    }else{
+                        $pagina = $_GET['pagina'];
+                    }
+                }else{
+                    $pagina = 1;
+                }
+                $empezar_desde = ($pagina - 1) * $tamaño_pagina;
+
+                $num_filas = $query2->num_rows;
+
+                $total_paginas = ceil($num_filas/$tamaño_pagina);
+
+                $sql2_limite = "SELECT * FROM usuario 
+                join cliente 
+                on usuario.idUsuario=cliente.idUsuario 
+                join celular 
+                on usuario.idUsuario=celular.idUsuario 
+                join email 
+                on usuario.idUsuario=email.idUsuario 
+                join residencia 
+                on cliente.idCliente=residencia.idClienteResidencia 
+                ORDER BY idCliente ASC LIMIT $empezar_desde,$tamaño_pagina";
+
+                $query2_limite = mysqli_query($adminconnection, $sql2_limite);
+                
+                ?>
     <div id='cont1'>
         <header id='enc1'>
             <a href='../vista_cliente_admin.php'><img id='img1' src='../../../imagenes/descarga.png' alt='Logotipo de Vetex'></a>
@@ -73,7 +106,7 @@
                 <td class='header_table1'>Dirección</td>
                 <td class='header_table1'>Estado de cuenta</td>
                 </tr>";
-                while($array1=mysqli_fetch_assoc($resultset1)){ 
+                while($array1=mysqli_fetch_assoc($query2_limite)){ 
                     echo
                     "<tr>
                     <td class='field'>".$array1['idCliente']."</td>
@@ -87,6 +120,13 @@
                 }
                 echo "</table>";
             ?>
+            <div class="pag">
+                        <?php
+                        for($i = 1; $i<=$total_paginas; $i++){
+                            echo "<a href='?pagina=" . $i . "'><input class='pag_button' type='button' value='$i'></a>";
+                        }
+                        ?>
+                    </div>
             </div>
         </section>
         <footer id='pa2'>
