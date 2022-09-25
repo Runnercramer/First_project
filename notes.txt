@@ -1,25 +1,14 @@
-En la vista pagos falta válidar el saldo de los pedidos
+En la vista pagos falta válidar el saldo de los pedidos Cristian
 
-Cuando un dministrador crea a un cliente, debe enviarse un correo de confirmación
+Cuando un dministrador crea a un cliente, debe enviarse un correo de confirmación Cristian
 
-Debo crear triggers para eliminacion de usuarios SQL
+Debo crear triggers para eliminacion de usuarios SQL Cristian
 
-Debo crear una tabla que sirva como productos encargados
+Cuando se haga un nuevo pedido desde el cliente, enviar un correo de verificacion al administrador y al cliente Cristian
 
-Cerrar las conexiones a la base de datos, todos los archivos.
+Las paginaciones se harán al final Cristian
 
-ES DE VITAL IMPORTANCIA USAR EL ENCTYPE="MULTIPART/FORM/DATA" cargar imagenes a la base de datos
+Validar existencias en base a los pedidos Cristian
+Conectar la pasarela de pago con la api de paypal desde el modulo de cliente Cristian
 
-Cuando se haga un nuevo pedido desde el cliente, enviar un correo de verificacion al administrador y al cliente
-
-Verificar customer_admin_controller.php
-
-En los catalogos, sólo mostrar los productos habilitados
-
-Las paginaciones se harán al final
-
-Cuando se cree un usuario, se debe poner una imagen por defecto. Para poder actualizarla
-
-
-Validar existencias en base a los pedidos
-Conectar la pasarela de pago con la api de paypal desde el modulo de cliente
+En modificar pedido desde la interfaz de administrador debemos poder actualizar el código del pedido

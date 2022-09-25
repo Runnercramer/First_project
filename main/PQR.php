@@ -1,5 +1,6 @@
 <?php
 include("../connection.php");
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,7 +21,7 @@ include("../connection.php");
         .main_form{background-color:#aaa;width:85%;margin:20px auto;height:auto;min-height:550px;padding:15px;font-size:1.2em;font-weight:bold;display:flex;flex-direction:column;align-items:center;justify-content:space-evenly;box-shadow:5px 5px 20px 5px #333;}
         .main_form input[type="text"], input[type="email"]{width:60%;text-align:center;font-size:0.9em;border-radius:15px;}
         select{width:60%;text-align:center;border-radius:15px;font-size:0.9em;}
-        input[type="submit"], input[type="reset"]{background-color:beige;width:40%;font-weight:bold;font-size:1em;border-radius:15px;box-shadow:3px 3px 10px 3px #333;}
+        input[type="submit"], input[type="reset"]{background-color:beige;width:40%;font-weight:bold;font-size:1em;border-radius:15px;box-shadow:3px 3px 10px 3px #333;color:black;}
     </style>
 </head>
 <body>

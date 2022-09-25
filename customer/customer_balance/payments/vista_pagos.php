@@ -56,7 +56,7 @@ include('../../../connection.php');
                 <h3><b><?php echo mb_strtoupper($_SESSION['userinfo']['nombreUsuario']); ?></b></h3>
                 <h3><b><?php echo mb_strtoupper($_SESSION['userinfo']['tipoUsuario']); ?></b></h3>
                 <input type="button" class="profile_button" value="Perfil &#9881" onClick="profile()">
-                <input type="button" class="logout_button" value="Cerrar sesión" onClick="logout">
+                <input type="button" class="logout_button" value="Cerrar sesión" onClick="logout()">
             </div>
         </header> 
         <section class="methods">

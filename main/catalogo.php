@@ -17,12 +17,12 @@ include("../connection.php");
         .main_container{width:90%;background-color:#eee;min-height:530px;margin:15px auto;display:grid;grid-template-columns:2fr 7fr;grid-template-rows:400px 150px;}
         .login_form{width:90%;margin:10px auto;background-color:#aaa;display:flex;flex-direction:column;height:auto;min-height:400px;padding:10px;align-items:center;justify-content:space-evenly;box-shadow:5px 5px 20px 5px #333;grid-row-start:1;grid-row-end:3;}
         .login_form input[type='email'], input[type='password']{width:60%;font-size:1em;padding:5px;text-align:center;border-radius:15px;height:35px;}
-        .login_form input[type="button"], input[type="submit"]{background-color:#a1ca4f;font-weight:bold;font-size:1em;padding:3px;box-shadow:3px 3px 10px 3px #333}
+        .login_form input[type="button"], input[type="submit"]{background-color:#a1ca4f;font-weight:bold;font-size:1em;padding:3px;box-shadow:3px 3px 10px 3px #333;color:black;border-radius:15px;}
         .products_form{display:grid;grid-template-columns:repeat(4, 1fr);grid-template-rows:450px 100px;}
         .product_card{background-color:#aaa;display:flex;flex-direction:column;align-items:center;justify-content:space-evenly;padding:5px;margin:10px;box-shadow:3px 3px 10px 3px #333;}
         .img_product{width:230px;}
         .pag{grid-column-start:1;grid-column-end:5;display:flex;flex-direction:row;align-items:center;justify-content:space-evenly;}
-        .pag_button{background-color:beige;font-size:1.2em;font-weight:bold;padding:5px;box-shadow:3px 3px 10px 3px #333;}
+        .pag_button{background-color:beige;font-size:1.2em;font-weight:bold;padding:5px;box-shadow:3px 3px 10px 3px #333;color:black;}
     </style>
 </head>
 <body>

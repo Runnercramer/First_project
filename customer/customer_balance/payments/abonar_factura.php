@@ -13,7 +13,7 @@ include("../../../connection.php");
     <link href='https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap' rel='stylesheet'>
     <link rel="stylesheet" href="../../customer_styles.css">
     <link rel="stylesheet" href="../../new_customer_styles.css">
-    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
     <style>
         .lista_saldos{width:100%;margin:10px auto;display:grid;grid-template-columns:2fr 1fr;grid-template-rows:50px 1fr 1fr 1fr;}
         .first_column{text-align:center;}
@@ -26,22 +26,6 @@ include("../../../connection.php");
         .payment_form input[type="submit"]{background-color:#a1ca4f;width:40%;height:25px;font-weight:bold;box-shadow:3px 3px 10px 3px #333;}
         .payment_form input[type="submit"]:hover{background-color:#85b427;}
         .payment_form input[type="submit"]:active{background-color:black;color:white;}
-        
-    /* Media query for mobile viewport */
-    @media screen and (max-width: 400px) {
-        #paypal-button-container {
-            width: 100%;
-        }
-    }
-    
-    /* Media query for desktop viewport */
-    @media screen and (min-width: 400px) {
-        #paypal-button-container {
-            width: 250px;
-            display: inline-block;
-        }
-    }
-    
 </style>
 
      <script>
@@ -131,54 +115,6 @@ include("../../../connection.php");
                         <input type="text" name="bill" placeholder="Código del pedido">
                         <label>Valor</label>
                         <input type="number" name="amount" placeholder="Monto a pagar">
-
-
-<script>
-    paypal.Button.render({
-        env: 'sandbox', // sandbox | production
-        style: {
-            label: 'checkout',  // checkout | credit | pay | buynow | generic
-            size:  'responsive', // small | medium | large | responsive
-            shape: 'pill',   // pill | rect
-            color: 'gold'   // gold | blue | silver | black
-        },
- 
-        // PayPal Client IDs - replace with your own
-        // Create a PayPal app: https://developer.paypal.com/developer/applications/create
- 
-        client: {
-            sandbox:    '',
-            production: ''
-        },
- 
-        // Wait for the PayPal button to be clicked
- 
-        payment: function(data, actions) {
-            return actions.payment.create({
-                payment: {
-                    transactions: [
-                        {
-                            amount: { total: '0.01', currency: 'MXN' }, 
-                            description:"Compra de productos a Develoteca:$0.01",
-                            custom:"Codigo"
-                        }
-                    ]
-                }
-            });
-        },
- 
-        // Wait for the payment to be authorized by the customer
- 
-        onAuthorize: function(data, actions) {
-            return actions.payment.execute().then(function() {
-                console.log(data);
-                window.location="verificador.php?paymentToken="+data.paymentToken+"&paymentID="+data.paymentID;
-            });
-        }
-    
-    }, '#paypal-button-container');
- 
-</script>
                     </form>
                 </div>
             </div>
